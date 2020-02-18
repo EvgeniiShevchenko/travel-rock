@@ -1,0 +1,151 @@
+.footer {
+    padding: 25px 20px 30px 20px;
+
+    background-color: #313f59;
+    color: #7a88a4;
+}
+
+.footer-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-list-item {
+    margin-top: 14px;
+}
+
+.has-logo-desktop {
+    display: none;
+}
+
+.item-description-company {
+    display: none;
+}
+
+.company-line-break {
+    display: block;
+}
+
+.description-company-ref {
+    color: #6db3f1;
+    cursor: pointer;
+}
+
+.description-line-break {
+    display: block;
+}
+
+.has-dynamic-width {
+    width: 100%;
+}
+
+.contact-phone-icon {
+    display: inline-block;
+
+    margin-right: 5px;
+    margin-left: 4px;
+
+    height: 13px;
+    width: 8px;
+
+    background: url("../../../assets/images/phone.svg") no-repeat;
+}
+
+.contact-massage-icon {
+    display: inline-block;
+
+    margin-right: 5px;
+
+    height: 8px;
+    width: 12px;
+
+    background-image: url("../../../assets/images/email.svg");
+}
+
+.item-about-website {
+    display: none;
+    max-width: 570px;
+}
+
+.website-line-break {
+    display: block;
+    padding-bottom: 5px;
+
+    font-weight: 600;
+}
+
+@media (min-width: 600px) {
+    .footer-list {
+        align-items: normal;
+    }
+
+    .footer-list :nth-child(2) {
+        order: 3;
+    }
+
+    .has-dynamic-width {
+        width: max-content;
+        order: 2;
+    }
+
+    .item-ref-logo {
+        margin-top: -5px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        min-height: 180px;
+    }
+
+    .footer-list> :nth-child(2) {
+        display: none;
+    }
+
+    .footer-list> :nth-child(1) {
+        order: 2;
+        text-align: right;
+    }
+
+    .item-description-company {
+        display: block;
+    }
+
+    .item-ref-logo {
+        margin-top: -5px;
+    }
+
+    .footer-list {
+        align-items: normal;
+        margin: 0 auto;
+        width: 1200px;
+    }
+
+    .list-item-contact {
+        display: none;
+    }
+
+    .item-about-website {
+        display: block;
+    }
+
+    .has-logo-desktop {
+        display: inline-block;
+        margin-top: -20px;
+    }
+
+    .item-ref-logo {
+        display: none;
+    }
+
+    .has-dynamic-width {
+        width: max-content;
+        order: 1;
+    }
+}
