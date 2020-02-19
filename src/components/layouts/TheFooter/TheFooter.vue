@@ -1,34 +1,32 @@
 <template>
   <footer class="footer">
-    <div class="footer-list">
-      <div class="footer-list-item">
-        <a class="list-item-ref" href="/">
-          <img class="item-ref-logo" src="../../../assets/images/logo.svg" alt="Logo" />
-          <img class="has-logo-desktop" src="../../../assets/images/desktop-logo.svg" alt="Logo" />
+    <div class="footer-wrapper">
+      <div class="footer-item">
+        <a class="item-ref" href="/">
+          <img class="ref-logo" src="../../../assets/images/logo.svg" alt="Logo" />
+          <img class="ref-logo-desktop" src="../../../assets/images/desktop-logo.svg" alt="Logo" />
         </a>
-        <p class="item-description-company">
-          <span class="company-line-break">Travel Technology Consulting company</span>
+        <div class="item-description-company">
+          <p>Travel Technology Consulting company</p>
           <a class="description-company-ref" href="#">altexsoft.com</a>
-        </p>
-      </div>
-      <div class="footer-list-item">
-        <p class="list-item-copyright">© Copyright 2019</p>
-      </div>
-      <div class="footer-list-item has-dynamic-width">
-        <div class="list-item-contact">
-          <p class="item-contact-description">
-            <span class="description-line-break">
-              <i class="contact-phone-icon" />
-              +1 (877) 777-9097
-            </span>
-            <i class="contact-massage-icon" />traveltech@altexsoft.com
-          </p>
         </div>
-        <div>
-          <p class="item-about-website">
-            <span class="website-line-break">This website is for demo purposes only</span> It demonstrates the
-            functionality of AltexSoft Booking Engine – integration with GDS, flight search, booking and ticketing
-            process. You cannot book real flight ticket here.
+      </div>
+      <div class="footer-item">
+        <p>© Copyright 2019</p>
+      </div>
+      <div class="footer-item has-dynamic-width">
+        <div class="item-contact">
+          <a class="contact-phone-ref" href="tel:+1 (877) 777-9097">+1 (877) 777-9097</a>
+          <a
+            class="contact-email-ref"
+            href="mailto:traveltech@altexsoft.com"
+          >traveltech@altexsoft.com</a>
+        </div>
+        <div class="item-about-website">
+          <p class="about-website-title">This website is for demo purposes only</p>
+          <p class="about-website-description">
+            It demonstrates the functionality of AltexSoft Booking Engine – integration with GDS, flight search, booking
+            and ticketing process. You cannot book real flight ticket here.
           </p>
         </div>
       </div>
