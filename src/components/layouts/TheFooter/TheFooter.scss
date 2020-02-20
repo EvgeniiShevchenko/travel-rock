@@ -1,3 +1,5 @@
+@import "../../../assets/scss/base/fonts.scss";
+
 @mixin flex($wrap: auto, $alignmentX: auto, $alignmentY: auto) {
     display: flex;
 
@@ -21,6 +23,8 @@
 
     background-color: #313f59;
     color: #7a88a4;
+    font-family: 'inter';
+    font-size: 14px;
 
     .footer-wrapper {
         @include flex(wrap, space-between, center);
