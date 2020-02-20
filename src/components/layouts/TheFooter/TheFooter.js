@@ -1,6 +1,3 @@
 export default {
-  name: 'TheFooter',
-  data: function() {
-    return { name: 'Evgenii' };
-  }
+  name: 'TheFooter'
 };
