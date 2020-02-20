@@ -27,20 +27,6 @@ body {
     border-radius: 4px 4px 0 0;
  
     background-color: rgba(43, 70, 129,0.9);
-
-    @media screen and(min-width:600px) {
-        min-width: 560px;
-        max-width: 100%;
-        min-height: 250px;
-        margin-top: 120px;
-        margin-bottom: 536px;
-    }
-
-    @media screen and(min-width:1024px){
-        min-height: 150px;
-        margin-top: 170px;
-        margin-bottom: 294px;
-    }
 }
 
 .tabs-wrapper {
@@ -50,16 +36,6 @@ body {
         display: flex;
         align-items: stretch;
 
-        @media screen and(min-width:600px){
-            display: none;
-        }
-        @media screen and(min-width:1200px){
-            position: absolute;
-            top: -64px;
-
-            display: flex;
-            min-width: 338px;
-        }
         .tab-item {
             display: block;
             width: 50%;
@@ -76,9 +52,6 @@ body {
 
             &.current {
                 background: rgba(43, 70, 129, .0);
-                @media screen and(min-width:1200px){
-                    background-color: rgba(43, 70, 129,0.9);
-                }
             }
         }
         .tab-icon {
@@ -139,22 +112,12 @@ body {
     }
 }
 
-
 .search-form {
     padding: 0px 20px;
     margin-top: 20px;
 
-    @media screen and(min-width:1024px){
-        display: flex;
-    }
-
     .inputs-wrapper {
-       
         width: 100%;
-
-        @media screen and(min-width:1024px){
-            display: flex;
-        }
     }
 
     .wrapper {
@@ -164,23 +127,6 @@ body {
 
         &:last-child {
             margin-bottom: 0px;
-        }
-
-        @media screen and(min-width:600px){
-            display: inline-block;
-            width: calc(50% - 2px);
-            margin-right: 2px;
-
-            &:nth-child(-n+2) {
-                margin-bottom: 2px;
-            }
-        }
-        @media screen and(min-width:1024px){
-            margin-bottom: 0;
-
-            &:nth-child(-n+2) {
-                margin-bottom: 0px;
-            }
         }
 
         .conbined-icon {
@@ -206,22 +152,6 @@ body {
             color: #363637;
 
             outline: none;
-
-            @media screen and(min-width:600px){
-                border-radius: 4px 0 0 0;
-
-                &:last-child {
-                    border-radius: 0 4px 0 0;
-                }
-            }
-
-            @media screen and(min-width:1024px){
-                border-radius: 0;
-
-                &:last-child {
-                    border-radius: 0;
-                }
-            }
         }
 
         .date-picker {
@@ -237,13 +167,6 @@ body {
 
             outline: none;
             cursor: pointer;
-
-            @media screen and(min-width:600px){
-                border-radius: 0px 0px 0px 4px;
-            }
-            @media screen and(min-width:1024px){
-                border-radius: 0;
-            }
 
             &>.marked {
                 color: #363637;
@@ -264,13 +187,7 @@ body {
 
             outline: none;
             cursor: pointer;
-
-            @media screen and(min-width:600px){
-                border-radius: 0 0 4px 0;
-            }
-            @media screen and(min-width:1024px){
-                border-radius: 0;
-            }
+           
         }
 
         .chewron-icon {
@@ -305,10 +222,114 @@ body {
 
         outline: none;
         cursor: pointer;
+    }
+}
 
-        @media screen and(min-width:1024px){
+@media screen and(min-width:600px) {
+    .form-search-shape {
+        min-width: 560px;
+        max-width: 100%;
+        min-height: 250px;
+        margin-top: 120px;
+        margin-bottom: 536px;
+    }
+
+    .tabs-wrapper {
+
+        .service-tabs {
+            display: none;
+        }
+    }
+
+    .search-form {
+
+        .wrapper {
+            display: inline-block;
+            width: calc(50% - 2px);
+            margin-right: 2px;
+
+            &:nth-child(-n+2) {
+                margin-bottom: 2px;
+            }
+
+            .select-item {
+                border-radius: 4px 0 0 0;
+
+                &:last-child {
+                    border-radius: 0 4px 0 0;
+                }
+            }
+    
+            .date-picker {
+                border-radius: 0px 0px 0px 4px;
+            }
+    
+            .drop-down-list {
+                border-radius: 0 0 4px 0;
+            }
+        }
+       
+    }
+
+}
+
+@media screen and(min-width:1024px){
+    .form-search-shape {
+        min-height: 150px;
+        margin-top: 170px;
+        margin-bottom: 294px;
+    }
+
+    .search-form {
+        display: flex;
+    
+        .inputs-wrapper {
+            display: flex;
+        }
+    
+        .wrapper {
+            margin-bottom: 0;
+
+            &:nth-child(-n+2) {
+                margin-bottom: 0px;
+            }
+        }
+           
+        .select-item {
+            border-radius: 0;
+
+            &:last-child {
+                border-radius: 0;
+            }
+        }
+    
+        .date-picker {
+            border-radius: 0;
+        }
+    
+        .drop-down-list {
+            border-radius: 0;
+        }
+        
+        .search-btn {
             max-width: 102px;
             margin-top: 0;
+        }
+    }
+}
+
+@media screen and(min-width:1200px){
+    .tabs-wrapper {
+        .service-tabs {
+            position: absolute;
+            top: -64px;
+
+            display: flex;
+            min-width: 338px;
+
+            .tab-item.current {
+                background-color: rgba(43, 70, 129,0.9);
+            }
         }
     }
 }
