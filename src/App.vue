@@ -1,12 +1,18 @@
 <template>
-  <h3>Hello</h3>
+  <searchForm></searchForm>
 </template>
 
 <script>
+import SearchForm from "./components/modules/searchForm/SearchForm.vue";
+import "./assets/SCSS/fonts.scss"
 export default {
   name: 'App',
+  components: {
+    searchForm: SearchForm,
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
+  @import "./assets/app.scss";
 </style>
