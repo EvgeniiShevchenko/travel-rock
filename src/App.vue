@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="app">
     <the-footer />
   </div>
@@ -56,4 +57,21 @@ body {
   max-width: 1140px;
   width: 100%;
 }
+=======
+  <TheHeader/>
+</template>
+
+<script>
+  import TheHeader from "./components/layouts/Header/TheHeader.vue";
+  export default {
+    components: {
+      TheHeader:TheHeader,
+    },
+    name: 'App',
+  }
+</script>
+
+<style lang="scss">
+  @import "./assets/scss/app.scss";
+>>>>>>> 84097f368a62988f9d9d2f69d58d8b92234bc5fd
 </style>
