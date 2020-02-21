@@ -11,7 +11,7 @@
 }
 
 @mixin touch{
-  @media only screen and (max-width: $desktop){
+  @media only screen and (max-width: $desktop - 1){
     @content
   }
 }
