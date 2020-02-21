@@ -1,0 +1,19 @@
+.header {
+  min-width: 375px;
+  padding: 13px 0;
+  background-color: $color-header-bg;
+
+  @include touch {
+    padding-top: 42px;
+  }
+
+    .header-logo {
+    .img-logo {
+      height: 28px;
+      width: 137px;
+    }
+  }
+}
+
+
+
