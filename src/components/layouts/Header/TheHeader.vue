@@ -1,10 +1,8 @@
 <template>
-  <header>
-    <div class="header">
-      <div class="container">
-        <div class="header-logo">
-          <img class="img-logo" src="../../../assets/images/logo.png"/>
-        </div>
+  <header class="header">
+    <div class="container">
+      <div class="header-logo">
+        <img class="img-logo" src="../../../assets/images/logo.png"/>
       </div>
     </div>
   </header>
