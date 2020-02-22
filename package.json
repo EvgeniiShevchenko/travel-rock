@@ -16,13 +16,9 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "^6.1.2",
-<<<<<<< HEAD
     "file-loader": "^5.1.0",
     "node-sass": "^4.13.1",
-=======
->>>>>>> 84097f368a62988f9d9d2f69d58d8b92234bc5fd
     "prettier": "^1.19.1",
-    "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   }

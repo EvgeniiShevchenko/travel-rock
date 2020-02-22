@@ -9,8 +9,8 @@
           It demonstrates the functionality of AltexSoft Booking Engine – integration with GDS, flight search, booking
           and ticketing process. You cannot book real flight ticket here.
         </p>
-      </div>
-      <div class="general-info">
+</div>
+      <div class="general">
         <a href="/">
           <img
             class="ref-logo-mobile"
@@ -18,7 +18,7 @@
             alt="Logo"
           >
           <img
-            class="ref-logo-desktop"
+      class="ref-logo-desktop"
             src="../../../assets/images/desktop-logo.svg"
             alt="Logo-desktop"
           >
