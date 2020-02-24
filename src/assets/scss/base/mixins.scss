@@ -1,24 +1,39 @@
-@mixin tablet{
-  @media only screen and (min-width: $tablet){
-    @content
+@mixin fle-grum($lineWraps: auto, $alignmentX: auto, $alignmentY: auto) {
+  display: flex;
+
+  @if $lineWraps !=auto {
+    flex-wrap: $lineWraps;
+  }
+
+  @if $alignmentX !=auto {
+    justify-content: $alignmentX;
+  }
+
+  @if $alignmentY !=auto {
+    align-items: $alignmentY;
   }
 }
 
-@mixin desktop{
-  @media only screen and (min-width: $desktop){
-    @content
+@mixin tablet {
+  @media only screen and (min-width: $tablet) {
+    @content;
   }
 }
 
-@mixin touch{
-  @media only screen and (max-width: $desktop - 1){
-    @content
+@mixin desktop {
+  @media only screen and (min-width: $desktop) {
+    @content;
   }
 }
 
-@mixin tablet-only{
-  @media only screen and (min-width: $tablet) and (max-width: $desktop - 1){
-    @content
+@mixin touch {
+  @media only screen and (max-width: $desktop - 1) {
+    @content;
   }
 }
 
+@mixin tablet-only {
+  @media only screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    @content;
+  }
+}
