@@ -1,24 +1,23 @@
-@mixin tablet{
-  @media only screen and (min-width: $tablet){
-    @content
+@mixin tablet {
+  @media only screen and (min-width: $tablet) {
+    @content;
   }
 }
 
-@mixin desktop{
-  @media only screen and (min-width: $desktop){
-    @content
+@mixin desktop {
+  @media only screen and (min-width: $desktop) {
+    @content;
   }
 }
 
-@mixin touch{
-  @media only screen and (max-width: $desktop - 1){
-    @content
+@mixin touch {
+  @media only screen and (max-width: $desktop - 1) {
+    @content;
   }
 }
 
-@mixin tablet-only{
-  @media only screen and (min-width: $tablet) and (max-width: $desktop - 1){
-    @content
+@mixin tablet-only {
+  @media only screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    @content;
   }
 }
-
