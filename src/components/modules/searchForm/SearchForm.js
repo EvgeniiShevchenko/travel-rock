@@ -1,7 +1,4 @@
-
 export default {
-    name: 'SearchForm',
-    components: {
-    },
-   
-}
+  name: 'SearchForm',
+  components: {}
+};

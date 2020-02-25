@@ -5,7 +5,7 @@ module.exports = {
         "node": true,
         "es6": true
     },
-    "extends": ["prettier", "eslint:recommended", "plugin:vue/recommended"],
+    "extends": ["plugin:prettier/recommended", "eslint:recommended", "plugin:vue/recommended"],
     "rules": {
         "no-console": "warn",
         "prettier/prettier": [
@@ -18,5 +18,5 @@ module.exports = {
             }
         ]
     },
-    "plugins": ["prettier"]
+    "plugins": ["prettier","vue"]
 }
