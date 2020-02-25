@@ -95,7 +95,6 @@
       </div>
     </div>
   </main>
-  
 </template>
 
 <script src="./SearchForm.js"></script>

@@ -1,18 +1,26 @@
 <template>
-  <searchForm />
+  <div id="app"> 
+    <the-header />
+    <searchForm />
+    <the-footer />
+  </div>
 </template>
 
 <script>
+import TheHeader from "./components/layouts/Header/TheHeader.vue";
 import SearchForm from './components/modules/searchForm/SearchForm.vue';
-import './assets/scss/fonts.scss';
+import TheFooter from "./components/layouts/Footer/TheFooter.vue";
+
 export default {
   name: 'App',
   components: {
-    searchForm: SearchForm
+    TheHeader,
+    SearchForm,
+    TheFooter
   }
 };
 </script>
 
 <style lang="scss">
-@import './assets/app.scss';
+@import "@/assets/scss/app.scss";
 </style>

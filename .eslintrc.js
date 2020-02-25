@@ -18,5 +18,5 @@ module.exports = {
             }
         ]
     },
-    "plugins": ["prettier","vue"]
+    "plugins": ["prettier"]
 }
