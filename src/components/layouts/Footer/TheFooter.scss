@@ -1,5 +1,5 @@
 .footer {
-    padding: 0 20px;
+    padding: 25px 25px 30px 25px;
 
     // min-height: 130px;
 
@@ -18,16 +18,16 @@
     }
 
     & .general {
-        margin-top: 26px;
+        // margin-top: 26px;
     }
 
     & .contacts-mobile {
-        margin-top: 26px;
+        padding-top: 1px;
         display: none;
     }
 
     & .copyrights {
-        margin-top: 26px;
+        padding-top: 1px;
     }
 
     & .contacts-desktop {
@@ -108,17 +108,21 @@
 
 @include desktop {
     .footer {
-        min-height: 180px;
+        padding-top: 33px;
+        padding-bottom: 62px;
+        // min-height: 180px;
     }
 
     .footer .about-us {
         display: block;
-        margin-top: 53px;
+        padding-top: 20px;
+        // margin-top: 53px;
         max-width: 570px;
     }
 
     .footer .general {
-        margin-top: 33px;
+        // padding-top: 20px;
+        // margin-top: 33px;
         text-align: right;
     }
 
