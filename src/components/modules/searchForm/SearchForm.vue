@@ -68,7 +68,8 @@
                   type="button"
                 >
                   Depart
-                  <span class="marked">—</span> Return
+                  <span class="marked">—</span>
+                  Return
                 </button>
               </div>
               <div class="ticket-info-wrapper">

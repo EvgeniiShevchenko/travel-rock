@@ -1,11 +1,11 @@
 .main-content {
   display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   
   min-height: 598px;
-  padding: 0px 20px;
 
   background-image: url("../../../assets/images/searchForm-bg.png");
   background-size: cover;
@@ -14,6 +14,7 @@
 .search-form-wrapper {
   width: 100%;
   max-width: 335px;
+  margin: 0 auto;
 }
 
 .service-tabs-wrapper {
@@ -34,14 +35,14 @@
   padding: 0;
   border: none;
 
-  color: #ffffff;
-  background: rgba(27, 49, 97, 0.5);
+  color: $color-white;
+  background: $color-signal-blue-translucent;
 
   outline: none;
   cursor: pointer;
 
   &.current {
-    background-color: rgba(43, 70, 129, 0.9);
+    background-color: $color-signal-blue;
   }
 
   .tab-icon {
@@ -50,7 +51,7 @@
     margin-right: 8px;
   }
   .tab-text {
-    font-size: 15px;
+    font-size: $medium;
     font-weight: 500;
     line-height: 20px;
   }
@@ -79,15 +80,15 @@
   }
 
   .current {
-    border-bottom: 2px solid #3E73F9;
+    border-bottom: 2px solid $color-kraiola-blue;
   }
 
   .options-text {
-    font-size: 13px;
+    font-size: $xSmall;
     letter-spacing: 0.6px;
     text-transform: uppercase;
 
-    color: #ffffff;
+    color: $color-white;
   }
 }
 
@@ -96,11 +97,11 @@
   padding: 0px 20px 36px;
   border-radius: 0 0 4px 4px;
   
-  background-color: rgba(43, 70, 129, 0.9);
+  background-color: $color-signal-blue;
 }
 
 .form-controls-wrapper {
-  color: #363637;
+  color: $color-dark-gray;
 }
 
 .flight-route-wrapper {
@@ -113,7 +114,7 @@
     border: none;
     margin-bottom: 2px;
 
-    font-size: 14px;
+    font-size: $small;
     line-height: 19px;
 
     color: #363637;
@@ -147,27 +148,26 @@
 }
 
 .booking-wrapper {
-  min-height: 48px;
   height: 100%;
-
   margin-bottom: 2px;
 
   .date-picker {
     width: 100%;
+    min-height: 48px;
     height: 100%;
     padding: 15px 12px;
     border: none;
  
     text-align: left;
  
-    color: #b0b1b5;
-    background-color: #ffffff;
+    color: $color-light-gray;
+    background-color: $color-white;
  
     outline: none;
     cursor: pointer;
  
     & > .marked {
-      color: #363637;
+      color: $color-dark-gray;
     }
   }
 }
@@ -190,8 +190,8 @@
  
     text-align: left;
  
-    color: #363637;
-    background-color: #ffffff;
+    color: $color-dark-gray;
+    background-color: $color-white;
  
     outline: none;
     cursor: pointer;
@@ -221,8 +221,8 @@
   line-height: 16px;
   text-align: center;
 
-  color: #ffffff;
-  background-color: #6db3f1;
+  color: $color-white;
+  background-color: $color-light-blue;
 
   outline: none;
   cursor: pointer;
@@ -282,7 +282,10 @@
 
 @media screen and(min-width:1024px) {
   .search-form-wrapper {
+    min-width: 984px;
+    width: 100%;
     min-height: 150px;
+  
   }
 
   .search-form {
@@ -328,7 +331,7 @@
       }
     }
     .search-btn {
-      max-width: 102px;
+      max-width: 120px;
       margin-top: 0;
     }
   }

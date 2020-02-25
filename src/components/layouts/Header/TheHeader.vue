@@ -2,7 +2,10 @@
   <header class="header">
     <div class="container">
       <div class="header-logo">
-        <img class="img-logo" src="../../../assets/images/logo.png" />
+        <img
+          class="img-logo"
+          src="../../../assets/images/logo.png"
+        >
       </div>
     </div>
   </header>

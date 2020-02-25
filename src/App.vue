@@ -1,7 +1,7 @@
 <template>
   <div id="app"> 
     <the-header />
-    <searchForm />
+    <search-form />
     <the-footer />
   </div>
 </template>
@@ -22,5 +22,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/app.scss";
+  #app {
+    height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  @import "@/assets/scss/base/base.scss";
 </style>
