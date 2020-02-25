@@ -1,106 +1,122 @@
 .footer {
     padding: 25px 25px 30px 25px;
 
-    // min-height: 130px;
-
     background-color: $color-dark-blue;
 
     line-height: 19px;
     font-size: $small;
     color: $color-light-gray;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
-    & .about-us {
-        display: none;
-    }
+        & .about-us {
+            display: none;
+        }
 
-    & .general {
-        // margin-top: 26px;
-    }
+        & .general {
+            text-align: right;
 
-    & .contacts-mobile {
-        padding-top: 1px;
-        display: none;
-    }
+            .logo {
+                display: block;
 
-    & .copyrights {
-        padding-top: 1px;
-    }
+                margin-left: auto;
 
-    & .contacts-desktop {
-        display: block;
-        margin-top: 14px;
-        width: 100%;
-    }
+                width: 109px;
+                height: 23px;
+            }
+        }
 
-    .logo-desktop {
-        display: none;
-        width: 100px;
-        height: 40px;
-    }
+        & .contacts-mobile {
+            padding-top: 1px;
+            display: none;
+        }
 
-    .logo-mobile {
-        width: 109px;
-        height: 23px;
-    }
+        & .copyrights {
+            padding-top: 1px;
+        }
 
-    .description-company {
-        display: none;
-        margin-top: 7px;
-    }
+        & .contacts-desktop {
+            display: block;
+            margin-top: 14px;
+            width: 100%;
+        }
 
-    .company {
-        color: #6db3f1;
-        cursor: pointer;
-    }
+        .logo-desktop {
+            display: none;
 
-    .phone {
-        display: block;
+            width: 100%;
+            height: 100%;
+        }
 
-        padding-left: 20px;
+        .logo-mobile {
+            display: inline-block;
 
-        background: url("../../../assets/images/phone.svg") no-repeat;
-        background-position: 4px center;
-        background-size: 8px 13px;
+            width: 100%;
+            height: 100%;
+        }
 
-        color: $color-light-gray;
-        cursor: pointer;
-    }
+        .description-company {
+            display: none;
+            margin-top: 7px;
+        }
 
-    .email {
-        padding-left: 20px;
+        .company {
+            color: #6db3f1;
+            cursor: pointer;
+        }
 
-        background: url("../../../assets/images/email.svg") no-repeat;
-        background-position: 0 center;
-        background-size: 12px 8px;
+        .phone {
+            padding-left: 20px;
 
-        color: $color-light-gray;
-        cursor: pointer;
-    }
+            background: url("../../../assets/images/phone.svg") no-repeat;
+            background-position: 4px center;
+            background-size: 8px 13px;
 
-    .title {
-        font-weight: 600;
-    }
+            color: $color-light-gray;
+            cursor: pointer;
+        }
 
-    .description {
-        margin-top: 10px;
+        .email {
+            display: block;
+
+            padding-left: 20px;
+
+            background: url("../../../assets/images/email.svg") no-repeat;
+            background-position: 0 center;
+            background-size: 12px 8px;
+
+            color: $color-light-gray;
+            cursor: pointer;
+        }
+
+        .title {
+            font-weight: 600;
+        }
+
+        .description {
+            margin-top: 8px;
+        }
     }
 }
 
 
 @include tablet {
     .footer {
-        min-height: 100px;
+        padding-bottom: 31px;
     }
 
-    .footer .contacts-mobile {
+    .footer .container .contacts-mobile {
         display: block;
+
+        .email {
+            margin-top: 5px;
+        }
     }
 
-    .footer .contacts-desktop {
+    .footer .container .contacts-desktop {
         display: none;
     }
 }
@@ -110,39 +126,36 @@
     .footer {
         padding-top: 33px;
         padding-bottom: 62px;
-        // min-height: 180px;
     }
 
-    .footer .about-us {
+    .footer .container .about-us {
         display: block;
         padding-top: 20px;
-        // margin-top: 53px;
         max-width: 570px;
     }
 
-    .footer .general {
-        // padding-top: 20px;
-        // margin-top: 33px;
-        text-align: right;
+    .footer .container .general .logo {
+        width: 100px;
+        height: 40px;
     }
 
-    .footer .contacts-mobile {
+    .footer .container .contacts-mobile {
         display: none;
     }
 
-    .footer .copyrights {
+    .footer .container .copyrights {
         display: none;
     }
 
-    .footer .description-company {
+    .footer .container .description-company {
         display: block;
     }
 
-    .footer .logo-desktop {
+    .footer .container .logo-desktop {
         display: inline-block;
     }
 
-    .footer .logo-mobile {
+    .footer .container .logo-mobile {
         display: none;
     }
 }
