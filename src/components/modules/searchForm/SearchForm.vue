@@ -78,10 +78,10 @@
                   type="button"
                 >
                   1 Passenger, Economy
+                  <svg class="chewron-icon">
+                    <use xlink:href="../../../assets/images/icons-sprite.svg#icon-dropdown" />
+                  </svg>
                 </button>
-                <svg class="chewron-icon">
-                  <use xlink:href="../../../assets/images/icons-sprite.svg#icon-dropdown" />
-                </svg>
               </div>
             </div>
 
