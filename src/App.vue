@@ -1,21 +1,24 @@
 <template>
   <div>
-    <the-header />
-    <the-footer />
+    <TheHeader />
+    <FlightAutocomplete />
+    <TheFooter />
   </div>
 </template>
 
 <script>
-  import TheHeader from "./components/layouts/Header/TheHeader.vue";
-  import TheFooter from "./components/layouts/Footer/TheFooter.vue";
+import TheHeader from "./components/layouts/Header/TheHeader.vue";
+import TheFooter from "./components/layouts/Footer/TheFooter.vue";
+import FlightAutocomplete from "./components/modules/FlightAutocomplete/FlightAutocomplete.vue";
 
-  export default {
-    name: 'App',
-    components: {
-      TheHeader,
-      TheFooter,
-    },
+export default {
+  name: "App",
+  components: {
+    TheHeader,
+    TheFooter,
+    FlightAutocomplete
   }
+};
 </script>
 
 <style  lang="scss">
