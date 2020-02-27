@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h1 :value="departure" />
+      <h1>{{ newName }}</h1>
       <input
         type="text"
         name="departure"
@@ -25,14 +25,20 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapState } from "vuex";
 
 export default {
   name: "FlightAutocomplete",
   data: function() {
     return {};
   },
+  watch: {},
   computed: {
+    newName() {
+      console.log("hii");
+      return this.departure;
+    },
+    // ...mapState({ departureLocation: "searchPage/departureLocation" }),
     ...mapGetters({
       departure: "searchPage/departureName",
       arrival: "searchPage/arrivalName"
@@ -48,6 +54,10 @@ export default {
     ...mapActions({
       changeDeparture: "searchPage/handleRoute"
     })
+  },
+  mounted: function() {
+    console.log(this.departureLocation);
+    // console.log(this.$store.state.searchPage.departureLocation);
   }
 };
 </script>
