@@ -1,11 +1,8 @@
 .main-content {
   display: flex;
-  flex: 1;
-  justify-content: center;
+  flex: 1 0 auto;
   align-items: center;
   flex-direction: column;
-  
-  min-height: 598px;
 
   background-image: url("../../../assets/images/searchForm-bg.png");
   background-size: cover;
@@ -13,8 +10,7 @@
 
 .search-form-wrapper {
   width: 100%;
-  max-width: 335px;
-  margin: 0 auto;
+  margin: 70px 0;
 }
 
 .service-tabs-wrapper {
@@ -29,10 +25,8 @@
 .tab-item {
   display:flex;
   justify-content: center;
-  
   width: 50%;
-  min-height: 42px;
-  padding: 0;
+  padding: 11px 0;
 
   color: $color-white;
   background: $color-signal-blue-translucent;
@@ -55,14 +49,14 @@
 
 .trip-options {
   display: flex;
-  padding: 22px 0 20px;
 
   .options-item {
     display: block;
     max-width: 50%;
-    margin-bottom: 2px;
+    padding: 3px 0;
     border-bottom: 2px solid transparent;
     margin-left: 16px;
+    margin-bottom: 2px;
 
     &:first-child {
       margin-left: 0;
@@ -82,109 +76,88 @@
   }
 }
 
+.search-form {
+  margin-top: 20px;
+}
+
 .form-wrapper {
-  height: 100%;
-  padding: 0px 20px 36px;
-  border-radius: 0 0 4px 4px;
-  
+  padding: 22px 20px 36px;
+ 
   background-color: $color-signal-blue;
 }
 
 .form-controls-wrapper {
+  overflow: hidden;
+  border-radius: 4px;
+
   color: $color-dark-gray;
 }
 
-.flight-route-wrapper {
+.input-wrapper {
+  height: 48px;
+  border: none;
+  margin-top: 2px;
+  font-size: $small;
+  line-height: 19px;
 
-  .rout {
-    width: 100%;
-    min-height: 48px;
-    height: 100%;
-    padding: 0px 12px;
-    border: none;
-    margin-bottom: 2px;
-
-    font-size: $small;
-    line-height: 19px;
-
-    color: #363637;
-
-    outline: none;
-  }
-
-  .depart-wrapper {
-    position: relative;
-
-    border-radius: 4px 4px 0 0;
-    
-    overflow: hidden;
-
-    .conbined-icon {
-      position: absolute;
-      top: 0;
-      right: 12px;
-      bottom: 0;
-      
-      width: 16px;
-      height: 15px;
-      margin: auto 0;
-
-    }
-
-    .departure {
-      padding-right: 30px;
-    }
+  
+  &:first-child {
+    margin-top: 0;
   }
 }
 
-.booking-wrapper {
+.form-input {
+  width: 100%;
   height: 100%;
-  margin-bottom: 2px;
 
-  .date-picker {
-    position: relative;
+  padding: 12px 15px;
+  border: none;
 
-    width: 100%;
-    min-height: 48px;
-    height: 100%;
-    padding: 15px 12px;
- 
-    text-align: left;
- 
-    color: $color-light-gray;
-    background-color: $color-white;
- 
-    & > .marked {
-      color: $color-dark-gray;
-    }
-  }
+  color: $color-dark-gray;
+
+  background: $color-white;
 }
- 
-.ticket-info-wrapper {
+
+.depart-location {
   position: relative;
 
-  height: 100%;
-  border-radius: 0 0 4px 4px;
-  margin-bottom: 2px;
+  .conbined-icon {
+    position: absolute;
+    top: 0;
+    right: 12px;
+    bottom: 0;
+    
+    width: 16px;
+    height: 15px;
+    margin: auto 0;
+  }
 
-  overflow: hidden;
+  .departure {
+    padding-right: 30px;
+  }
+}
+
+
+.date-picker {
+  text-align: left;
+
+  color:$color-light-gray;
+  & > .marked {
+    color: $color-dark-gray;
+  }
+ 
+}
+ 
+.ticket-info {
+  position: relative;
 
   .drop-down-list {
     display: flex;
     justify-content: space-between;
-
-    width: 100%;
-    min-height: 48px;
-    height: 100%;
-    padding: 15px 12px;
- 
-    text-align: left;
- 
-    color: $color-dark-gray;
-    background-color: $color-white;
+    align-items: center;
   }
 
-  .chewron-icon {
+  .chevron-icon {
     width: 12px;
     height: 12px;
     margin: auto 0;
@@ -193,8 +166,9 @@
 
 .search-btn {
   width: 100%;
-  min-height: 48px;
+  padding: 16px 0;
   border-radius: 4px;
+  margin-top: 2px;
 
   font-size: 14px;
   font-weight: 600;
@@ -208,10 +182,8 @@
 
 @include tablet {
   .search-form-wrapper {
-    max-width: 100%;
-    min-height: 250px;
+    margin-top: 170px;
   }
-
   .service-tabs-wrapper {
     display: none;
   }
@@ -221,113 +193,77 @@
     flex-wrap: wrap;
   }
 
-  .flight-route-wrapper {
-    display: flex;
-    flex:1 0 100%;
-    margin-bottom: 2px;
-    
-    .depart-wrapper {
-      flex: 1 0 258px;
-      border-radius: 4px 0px 0px 0px;
-      margin-right: 1px;
-      margin-bottom: 0;
+  .input-wrapper {
+    margin: 0 auto;
+    margin-top: 2px;
+    width: calc(50% - 2px);
+    flex: 1 0 auto;
+
+    &:first-child,&:nth-child(2) {
+      margin-top: 0;
     }
-
-    .arrival {
-      flex: 1 0 258px;
-      border-radius: 0 4px 0 0 ;
-      margin-left: 1px;
-      margin-bottom: 0;
+    &:nth-child(even) {
+      margin-left: 2px;
     }
-  }
-
-  .booking-wrapper {
-    flex: 1 0 258px;
-    border-radius: 0px 0 0 4px;
-    margin-right: 1px;
-
-    overflow: hidden;
-  }
-
-  .ticket-info-wrapper {
-    flex: 1 0 258px;
-    border-radius: 0 0 4px 0;
-    margin-left: 1px;
   }
 }
 
 @include desktop {
+  .main-content {
+    justify-content: center;
+  }
   .search-form-wrapper {
-    min-width: 984px;
-    width: 100%;
-    min-height: 150px;
+    margin: 0;
   }
 
   .search-form {
     display: flex;
+    align-items: center;
+  }
 
-    .form-controls-wrapper {
-      flex: 1 0 auto;
-      margin-right: 2px;
+  .form-controls-wrapper {
+    flex: 1 0 auto;
+    border-radius: 0;
+  }
 
-      .flight-route-wrapper {
-        width: 50%;
-        
-        flex: 0 0 auto;
-        margin: 0 2px 0 0;
-
-        .rout {
-          margin-bottom: 0;
-        }
-
-        .depart-wrapper {
-          flex: 1 0 200px;
-          border-radius: 0;
-          margin: 0 2px 0 0;
-        }
-
-        .arrival {
-          flex: 1 0 200px;
-          border-radius: 0 0 0 0;
-          margin-left: 0;
-        }
-      }
-
-      .booking-wrapper {
-        flex: 1 0 200px;
-        border-radius: 0 0 0 0;
-        margin-bottom: 0;
-      }
-
-      .ticket-info-wrapper {
-        flex: 1 0 200px;
-        border-radius: 0 0 0 0;
-        margin-bottom: 0;
-      }
-    }
-    .search-btn {
-      max-width: 120px;
-      margin-top: 0;
+  .input-wrapper {
+    width: calc(25% - 38px);
+    flex: 1 0 auto;
+    margin:0 0 0 2px;
+    &:first-child {
+      margin-left: 0;
     }
   }
+  .ticket-info {
+    width: calc(25% - 2px);
+  }
+  .search-btn {
+    flex: 0 1 102px;
+    margin-top: 0;
+    margin-left: 2px;
+  }
 }
+
 @include large-desktop {
+  .search-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .form-wrapper {
+    width: 100%;
     border-radius: 0 4px 4px 4px;
   }
   .service-tabs-wrapper {
     display: flex;
     justify-content: flex-start;
-    border-radius: 0;
+    border-radius: 4px 4px 0 0;
   }
   .tab-item {
     width: 238px;
     min-width: 168px;
   }
-  .flights {
-    border-radius: 4px 0 0 0 ;
-  }
-  .hotels {
-    border-radius:  0 4px 0 0 ;
+  .search-btn {
+    flex: 0 1 120px;
   }
 }

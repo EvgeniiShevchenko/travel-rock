@@ -4,7 +4,7 @@
       <div class="search-form-wrapper">
         <div class="service-tabs-wrapper">
           <button
-            class="flights tab-item current"
+            class="tab-item current"
             type="button"
           >
             <svg class="tab-icon">
@@ -13,7 +13,7 @@
             <span class="tab-text">Flights</span>
           </button>
           <button
-            class="hotels tab-item"
+            class="tab-item"
             type="button"
           >
             <svg class="tab-icon">
@@ -45,26 +45,26 @@
             novalidate
           >
             <div class="form-controls-wrapper">
-              <div class="flight-route-wrapper">
-                <div class="depart-wrapper">
-                  <input
-                    class="departure rout"
-                    type="text"
-                    placeholder="Los Angeles, CA"
-                  >
-                  <svg class="conbined-icon">
-                    <use xlink:href="../../../assets/images/icons-sprite.svg#icon-arrow-pointers" />
-                  </svg>
-                </div>
+              <div class="depart-location input-wrapper">
                 <input
-                  class="arrival rout"
+                  class="departure form-input"
                   type="text"
-                  placeholder="Amsterdam, Netherlands"
+                  placeholder="From"
+                >
+                <svg class="conbined-icon">
+                  <use xlink:href="../../../assets/images/icons-sprite.svg#icon-arrow-pointers" />
+                </svg>
+              </div>
+              <div class="arrival-location input-wrapper">
+                <input
+                  class="arrival form-input"
+                  type="text"
+                  placeholder="To"
                 >
               </div>
-              <div class="booking-wrapper">
+              <div class="booking input-wrapper">
                 <button
-                  class="date-picker"
+                  class="date-picker form-input"
                   type="button"
                 >
                   Depart
@@ -72,13 +72,13 @@
                   Return
                 </button>
               </div>
-              <div class="ticket-info-wrapper">
+              <div class="ticket-info input-wrapper">
                 <button
-                  class="drop-down-list"
+                  class="drop-down-list form-input"
                   type="button"
                 >
                   1 Passenger, Economy
-                  <svg class="chewron-icon">
+                  <svg class="chevron-icon">
                     <use xlink:href="../../../assets/images/icons-sprite.svg#icon-dropdown" />
                   </svg>
                 </button>

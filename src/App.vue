@@ -22,11 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-  #app {
-    height: 100%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
   @import "@/assets/scss/base/base.scss";
+  @import "/App.scss";
 </style>
