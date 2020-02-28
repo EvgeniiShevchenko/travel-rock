@@ -1,7 +1,11 @@
+import api from '../../services/api';
+
 const getDefaultState = () => {
   return {
     departureLocation: 'new',
-    arrivalLocation: ''
+    arrivalLocation: '',
+    value: { name: 'Vue.js', language: 'JavaScript' },
+    options: []
   };
 };
 
@@ -16,6 +20,9 @@ export default {
     },
     arrivalName(state) {
       return state.departureLocation;
+    },
+    getAutocompleteData(state) {
+      return state.options;
     }
   },
 
@@ -25,8 +32,13 @@ export default {
     },
     changeArrival(state, payload) {
       state.arrivalLocation = payload;
+    },
+    setAirports(state, payload) {
+      const newArray = [...state.options, ...payload];
+      state.options = newArray;
     }
   },
+
   actions: {
     handleRoute({ commit }, name) {
       switch (name.inputName) {
@@ -39,6 +51,10 @@ export default {
         default:
           break;
       }
+    },
+    getAirports({ commit }) {
+      const airports = api.getAirports();
+      commit('setAirports', airports);
     }
   }
 };
