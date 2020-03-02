@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <symbol id="icon-plane" viewBox="0 0 14 15">
+        <g id="Flight-search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="search-min-1200" transform="translate(-440.000000, -249.000000)" fill="#FFFFFF">
+                <g id="search-form" transform="translate(390.000000, 235.000000)">
+                    <g id="tabs/flights-search">
+                        <g id="tabs/flights-selected">
+                            <g>
+                                <g id="Group">
+                                    <g transform="translate(50.005700, 9.000000)">
+                                        <path d="M13.5644323,16.3989135 L13.0367255,17.4812879 C12.9592805,17.6401428 12.7542624,17.6874148 12.6120507,17.5791987 L7.89773891,13.9917225 C7.42169515,14.8162545 6.29832751,16.3206225 5.74279629,16.9618404 C6.07590821,17.3828328 6.53535425,17.9189987 6.81532005,18.2416956 C6.9662565,18.4156895 7.00136552,18.6601408 6.90534219,18.8669028 L6.63798614,19.4428052 C6.56337083,19.6036603 6.35840396,19.6545349 6.21423774,19.5479388 L4.5126495,18.2900411 C4.25934416,18.5543205 4.0151395,18.7948123 3.80417503,18.9700266 C3.61580222,19.126494 3.33316009,18.9633105 3.37447839,18.7219412 C3.42073624,18.4516334 3.50697544,18.1199402 3.60919545,17.7684316 L1.66902995,16.9237618 C1.50463187,16.8522083 1.44613764,16.6492244 1.54820405,16.5042182 L1.91327214,15.9847299 C2.04432168,15.7981902 2.27350772,15.7063297 2.49965908,15.7500476 C2.91910571,15.8311566 3.61316198,15.9609656 4.1443776,16.0389929 C4.42192296,15.2372798 5.16306004,13.5122309 5.6391038,12.6876989 L0.175032895,10.3986831 C0.0102091648,10.3296322 -0.0513611283,10.1284453 0.0475582598,9.98198864 L0.720999097,8.98375388 C0.850239973,8.79232215 1.08216355,8.6963621 1.3114214,8.73967472 L7.24821253,9.86051705 C9.19612432,6.1836199 10.2735144,5.58351174 11.0032235,6.00480947 C11.7329402,6.42611159 11.7517873,7.65913262 9.54159587,11.1846025 L13.4805999,15.7655532 C13.6328081,15.9424801 13.6657356,16.191352 13.5644323,16.3989135 Z" id="flights"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="icon-hotel" viewBox="0 0 14 12">
+        <g id="Flight-search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="search-min-1200" transform="translate(-610.000000, -250.000000)" fill="#FFFFFF">
+                <g id="search-form" transform="translate(390.000000, 235.000000)">
+                    <g id="tabs/flights-search">
+                        <g id="tabs/hotels">
+                            <g transform="translate(169.504478, 0.000000)">
+                                <g id="Group">
+                                    <g transform="translate(50.756720, 9.000000)">
+                                        <path d="M10,6 L10,18 L8,18 L8,16 L5,16 L5,18 L3,18 L3,6 L10,6 Z M13,9 L13,18 L11,18 L11,9 L13,9 Z M2,9 L2,18 L0,18 L0,9 L2,9 Z M6,13 L4,13 L4,15 L6,15 L6,13 Z M9,13 L7,13 L7,15 L9,15 L9,13 Z M6,10 L4,10 L4,12 L6,12 L6,10 Z M9,10 L7,10 L7,12 L9,12 L9,10 Z M6,7 L4,7 L4,9 L6,9 L6,7 Z M9,7 L7,7 L7,9 L9,9 L9,7 Z" id="hotels"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="icon-arrow-pointers" viewBox="0 0 17 15">
+        <g id="Flight-search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="search-min-1200" transform="translate(-617.000000, -361.000000)" fill="#363637" fill-rule="nonzero">
+                <g id="search-form" transform="translate(390.000000, 235.000000)">
+                    <g id="Group-3" transform="translate(20.000000, 108.000000)">
+                        <path d="M210.535534,26 L210.535,29 L222,29 L222,30 L210.535,30 L210.535534,33.0710678 L207,29.5355339 L210.535534,26 Z M219.535534,18 L223.071068,21.5355339 L219.535534,25.0710678 L219.535,22 L208,22 L208,21 L219.535,21 L219.535534,18 Z" id="Combined-Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="icon-dropdown" viewBox="0 0 11 5">
+        <g id="Page-1" stroke="none" stroke-width="0.5" fill="none" fill-rule="evenodd">
+            <g id="style-guide" transform="translate(-82.000000, -667.000000)" fill-rule="nonzero" stroke="#363637" stroke-width=".7">
+                <polyline id="arrow/dropdown" transform="translate(86.535534, 667.535534) rotate(-45.000000) translate(-86.535534, -667.535534) " 
+                points="89.0355339 670.035534 84.0355339 670.035534 84.0355339 665.035534"></polyline>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="icon-phone"  viewBox="0 0 8 13">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="style-guide" transform="translate(-478.000000, -661.000000)" fill="#7A88A4" fill-rule="nonzero">
+                <path d="M479,661 L485,661 C485.552285,661 486,661.447715 486,662 L486,673 C486,673.552285 485.552285,674 485,674 L479,674 C478.447715,674 478,673.552285 478,673 L478,662 C478,661.447715 478.447715,661 479,661 Z M479,663 L479,672 L485,672 L485,663 L479,663 Z" id="phone"></path>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="icon-mail"  viewBox="0 0 12 8">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="style-guide" transform="translate(-516.000000, -664.000000)" fill-rule="nonzero" stroke="#7A88A4">
+                <g id="email" transform="translate(516.000000, 664.000000)">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="11" height="7" rx="1"></rect>
+                    <polyline id="Shape" points="11.5 0.5 6 4.5 0.5 0.5"></polyline>
+                </g>
+            </g>
+        </g>
+    </symbol>
+</svg>

@@ -1,15 +1,14 @@
-.container {
-  margin: 0 auto;
-  max-width: 1140px;
-}
-
 * {
   box-sizing: border-box;
+}
+html {
+  height: 100%;
 }
 
 body {
   margin: 0;
   font-family: "inter";
+  height: 100%;
 }
 
 a {
@@ -37,4 +36,29 @@ button {
   outline: none;
   background: none;
   cursor: pointer;
+}
+
+.container {
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 375px;
+}
+
+@include tablet {
+  .container{
+    max-width: 100%;
+  }
+}
+@include desktop {
+  .container{
+    max-width: 100%;
+  }
+}
+@include large-desktop {
+  .container{
+    max-width: 1180px;
+  }
 }
