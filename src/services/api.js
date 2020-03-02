@@ -1,10 +1,18 @@
 import axios from 'axios';
-import path from 'path';
 
 export const getAirports = async function() {
   try {
+    const timeoutPromise = timeout =>
+      new Promise(resolve =>
+        setTimeout(() => {
+          resolve();
+        }, timeout)
+      );
+
+    await timeoutPromise(2000);
+
     const data = await axios.get('airportsPlaces.json', { method: 'GET' });
-    console.log(data);
+
     return data;
   } catch (error) {
     console.error(error);

@@ -1,21 +1,37 @@
 [{
-        "name": "Vue.js",
-        "language": "JavaScript"
+        "name": "Kiev Zhuliany International Airport",
+        "city": "Kiev",
+        "country": "Ukraine",
+        "iataCode": "IEV",
+        "icaoCode": "UKKK",
+        "longitude": 50.40194,
+        "latitude": 30.45194,
+        "height": 587,
+        "region": "Europe/Kiev",
+        "type": "airport"
     },
     {
-        "name": "Rails",
-        "language": "Ruby"
+        "name": "Boryspil International Airport",
+        "city": "Kiev",
+        "country": "Ukraine",
+        "iataCode": "KBP",
+        "icaoCode": "UKBB",
+        "longitude": 50.345001220703125,
+        "latitude": 30.894699096679688,
+        "height": 427,
+        "region": "Europe/Kiev",
+        "type": "airport"
     },
     {
-        "name": "Sinatra",
-        "language": "Ruby"
-    },
-    {
-        "name": "Laravel",
-        "language": "PHP"
-    },
-    {
-        "name": "Phoenix",
-        "language": "Elixir"
+        "name": "John F Kennedy International Airport",
+        "city": "New York",
+        "country": "United States",
+        "iataCode": "JFK",
+        "icaoCode": "KJFK",
+        "longitude": 40.63980103,
+        "latitude": -73.77890015,
+        "height": 13,
+        "region": "America/New_York",
+        "type": "airport"
     }
 ]

@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheHeader />
-    <FlightAutocomplete name="evgenii" />
+    <FlightAutocomplete />
     <TheFooter />
   </div>
 </template>
