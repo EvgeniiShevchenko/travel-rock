@@ -1,5 +1,5 @@
 export default {
-  name: "Dropdown",
+  name: 'DropDown',
   props: {
     outputText: {
       type: String,

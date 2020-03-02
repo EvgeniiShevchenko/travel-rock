@@ -1,27 +1,27 @@
 <template>
-  <div>
+  <div id="app">
     <the-header />
-    <Dropdown outputText="1 Passenger, Economy"/>
-    <Counter />
+    <search-form />
     <the-footer />
   </div>
 </template>
 
 <script>
 import TheHeader from "./components/layouts/Header/TheHeader.vue";
-import Dropdown from "./components/modules/Dropdown-menu/Dropdown.vue";
-import Counter from "./components/modules/Counter/Counter.vue";
+import SearchForm from './components/modules/searchForm/SearchForm.vue';
 import TheFooter from "./components/layouts/Footer/TheFooter.vue";
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     TheHeader,
-    Dropdown,
-    Counter,
+    SearchForm,
     TheFooter
   }
 };
 </script>
 
-<style lang="scss"> </style>
+<style lang="scss">
+  @import "@/assets/scss/base/base.scss";
+  @import "/App.scss";
+</style>

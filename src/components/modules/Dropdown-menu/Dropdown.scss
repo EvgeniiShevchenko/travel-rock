@@ -8,46 +8,52 @@
   background-color: $color-white;
   cursor: pointer;
   align-items: center;
-
-  .dropdown-output {
-    overflow: hidden;
-    font-size: $small;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  @include touch {
+    border-radius: 0 0 4px 0;
   }
-
-  .arrow {
-    position: absolute;
-    right: 12px;
-    width: 10px;
-    height: 10px;
-    border-right: 1px solid $color-gray;
-    border-bottom: 1px solid $color-gray;
-    transform: rotate(45deg);
-    transition: .2s linear;
-  }
-  .arrow-active {
-    top:50%;
-    transform: rotate(-135deg);
-  }
-
-  .dropdown-body {
-    position: absolute;
-    display: none;
-    top: 100%;
-    left: -2px;
-    right: -2px;
-    padding: 11px 16px;
-    margin-top: 2px;
-    background-color: $color-white;
-    transition: all 0.3s ease-out;
-  }
-  .active {
-    display: block;
+  @include desktop {
+    border-radius: 0 4px 4px 0;
   }
 }
 
+.dropdown-output {
+  overflow: hidden;
+  font-size: $small;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.arrow {
+  position: absolute;
+  right: 12px;
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid $color-primary;
+  border-bottom: 1px solid $color-primary;
+  transform: rotate(45deg);
+  transition: .2s linear;
+}
+.arrow-active {
+  top:50%;
+  transform: rotate(-135deg);
+}
+
+.dropdown-body {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 100%;
+  padding: 11px 16px;
+  margin-top: 2px;
+  border-radius: 4px 4px 4px 4px;
+  background-color: $color-white;
+  transition: all 0.3s ease-out;
+}
+.active {
+  display: block;
+}
+
 .activeBorder {
-  outline: 2px solid $color-border-backlight;
+  outline: 2px solid $color-outline;
 }
 
