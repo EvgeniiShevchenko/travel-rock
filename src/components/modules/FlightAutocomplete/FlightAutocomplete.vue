@@ -1,14 +1,14 @@
 <template>
   <div>
     <div>
-      <h1>{{ name }}</h1>
+      <h1>{{ departure }}</h1>
       <input
         type="text"
         name="departure"
         placeholder="to"
         :departureLocation="departure"
         :arrivalLocation="arrival"
-        @input="handleRoute"
+        @input="handlerRoute"
       />
     </div>
     <div>
@@ -18,13 +18,69 @@
         placeholder="to"
         :departureLocation="departure"
         :arrivalLocation="arrival"
-        @input="handleRoute"
+        @input="handlerRoute"
       />
     </div>
     <div>
       <label class="typo__label">Select with search</label>
-      <multiselect v-model="value" :options="options" placeholder="Select one" track-by="name" />
-      <pre class="language-json"><code>{{ value }}</code></pre>
+      <!-- <multiselect
+        v-model="departure"
+        :options="foundAirports"
+        tag="search"
+        placeholder="Select one"
+        trackBy="name"
+        :showNoResults="false"
+        :internal-search="false"
+        :hide-selected="true"
+        :loading="statusAutocomplete"
+        @search-change="asyncFind('departure')"
+      />-->
+      <!-- <multiselect
+        :options="foundAirports"
+        tag="search"
+        :searchable="true"
+        :taggable="true"
+        :value="arrival"
+        @input="sayHai"
+      />-->
+      <h3>{{ departure }}</h3>
+      <multiselect
+        id="departure"
+        :value="departureLocation"
+        placeholder="Pick actions"
+        :options="foundAirports"
+        :searchable="true"
+        :internal-search="false"
+        :loading="statusAutocomplete"
+        track-by="name"
+        label="name"
+        :custom-label="nameWithLang"
+        :show-labels="true"
+        open-direction="bottom"
+        :clear-on-select="true"
+        @input="updateValueAction"
+        @search-change="handlerDepartRoute"
+      />
+      <multiselect
+        placeholder="Pick action"
+        :value="arrival"
+        :options="foundAirports"
+        :searchable="true"
+        :internal-search="false"
+        :loading="statusAutocomplete"
+        track-by="name"
+        label="name"
+        open-direction="bottom"
+        :optionHeight="104"
+        :max-height="150"
+        :custom-label="nameWithLang"
+        :show-labels="false"
+        @input="updateValueAction"
+        @search-change="handlerArriveRoute"
+      >
+        <span slot="caret" />
+      </multiselect>
+      <!-- <pre class="language-json"><code>{{ value }}</code></pre> -->
     </div>
   </div>
 </template>
@@ -43,15 +99,9 @@ export default {
   props: ["name"],
   data: function() {
     return {
-      newPlace: this.$store.state.searchPage.departureLocation,
-      value: { name: "Vue.js", language: "JavaScript" },
-      options: [
-        { name: "Vue.js", language: "JavaScript" },
-        { name: "Rails", language: "Ruby" },
-        { name: "Sinatra", language: "Ruby" },
-        { name: "Laravel", language: "PHP" },
-        { name: "Phoenix", language: "Elixir" }
-      ]
+      value: "",
+      // isLoading: false,
+      newPlace: this.$store.state.searchPage.departureLocation
     };
   },
   watch: {},
@@ -69,28 +119,61 @@ export default {
     }),
     ...mapGetters({
       departure: "searchPage/departureName",
-      airports: "searchPage/getAutocompleteData",
-      arrival: "searchPage/arrivalName"
+      arrival: "searchPage/arrivalName",
+      foundAirports: "searchPage/getResultAutocomplete",
+      statusAutocomplete: "searchPage/getStatusAutocomplete"
     })
   },
   methods: {
-    handleRoute(e) {
-      const inputName = e.target.name;
-      const departurePlace = e.target.value;
-
-      this.changeDeparture({ inputName, departurePlace });
+    handlerDepartRoute(value) {
+      console.log(this.departure);
+      this.handlerRoute({ name: "departure", value });
+    },
+    handlerArriveRoute(value) {
+      this.handlerRoute({ name: "arrival", value });
     },
     nameWithLang({ name, language }) {
       return `${name} — [${language}]`;
     },
+    sayHai() {
+      console.log("sei hay");
+    },
+    updateValueAction({ name, language }) {
+      this.handlerRoute({
+        name: "selectDeparture",
+        value: `${name} +++ [${language}]`
+      });
+      this.value = `vxcvxcvc +++ [vcxvcxv]`;
+      // console.log(this.departure);
+
+      // return `${name} +++ [${language}]`;
+
+      // console.log(value);
+    },
+    asyncFind(query) {
+      console.log("asyncFind", query);
+      // this.isLoading = true;
+      // this.getAirports();
+      // ajaxFindCountry(query).then(response => {
+      //   // this.countries = response;
+      //   console.log(response);
+      // });
+      // this.isLoading = false;
+    },
     ...mapActions({
-      changeDeparture: "searchPage/handleRoute",
-      getAirports: "searchPage/getAirports"
+      handlerRoute: "searchPage/handlerRoute",
+      handlerAutocomplete: "searchPage/handlerAutocomplete"
     })
+  },
+  created: function() {
+    // this.$listeners.input = data => {
+    //   // this.$emit('input', data, {some: Math.random() * 100})
+    //   console.log("hello");
+    // };
   },
   mounted: function() {
     console.log(this.departureLocation);
-    this.getAirports();
+    // this.getAirports();
 
     // const amadeus = new Amadeus({
     //   clientId: "rbuzBt1bTsiXEcTmwE7SxideWcWi9AQq",

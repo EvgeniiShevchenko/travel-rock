@@ -2,10 +2,11 @@ import api from '../../services/api';
 
 const getDefaultState = () => {
   return {
-    departureLocation: 'new',
+    departureLocation: '',
     arrivalLocation: '',
-    value: { name: 'Vue.js', language: 'JavaScript' },
-    options: []
+    resultAutocomplete: [{ name: 'evgenii', id: 1 }],
+    isLoadingAutocomplete: false
+    // airportsPlaces: []
   };
 };
 
@@ -19,42 +20,74 @@ export default {
       return state.departureLocation;
     },
     arrivalName(state) {
-      return state.departureLocation;
+      return state.arrivalLocation;
     },
-    getAutocompleteData(state) {
-      return state.options;
+    getResultAutocomplete(state) {
+      return state.resultAutocomplete;
+    },
+    getStatusAutocomplete(state) {
+      return state.isLoadingAutocomplete;
     }
   },
 
   mutations: {
-    changeDeparture(state, payload) {
+    setDeparture(state, payload) {
       state.departureLocation = payload;
     },
-    changeArrival(state, payload) {
+    setArrival(state, payload) {
       state.arrivalLocation = payload;
     },
-    setAirports(state, payload) {
-      const newArray = [...state.options, ...payload];
-      state.options = newArray;
+    setDataAutocomplete(state, payload) {
+      const dataAutocomplete = [...state.resultAutocomplete, ...payload];
+      state.resultAutocomplete = dataAutocomplete;
+    },
+    setStatusAutocomplete(state, payload) {
+      state.isLoadingAutocomplete = payload;
     }
   },
 
   actions: {
-    handleRoute({ commit }, name) {
-      switch (name.inputName) {
+    async handlerRoute({ commit }, name) {
+      const filterValue = name.value.toUpperCase().trim();
+      console.log(name.value);
+
+      switch (name.name) {
         case 'departure':
-          commit('changeDeparture', name.inputName);
+          commit('setDeparture', name.value);
           break;
         case 'arrival':
-          commit('changeArrival', name.inputName);
+          commit('setArrival', name.inputName);
           break;
+        case 'selectDeparture':
+          commit('setDeparture', name.inputName);
+          return;
         default:
           break;
       }
+
+      if (filterValue.length < 3) {
+        return;
+      }
+
+      commit('setStatusAutocomplete', true);
+      const { data } = await api.getAirports();
+
+      const filterAirports = data.filter(item => {
+        const filterTarget = item.name.toUpperCase().trim();
+        return filterTarget.includes(filterValue);
+      });
+
+      console.log(filterAirports);
+      // commit('setDataAutocomplete', data);
+      commit('setDataAutocomplete', filterAirports);
+      commit('setStatusAutocomplete', false);
     },
-    getAirports({ commit }) {
-      const airports = api.getAirports();
-      commit('setAirports', airports);
+    async handlerAutocomplete({ commit }) {
+      commit('setStatusAutocomplete', true);
+      const { data } = await api.getAirports();
+      console.log(data);
+      commit('setDataAutocomplete', data);
+      commit('setStatusAutocomplete', false);
     }
   }
 };
