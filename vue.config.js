@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   css: {
     loaderOptions: {
-      sass: {
+      scss: {
         prependData: `
             @import "@/assets/scss/app.scss";
         `

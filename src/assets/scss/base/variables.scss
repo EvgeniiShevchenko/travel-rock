@@ -2,10 +2,17 @@
 $color-white: #ffffff;
 $color-light-gray: #7A88A4;
 $color-dark-blue: #313f59;
+$color-signal-blue:rgba(43, 70, 129, 0.9);
+$color-signal-blue-translucent:rgba(43, 70, 129, 0.5);
+$color-kraiola-blue:#3E73F9;
+$color-dark-gray:#363637;
+$color-light-gray:#b0b1b5;
+$color-light-blue: #6db3f1;
 
 /* entry points */
 $tablet: 600px;
 $desktop: 1024px;
+$large-desktop:1200px;
 
 /*table size */
 $smallest: 10px;

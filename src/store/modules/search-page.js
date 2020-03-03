@@ -43,6 +43,9 @@ export default {
     },
     setStatusAutocomplete(state, payload) {
       state.isLoadingAutocomplete = payload;
+    },
+    setAutocompleteResult(state) {
+      state.resultAutocomplete = [];
     }
   },
 
@@ -83,6 +86,9 @@ export default {
     },
     updateArrivalPlace({ commit }, value) {
       commit('setArrival', value);
+    },
+    resetAutocompleteResult({ commit }) {
+      commit('setAutocompleteResult');
     }
   }
 };
