@@ -1,32 +1,30 @@
 <template>
-  <div>
-    <multiselect
-      id="baba"
-      :value="departure"
-      placeholder="Pick actions"
-      :options="foundAirports"
-      label="iataCode"
-      track-by="iataCode"
-      :searchable="true"
-      :internal-search="false"
-      :loading="isAutocompleteLoading"
-      :show-labels="false"
-      :optionHeight="100"
-      group-label="city"
-      open-direction="bottom"
-      :preserve-search="true"
-      :clear-on-select="false"
-      :custom-label="nameWithLang"
-      @search-change="handlerDepartRoute"
-      @select="setSelectedValue"
-    >
-      <template slot="singleLabel" slot-scope="props">
-        <span class="option__desc">
-          <span class="option__title">{{ `${props.option.city} (${props.option.iataCode})` }}</span>
-        </span>
-      </template>
-    </multiselect>
-  </div>
+  <multiselect
+    id="ajax"
+    :value="departure"
+    placeholder="Pick actions"
+    :options="foundAirports"
+    label="iataCode"
+    track-by="iataCode"
+    :searchable="true"
+    :internal-search="false"
+    :loading="isAutocompleteLoading"
+    :show-labels="false"
+    :optionHeight="100"
+    group-label="city"
+    open-direction="bottom"
+    :preserve-search="true"
+    :clear-on-select="false"
+    :custom-label="nameWithLang"
+    @search-change="handlerDepartRoute"
+    @select="setSelectedValue"
+  >
+    <template slot="singleLabel" slot-scope="props">
+      <span class="option__desc">
+        <span class="option__title">{{ `${props.option.city} (${props.option.iataCode})` }}</span>
+      </span>
+    </template>
+  </multiselect>
 </template>
 
 <script>
@@ -38,7 +36,6 @@ export default {
   components: {
     Multiselect
   },
-  props: {},
   computed: {
     ...mapGetters({
       departure: "searchPage/departureName",
@@ -48,8 +45,7 @@ export default {
     })
   },
   methods: {
-    handlerDepartRoute(value, id) {
-      console.log(id);
+    handlerDepartRoute(value) {
       this.handlerRoute({ name: "departure", value: value });
     },
     setSelectedValue(value) {

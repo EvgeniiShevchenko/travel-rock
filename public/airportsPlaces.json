@@ -33,5 +33,17 @@
         "height": 13,
         "region": "America/New_York",
         "type": "airport"
+    },
+    {
+        "name": "La Guardia Airport",
+        "city": "New York",
+        "country": "United States",
+        "iataCode": "LGA",
+        "icaoCode": "KLGA",
+        "longitude": 40.77719879,
+        "latitude": -73.87259674,
+        "height": 21,
+        "region": "America/New_York",
+        "type": "airport"
     }
 ]
