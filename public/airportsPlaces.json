@@ -1,6 +1,7 @@
 [{
         "name": "Kiev Zhuliany International Airport",
         "city": "Kiev",
+        "shortCityName": "IEV",
         "country": "Ukraine",
         "iataCode": "IEV",
         "icaoCode": "UKKK",
@@ -13,6 +14,7 @@
     {
         "name": "Boryspil International Airport",
         "city": "Kiev",
+        "shortCityName": "IEV",
         "country": "Ukraine",
         "iataCode": "KBP",
         "icaoCode": "UKBB",
@@ -25,6 +27,7 @@
     {
         "name": "John F Kennedy International Airport",
         "city": "New York",
+        "shortCityName": "NYC",
         "country": "United States",
         "iataCode": "JFK",
         "icaoCode": "KJFK",
@@ -37,6 +40,7 @@
     {
         "name": "La Guardia Airport",
         "city": "New York",
+        "shortCityName": "NYC",
         "country": "United States",
         "iataCode": "LGA",
         "icaoCode": "KLGA",

@@ -27,7 +27,7 @@
           </div>
           <form action="#" method="post" name="search-form" class="search-form" novalidate>
             <div class="form-controls-wrapper">
-              <div class="depart-location input-wrapper">
+              <!-- <div class="depart-location input-wrapper">
                 <input class="departure form-input" type="text" placeholder="From" />
                 <svg class="conbined-icon">
                   <use xlink:href="../../../assets/images/icons-sprite.svg#icon-arrow-pointers" />
@@ -35,7 +35,8 @@
               </div>
               <div class="arrival-location input-wrapper">
                 <input class="arrival form-input" type="text" placeholder="To" />
-              </div>
+              </div>-->
+              <FlightRoundTrip />
               <div class="booking input-wrapper">
                 <button class="date-picker form-input" type="button">
                   Depart
@@ -64,4 +65,9 @@
 
 <style lang="scss" scoped>
 @import "./SearchForm.scss";
+// .nunu {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 50%;
+// }
 </style>

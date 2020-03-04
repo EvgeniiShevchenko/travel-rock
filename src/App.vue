@@ -2,7 +2,7 @@
   <div id="app">
     <TheHeader />
     <search-form />
-    <FlightAutocomplete />
+    <!-- <FlightAutocomplete /> -->
     <TheFooter />
   </div>
 </template>
@@ -19,8 +19,7 @@ export default {
   components: {
     TheHeader,
     SearchForm,
-    TheFooter,
-    FlightAutocomplete
+    TheFooter
   }
 };
 </script>

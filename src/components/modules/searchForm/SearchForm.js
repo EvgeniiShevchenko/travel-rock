@@ -1,3 +1,8 @@
+import FlightRoundTrip from '../FlightRoundTrip/FlightRoundTrip.vue';
+
 export default {
-  name: 'searchForm'
+  name: 'searchForm',
+  components: {
+    FlightRoundTrip
+  }
 };
