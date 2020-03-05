@@ -8,7 +8,9 @@
         >
       </div>
     </div>
+    <Counter v-model="count" v-on:enumerator="count"/>
   </header>
+
 </template>
 
 <script src='./TheHeader.js'></script>
