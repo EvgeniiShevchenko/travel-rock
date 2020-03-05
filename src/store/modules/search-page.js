@@ -72,12 +72,21 @@ export default {
       commit('setStatusAutocomplete', true);
 
       const { data } = await api.getAirports();
+      console.log(data);
+      // return data;
 
-      const filterAirports = data.filter(item => {
-        const filterTarget = item.city.toUpperCase().trim();
-        return filterTarget.includes(filterValue);
-      });
-      commit('setDataAutocomplete', filterAirports);
+      // const filterAirports = data.filter(item => {
+      //   const filterTarget = item.data.city.toUpperCase().trim();
+      //   // const filterTarget = item.city.toUpperCase().trim();
+      //   return filterTarget.includes(filterValue);
+      // });
+
+      // const filterAirports = data.filter(item => {
+      //   const filterTarget = item.data.city.toUpperCase().trim();
+      //   // const filterTarget = item.city.toUpperCase().trim();
+      //   return filterTarget.includes(filterValue);
+      // });
+      commit('setDataAutocomplete', data);
 
       commit('setStatusAutocomplete', false);
     },

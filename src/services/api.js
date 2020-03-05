@@ -9,7 +9,7 @@ export const getAirports = async function() {
         }, timeout)
       );
 
-    await timeoutPromise(2000);
+    await timeoutPromise(0);
 
     const data = await axios.get('airportsPlaces.json', { method: 'GET' });
 
