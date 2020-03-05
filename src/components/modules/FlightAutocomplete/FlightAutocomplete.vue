@@ -5,13 +5,11 @@
       :value="setAutocompleteValue(multiselectConfig.name)"
       :placeholder="multiselectConfig.placeholder"
       :options="foundAirports"
-      label="iataCode"
       track-by="iataCode"
       :searchable="true"
       :internal-search="false"
       :show-labels="false"
       group-label="city"
-      :showLabels="false"
       open-direction="bottom"
       :preserve-search="true"
       :clear-on-select="false"
@@ -26,24 +24,15 @@
           <span class="option__title">{{ multiselectConfig.setInputLabel(props) }}</span>
         </span>
       </template>
-      <!-- <template slot="search" slot-scope="props">
-      <div class="option__desc">
-        <span class="option__title">{{ props.option.name }}</span>
-      </div>
-      </template>-->
-      <!-- <template slot="option" slot-scope="props">
-      {{ castomeLabel(props) }}
-      <div class="option__desc">-->
-      <!-- <ul 3>
-          <li />
-      </ul>-->
-
-      <!-- <span
+      <template slot="option" slot-scope="props">
+        <span />
+        <!-- <div class="option__desc">
+        <span
           style="display: block;"
         >{{ `${props.option.city}, ${props.option.shortCityName} (All Airports)` }}</span>
-      <span class="option__title">{{ multiselectConfig.setListLabel(props) }}</span>-->
-      <!-- </div>
-      </template>-->
+        <span class="option__title">{{ multiselectConfig.setListLabel(props) }}</span>
+        </div>-->
+      </template>
       <template slot="caret">
         <span />
       </template>
@@ -51,10 +40,19 @@
         <span />
       </template>
     </multiselect>
-    <ul>
-      <li v-for="(item, index) in foundAirports" :key="'labelList' + index">
-        <p>kfvmfd</p>
-      </li>
+    <ul v-if="departure.length !== 0" class="multiDropdown">
+      <li
+        v-for="(item, index) in foundAirports"
+        :key="'labelList' + index"
+        class="dropdown-item"
+      >{{ "cdcvdsvdsv" }}</li>
+    </ul>
+    <ul v-if="departure.length !== 0" class="multiDropdown">
+      <li
+        v-for="(item, index) in foundAirports"
+        :key="'labelList' + index"
+        class="dropdown-item"
+      >{{ "cdcvdsvdsv" }}</li>
     </ul>
   </div>
 </template>
@@ -76,7 +74,7 @@ export default {
         placeholder: "",
         idSelect: "",
         setListLabel: props =>
-          `${props.option.city}, ${props.option.name} (${props.option.iataCode})`,
+          `${props.city}, ${props.name} (${props.iataCode})`,
         setInputLabel: props =>
           `${props.option.city} (${props.option.iataCode})`
       })
@@ -162,7 +160,18 @@ export default {
 
 .multiselect__option {
   min-height: 0;
-  // padding: 0;
+  padding: 0;
+}
+
+.multiDropdown {
+  position: absolute;
+  padding: 0;
+  width: 410px;
+  background-color: white;
+}
+
+.dropdown-item {
+  padding: 12px 15px;
 }
 </style>
 
