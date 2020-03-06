@@ -8,7 +8,6 @@
         >
       </div>
     </div>
-    <Counter v-model="count" v-on:enumerator="count"/>
   </header>
 
 </template>

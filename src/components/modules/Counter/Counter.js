@@ -8,7 +8,7 @@ export default {
   props: {
     outputText: {
       type: String,
-      default: 'fcgjgj',
+      default: '',
     },
     minCount: {
       default: '0'
