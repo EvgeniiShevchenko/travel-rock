@@ -19,21 +19,27 @@ export default {
     return {
       multiselectConfigDeparture: {
         name: "departure",
-        placeholder: "Pick actions",
+        placeholder: "From",
         idSelect: "departure",
-        setListLabel: props => `${props.name} (${props.iataCode})`,
-        setInputLabel: props =>
-          `${props.option.city} (${props.option.iataCode})`
+        setListLabel: this.setListLabel,
+        setInputLabel: this.setInputLabel
       },
       multiselectConfigArrival: {
         name: "arrival",
-        placeholder: "Pick actions",
+        placeholder: "To",
         idSelect: "arrival",
-        setListLabel: props => `${props.name} (${props.iataCode})`,
-        setInputLabel: props =>
-          `${props.option.city} (${props.option.iataCode})`
+        setListLabel: this.setListLabel,
+        setInputLabel: this.setInputLabel
       }
     };
+  },
+  methods: {
+    setListLabel(props) {
+      return `${props.name} (${props.iataCode})`;
+    },
+    setInputLabel(props) {
+      return `${props.option.city} (${props.option.iataCode})`;
+    }
   }
 };
 </script>

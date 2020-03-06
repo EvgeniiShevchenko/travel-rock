@@ -1,5 +1,4 @@
 <template>
-  <!-- <div> -->
   <multiselect
     :id="multiselectConfig.idSelect"
     :value="setAutocompleteValue(multiselectConfig.name)"
@@ -18,29 +17,18 @@
     group-label="title"
     :hideSelected="false"
     :preserveSearch="true"
-    @search-change="handlerDepartRoute"
-    @input="setSelectedValue"
+    selectLabel
+    @search-change="handlerTripRoute"
+    @select="setSelectedValue"
   >
     <template slot="singleLabel" slot-scope="props">
       <span class="option__desc">
         <span class="option__title">{{ multiselectConfig.setInputLabel(props) }}</span>
       </span>
     </template>
-    <!-- <template slot="option" slot-scope="{option}">
-    <div class="option__desc">-->
-    <!-- <span>11111111111111111{{ setGroupTitle(option) }}</span> -->
-    <!-- <span class="option__title">
-          <img class="label-icon" src="@/assets/images/airplane.png" />
-          {{ multiselectConfig.setListLabel(option) }}
-        </span>
-      </div>
-    </template>-->
     <template slot="caret">
       <span />
     </template>
-    <!-- <template id="fklmsf" slot="noOptions" style="display: none">
-      <span id="ms;lfmds" style="display: none" />
-    </template>-->
   </multiselect>
 </template>
 
@@ -67,14 +55,6 @@ export default {
       })
     }
   },
-  data: function() {
-    return {
-      // optionGroupTitle: ["Kiev"],
-      reset: false,
-      optionGroupTitle: [],
-      allGroupTitle: []
-    };
-  },
   computed: {
     ...mapGetters({
       departure: "searchPage/departureName",
@@ -84,87 +64,13 @@ export default {
     })
   },
   methods: {
-    selectOption(value, id) {
-      console.log(value);
-      if (
-        Object.keys(value).length === 0 ||
-        Object.keys(value).length === "undefined"
-      ) {
-        this.reset = true;
-        this.reset = false;
-      }
-    },
     customLabel(value) {
-      // console.log(value);
       return this.multiselectConfig.setListLabel(value);
-      // return `${city} – ${name}`
     },
-    setGroupTitle(props) {
-      // let test = "";
-      // if (props.iataCode !== test ) {
-      //   console.log("111111111111111111");
-      //   test = props.iataCode;
-      // } else {
-      //   console.log("22222222222222222");
-      // }
-      console.log(props);
-
-      if (this.optionGroupTitle.length !== 0) {
-        // lastValue = props.city;
-        const oldTover = this.optionGroupTitle;
-        // debugger;
-        for (let i = 0; i < oldTover.length; i++) {
-          if (this.allGroupTitle.length === 0) {
-            this.allGroupTitle = [...this.allGroupTitle, props.city];
-            return "hello";
-          }
-          console.log(this.allGroupTitle);
-          for (let j = 0; j < this.allGroupTitle.length; j++) {
-            if (this.allGroupTitle[j] !== props.city) {
-              console.log("i'm work");
-              this.allGroupTitle = [...this.allGroupTitle, props.city];
-              console.log("to push", this.allGroupTitle);
-              return "hello";
-            }
-          }
-        }
-      }
-      // console.log("qqqqqqqqqqqqqqq", this.allGroupTitle);
-    },
-    handlerDepartRoute(value, id) {
-      console.log(value, id);
-      // if (Object.keys(value).length === 0 || "undefined") {
-      //   alert("mpsmv");
-      // }
+    handlerTripRoute(value, id) {
       this.handlerRoute({ name: id, value: value });
-
-      // if (this.foundAirports.length !== 0) {
-      //   // this.foundAirports.map((item, index) => {
-      //   for (let i = 0; i < this.foundAirports.length; i++) {
-      //     if (this.optionGroupTitle.length !== 0) {
-      //       if (
-      //         this.foundAirports[i].city === this.optionGroupTitle[i] ||
-      //         this.optionGroupTitle[i] === "undefined"
-      //       ) {
-      //         break;
-      //       }
-      //       this.optionGroupTitle = [
-      //         ...this.optionGroupTitle,
-      //         this.foundAirports[i].city
-      //       ];
-      //     } else {
-      //       this.optionGroupTitle = [
-      //         ...this.optionGroupTitle,
-      //         this.foundAirports[i].city
-      //       ];
-      //     }
-      //   }
-      //   // });
-      // }
-      // console.log("optionGroupTitle");
     },
     setSelectedValue(value, id) {
-      console.log(id);
       switch (id) {
         case "departure":
           this.updateDeparturePlace(value);
@@ -173,7 +79,6 @@ export default {
         case "arrival":
           this.updateArrivalPlace(value);
           break;
-
         default:
           break;
       }
@@ -196,27 +101,12 @@ export default {
       resetAutocomplete: "searchPage/resetAutocompleteResult"
     })
   },
-  mounted: function() {
-    // for (let i = 0; i < 3; i++) {
-    //   console.log(
-    //     this.setGroupTitle({
-    //       name: "Boryspil International Airport",
-    //       city: "Kiev",
-    //       shortCityName: "IEV",
-    //       country: "Ukraine",
-    //       iataCode: "KBP",
-    //       icaoCode: "UKBB",
-    //       longitude: 50.345001220703125,
-    //       latitude: 30.894699096679688,
-    //       height: 427,
-    //       region: "Europe/Kiev",
-    //       type: "airport"
-    //     })
-    //   );
-    // }
-  },
   updated: function() {
     console.log(1);
+  },
+  mounted: function() {
+    const multiselectInput = document.getElementById("departure");
+    multiselectInput.setAttribute("autocomplete", "off");
   }
 };
 </script>
@@ -229,6 +119,7 @@ export default {
   height: 48px;
   padding: 12px 15px;
   border-radius: 0;
+  margin-bottom: 2px;
 }
 .multiselect__content-wrapper {
   min-width: 410px;
@@ -243,11 +134,6 @@ export default {
   font-size: 14px;
   line-height: 19px;
 }
-
-// .multiselect__option {
-//   min-height: 0;
-//   // padding: 0;
-// }
 
 .multiDropdown {
   position: absolute;
@@ -269,39 +155,46 @@ export default {
   font-size: 14px;
 
   position: relative;
-  padding-left: 20px;
-  margin-left: 35px;
+
+  padding-left: 50px;
 }
 
 .multiselect__option ::before {
   content: "";
-  // padding: 2px;
   height: 12px;
   width: 12px;
-  background-image: url("../../../assets/images/airplane.svg");
-  left: 0;
+  background: url("../../../assets/images/airplane.svg") no-repeat;
+  background-size: 100% 100%;
+  left: 35px;
   position: absolute;
 }
 
 .multiselect__option--group {
   background: none;
   position: relative;
-  margin-left: 16px;
+  padding-left: 35px;
+
   background: none;
-  // padding-left: 0;
 }
 
 .multiselect__option--group ::before {
   content: "";
-  // left: 0;
+  left: 20px;
   height: 15px;
   width: 11px;
   background-image: url("../../../assets/images/position-marker.svg");
+  background-size: 100% 100%;
   position: absolute;
 }
 
 .multiselect__option--disabled {
   background: none !important;
+  color: black !important;
+}
+
+.multiselect__option--highlight {
+  background: #e9f3fd;
+  color: black;
 }
 </style>
 

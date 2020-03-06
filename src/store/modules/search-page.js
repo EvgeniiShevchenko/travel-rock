@@ -37,7 +37,7 @@ export default {
       state.arrivalLocation = payload;
     },
     setDataAutocomplete(state, payload) {
-      const dataAutocomplete = [...payload, ...state.resultAutocomplete];
+      const dataAutocomplete = payload;
 
       state.resultAutocomplete = dataAutocomplete;
     },
@@ -72,21 +72,15 @@ export default {
       commit('setStatusAutocomplete', true);
 
       const { data } = await api.getAirports();
-      console.log(data);
-      // return data;
 
-      // const filterAirports = data.filter(item => {
-      //   const filterTarget = item.data.city.toUpperCase().trim();
-      //   // const filterTarget = item.city.toUpperCase().trim();
-      //   return filterTarget.includes(filterValue);
-      // });
+      const filterAirports = data.filter((item, index) => {
+        console.log(item);
+        const filterTarget = item.data[index].city.toUpperCase().trim();
+        // const filterTarget = item.city.toUpperCase().trim();
+        return filterTarget.includes(filterValue);
+      });
 
-      // const filterAirports = data.filter(item => {
-      //   const filterTarget = item.data.city.toUpperCase().trim();
-      //   // const filterTarget = item.city.toUpperCase().trim();
-      //   return filterTarget.includes(filterValue);
-      // });
-      commit('setDataAutocomplete', data);
+      commit('setDataAutocomplete', filterAirports);
 
       commit('setStatusAutocomplete', false);
     },
