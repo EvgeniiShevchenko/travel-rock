@@ -10,13 +10,14 @@
     :searchable="true"
     :internal-search="false"
     open-direction="bottom"
-    :preserve-search="true"
     :clear-on-select="false"
-    :show-no-results="false"
-    :group-select="true"
+    :showNoResults="false"
+    :reset-after="reset"
+    :custom-label="customLabel"
     group-values="data"
     group-label="title"
     :hideSelected="false"
+    :preserveSearch="true"
     @search-change="handlerDepartRoute"
     @input="setSelectedValue"
   >
@@ -37,9 +38,9 @@
     <template slot="caret">
       <span />
     </template>
-    <template slot="noOptions">
-      <span />
-    </template>
+    <!-- <template id="fklmsf" slot="noOptions" style="display: none">
+      <span id="ms;lfmds" style="display: none" />
+    </template>-->
   </multiselect>
 </template>
 
@@ -69,6 +70,7 @@ export default {
   data: function() {
     return {
       // optionGroupTitle: ["Kiev"],
+      reset: false,
       optionGroupTitle: [],
       allGroupTitle: []
     };
@@ -82,6 +84,21 @@ export default {
     })
   },
   methods: {
+    selectOption(value, id) {
+      console.log(value);
+      if (
+        Object.keys(value).length === 0 ||
+        Object.keys(value).length === "undefined"
+      ) {
+        this.reset = true;
+        this.reset = false;
+      }
+    },
+    customLabel(value) {
+      // console.log(value);
+      return this.multiselectConfig.setListLabel(value);
+      // return `${city} – ${name}`
+    },
     setGroupTitle(props) {
       // let test = "";
       // if (props.iataCode !== test ) {
@@ -116,6 +133,9 @@ export default {
     },
     handlerDepartRoute(value, id) {
       console.log(value, id);
+      // if (Object.keys(value).length === 0 || "undefined") {
+      //   alert("mpsmv");
+      // }
       this.handlerRoute({ name: id, value: value });
 
       // if (this.foundAirports.length !== 0) {
@@ -224,10 +244,10 @@ export default {
   line-height: 19px;
 }
 
-.multiselect__option {
-  min-height: 0;
-  // padding: 0;
-}
+// .multiselect__option {
+//   min-height: 0;
+//   // padding: 0;
+// }
 
 .multiDropdown {
   position: absolute;
@@ -243,6 +263,45 @@ export default {
 .label-icon {
   height: 12px;
   width: 12px;
+}
+
+.multiselect__option {
+  font-size: 14px;
+
+  position: relative;
+  padding-left: 20px;
+  margin-left: 35px;
+}
+
+.multiselect__option ::before {
+  content: "";
+  // padding: 2px;
+  height: 12px;
+  width: 12px;
+  background-image: url("../../../assets/images/airplane.svg");
+  left: 0;
+  position: absolute;
+}
+
+.multiselect__option--group {
+  background: none;
+  position: relative;
+  margin-left: 16px;
+  background: none;
+  // padding-left: 0;
+}
+
+.multiselect__option--group ::before {
+  content: "";
+  // left: 0;
+  height: 15px;
+  width: 11px;
+  background-image: url("../../../assets/images/position-marker.svg");
+  position: absolute;
+}
+
+.multiselect__option--disabled {
+  background: none !important;
 }
 </style>
 

@@ -4,7 +4,7 @@
       class="autocomplete-departure"
       :multiselectConfig="multiselectConfigDeparture"
     />
-    <!-- <selectAutocomplete class="autocomplete-arrival" :multiselectConfig="multiselectConfigArrival" /> -->
+    <selectAutocomplete class="autocomplete-arrival" :multiselectConfig="multiselectConfigArrival" />
   </div>
 </template>
 <script>

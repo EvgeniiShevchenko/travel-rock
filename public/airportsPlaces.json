@@ -1,5 +1,5 @@
 [{
-        "title": "Kiev",
+        "title": "Kiev, NY (All Airports)",
         "data": [{
             "name": "Kiev Zhuliany International Airport",
             "city": "Kiev",
@@ -15,7 +15,7 @@
         }]
     },
     {
-        "title": "Kiev",
+        "title": "New York, NYC (All Airports)",
         "data": [{
                 "name": "John F Kennedy International Airport",
                 "city": "New York",
