@@ -1,8 +1,8 @@
 <template>
   <!-- <div> -->
   <multiselect
-    :id="multiselectConfig.idSelect"
-    :value="setAutocompleteValue(multiselectConfig.name)"
+    :id="multiselectConfig.id"
+    :value="setValue(multiselectConfig.id)"
     :placeholder="multiselectConfig.placeholder"
     :options="foundAirports"
     track-by="iataCode"
@@ -12,35 +12,34 @@
     open-direction="bottom"
     :clear-on-select="false"
     :showNoResults="false"
-    :reset-after="reset"
-    :custom-label="customLabel"
     group-values="data"
     group-label="title"
     :hideSelected="false"
     :preserveSearch="true"
     @search-change="handlerDepartRoute"
-    @input="setSelectedValue"
+    @select="setSelectedValue"
+    @close="closeMethod"
   >
-    <template slot="singleLabel" slot-scope="props">
+    <template slot="singleLabel" slot-scope="{option}">
       <span class="option__desc">
-        <span class="option__title">{{ multiselectConfig.setInputLabel(props) }}</span>
+        <span
+          v-if="trun === true"
+          class="option__title"
+        >{{ multiselectConfig.setInputLabel(option) }}</span>
+        <span v-else class="option__title">{{ multiselectConfig.placeholder }}</span>
       </span>
     </template>
-    <!-- <template slot="option" slot-scope="{option}">
-    <div class="option__desc">-->
-    <!-- <span>11111111111111111{{ setGroupTitle(option) }}</span> -->
-    <!-- <span class="option__title">
-          <img class="label-icon" src="@/assets/images/airplane.png" />
-          {{ multiselectConfig.setListLabel(option) }}
-        </span>
+    <template slot="option" slot-scope="{option}" style="display: none">
+      <div class="option__desc">
+        <span class="option__title">{{ multiselectConfig.setOptionsLabel(option) }}</span>
       </div>
-    </template>-->
+    </template>
     <template slot="caret">
       <span />
     </template>
-    <!-- <template id="fklmsf" slot="noOptions" style="display: none">
-      <span id="ms;lfmds" style="display: none" />
-    </template>-->
+    <template slot="noOptions" style="display: none">
+      <span />
+    </template>
   </multiselect>
 </template>
 
@@ -57,25 +56,27 @@ export default {
     multiselectConfig: {
       type: Object,
       default: () => ({
-        name: "",
-        placeholder: "",
-        idSelect: "",
-        setListLabel: props =>
-          `${props.city}, ${props.name} (${props.iataCode})`,
-        setInputLabel: props =>
-          `${props.option.city} (${props.option.iataCode})`
+        op: [],
+        value: "",
+        placeholder: ""
       })
     }
   },
   data: function() {
     return {
-      // optionGroupTitle: ["Kiev"],
-      reset: false,
-      optionGroupTitle: [],
-      allGroupTitle: []
+      selectOption: {},
+      trun: true
     };
   },
   computed: {
+    test(fff) {
+      console.log(fff);
+      if (typeof fff === String) {
+        return "From";
+      } else {
+        return "Yes";
+      }
+    },
     ...mapGetters({
       departure: "searchPage/departureName",
       arrival: "searchPage/arrivalName",
@@ -84,31 +85,55 @@ export default {
     })
   },
   methods: {
-    selectOption(value, id) {
-      console.log(value);
-      if (
-        Object.keys(value).length === 0 ||
-        Object.keys(value).length === "undefined"
-      ) {
-        this.reset = true;
-        this.reset = false;
+    // test(props) {
+    //   console.log(props);
+    // },
+    closeMethod(value, id) {
+      const nemo = trip => {
+        if (typeof trip !== "object") {
+          this.trun = false;
+          this.resetAutocomplete();
+        } else {
+          this.trun = true;
+        }
+      };
+      // console.log(this.departure, this.arrival);
+      // if (typeof this.departure !== "object") {
+      //   this.trun = false;
+      // } else {
+      //   this.trun = true;
+      // }
+
+      switch (id) {
+        case "departure":
+          nemo(this.departure);
+          break;
+        case "arrival":
+          nemo(this.arrival);
+          break;
+        default:
+          break;
       }
-    },
-    customLabel(value) {
-      // console.log(value);
-      return this.multiselectConfig.setListLabel(value);
-      // return `${city} – ${name}`
+      console.log(this.departure);
+      // switch (id) {
+      //   case "departure":
+      //     console.log("I`m working");
+      //     this.updateDeparturePlace({
+      //       iataCode: "lfmbvkdff",
+      //       city: "vdlkfnvldfn"
+      //     });
+      //     this.resetAutocomplete();
+      //     break;
+      //   case "arrival":
+      //     this.updateArrivalPlace(value);
+      //     this.resetAutocomplete();
+      //     break;
+      //   default:
+      //     break;
+      // }
+      // console.log(222222222, { name: "lfmbvkdff", sity: "vdlkfnvldfn" }, id);
     },
     setGroupTitle(props) {
-      // let test = "";
-      // if (props.iataCode !== test ) {
-      //   console.log("111111111111111111");
-      //   test = props.iataCode;
-      // } else {
-      //   console.log("22222222222222222");
-      // }
-      console.log(props);
-
       if (this.optionGroupTitle.length !== 0) {
         // lastValue = props.city;
         const oldTover = this.optionGroupTitle;
@@ -133,9 +158,6 @@ export default {
     },
     handlerDepartRoute(value, id) {
       console.log(value, id);
-      // if (Object.keys(value).length === 0 || "undefined") {
-      //   alert("mpsmv");
-      // }
       this.handlerRoute({ name: id, value: value });
 
       // if (this.foundAirports.length !== 0) {
@@ -149,7 +171,7 @@ export default {
       //         break;
       //       }
       //       this.optionGroupTitle = [
-      //         ...this.optionGroupTitle,
+      //         ...this.optionGroupTitle,W
       //         this.foundAirports[i].city
       //       ];
       //     } else {
@@ -164,22 +186,23 @@ export default {
       // console.log("optionGroupTitle");
     },
     setSelectedValue(value, id) {
-      console.log(id);
+      console.log(33333, value, id);
       switch (id) {
         case "departure":
+          this.selectOption = value;
           this.updateDeparturePlace(value);
           this.resetAutocomplete();
           break;
         case "arrival":
           this.updateArrivalPlace(value);
+          this.resetAutocomplete();
           break;
-
         default:
           break;
       }
     },
-    setAutocompleteValue(name) {
-      switch (name) {
+    setValue(id) {
+      switch (id) {
         case "departure":
           return this.departure;
         case "arrival":
@@ -197,23 +220,7 @@ export default {
     })
   },
   mounted: function() {
-    // for (let i = 0; i < 3; i++) {
-    //   console.log(
-    //     this.setGroupTitle({
-    //       name: "Boryspil International Airport",
-    //       city: "Kiev",
-    //       shortCityName: "IEV",
-    //       country: "Ukraine",
-    //       iataCode: "KBP",
-    //       icaoCode: "UKBB",
-    //       longitude: 50.345001220703125,
-    //       latitude: 30.894699096679688,
-    //       height: 427,
-    //       region: "Europe/Kiev",
-    //       type: "airport"
-    //     })
-    //   );
-    // }
+    console.log(this.multiselectConfig);
   },
   updated: function() {
     console.log(1);

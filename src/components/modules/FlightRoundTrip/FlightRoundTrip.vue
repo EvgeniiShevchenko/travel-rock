@@ -3,11 +3,14 @@
     <selectAutocomplete
       class="autocomplete-departure"
       :multiselectConfig="multiselectConfigDeparture"
+      departure
+      @soma="soma"
     />
     <selectAutocomplete class="autocomplete-arrival" :multiselectConfig="multiselectConfigArrival" />
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
 import selectAutocomplete from "../FlightAutocomplete/FlightAutocomplete.vue";
 
 export default {
@@ -17,23 +20,56 @@ export default {
   },
   data: function() {
     return {
+      datax: this.setValue,
       multiselectConfigDeparture: {
-        name: "departure",
-        placeholder: "Pick actions",
-        idSelect: "departure",
-        setListLabel: props => `${props.name} (${props.iataCode})`,
-        setInputLabel: props =>
-          `${props.option.city} (${props.option.iataCode})`
+        callBack: function() {
+          return this.foundAirports;
+        },
+        value: this.setValue,
+        op: this.setValue,
+        placeholder: "From",
+        id: "departure",
+        setOptionsLabel: this.setOptionsLabel,
+        setInputLabel: this.setInputLabel
       },
       multiselectConfigArrival: {
-        name: "arrival",
-        placeholder: "Pick actions",
-        idSelect: "arrival",
-        setListLabel: props => `${props.name} (${props.iataCode})`,
-        setInputLabel: props =>
-          `${props.option.city} (${props.option.iataCode})`
+        callBack: function() {
+          return this.foundAirports;
+        },
+        value: this.setValue,
+        op: this.setValue,
+        placeholder: "To",
+        id: "arrival",
+        setOptionsLabel: this.setOptionsLabel,
+        setInputLabel: this.setInputLabel
       }
     };
+  },
+  computed: {
+    setValue() {
+      const turbo = this.departure;
+      return [];
+    },
+    ...mapGetters({
+      departure: "searchPage/departureName",
+      arrival: "searchPage/arrivalName",
+      foundAirports: "searchPage/getResultAutocomplete",
+      isAutocompleteLoading: "searchPage/getStatusAutocomplete"
+    })
+  },
+  mounted: function() {
+    // console.log(this.foundAirports);
+  },
+  methods: {
+    soma(data) {
+      console.log(data);
+    },
+    setOptionsLabel(props) {
+      return `${props.name} (${props.iataCode})`;
+    },
+    setInputLabel(props) {
+      return `${props.city} (${props.iataCode})`;
+    }
   }
 };
 </script>

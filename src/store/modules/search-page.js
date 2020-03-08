@@ -4,7 +4,7 @@ const getDefaultState = () => {
   return {
     departureLocation: '',
     arrivalLocation: '',
-    resultAutocomplete: [],
+    resultAutocomplete: ['name'],
     isLoadingAutocomplete: false
   };
 };
@@ -75,18 +75,18 @@ export default {
       console.log(data);
       // return data;
 
-      // const filterAirports = data.filter(item => {
-      //   const filterTarget = item.data.city.toUpperCase().trim();
-      //   // const filterTarget = item.city.toUpperCase().trim();
-      //   return filterTarget.includes(filterValue);
-      // });
+      const filterAirports = data.filter((item, index) => {
+        const filterTarget = item.data[index].city.toUpperCase().trim();
+        // const filterTarget = item.city.toUpperCase().trim();
+        return filterTarget.includes(filterValue);
+      });
 
       // const filterAirports = data.filter(item => {
       //   const filterTarget = item.data.city.toUpperCase().trim();
       //   // const filterTarget = item.city.toUpperCase().trim();
       //   return filterTarget.includes(filterValue);
       // });
-      commit('setDataAutocomplete', data);
+      commit('setDataAutocomplete', filterAirports);
 
       commit('setStatusAutocomplete', false);
     },
