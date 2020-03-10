@@ -78,4 +78,15 @@
             </g>
         </g>
     </symbol>
+
+    <symbol id="icon-close"  viewBox="0 0 14 12">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g  transform="translate(-39.000000, -663.000000)" fill-rule="nonzero" stroke="#363637">
+            <g id="close-details" transform="translate(40.000000, 663.000000)">
+                <path d="M0,0.375 L11.625,12" ></path>
+                <path d="M0,0.375 L11.625,12"  transform="translate(6.000000, 6.000000) scale(-1, 1) translate(-6.000000, -6.000000) "></path>
+            </g>
+        </g>
+    </g>
+    </symbol>
 </svg>

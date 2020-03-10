@@ -87,7 +87,6 @@
 }
 
 .form-controls-wrapper {
-  overflow: hidden;
   border-radius: 4px;
 
   color: $color-dark-gray;
@@ -137,15 +136,21 @@
   }
 }
 
-
+.booking {
+  position: relative;
+}
 .date-picker {
+  position: relative;
   text-align: left;
 
   color:$color-light-gray;
+  & > .sepatator {
+    color: $color-dark-gray;
+    margin: 5px;
+  }
   & > .marked {
     color: $color-dark-gray;
   }
- 
 }
  
 .ticket-info {

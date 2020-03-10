@@ -66,11 +66,34 @@
                 <button
                   class="date-picker form-input"
                   type="button"
+                  @click="showCalendar"
                 >
-                  Depart
-                  <span class="marked">—</span>
-                  Return
+                  <span v-if="departDate == ''"> {{ departLabel }} </span>
+                  <span 
+                    v-else 
+                    :class="{marked:departDate != ''}"
+                  >
+                    {{ departDate | filterDate }}
+                  </span>
+                  <span class="sepatator">—</span>
+                  
+                  <span v-if="returnDate == '' "> {{ returnLabel }} </span>
+                  <span 
+                    v-else 
+                    :class="{marked:departDate != ''}"
+                  > 
+                    {{ returnDate | filterDate }}
+                  </span>
                 </button>
+                
+                <transition name="fade">
+                  <datePicker 
+                    v-if="isActive"
+                    :flight-trip-text="determineDateText"
+                    @drag="onDrag"
+                    @isClosed="isClosed"
+                  />
+                </transition>
               </div>
               <div class="ticket-info input-wrapper">
                 <button
@@ -102,4 +125,10 @@
 
 <style lang="scss" scoped>
 @import './SearchForm.scss';
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
 </style>
