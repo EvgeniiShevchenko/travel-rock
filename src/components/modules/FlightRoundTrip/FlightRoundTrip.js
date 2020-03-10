@@ -1,26 +1,37 @@
-// import selectAutocomplete from '../FlightAutocomplete/FlightAutocomplete.vue';
+import autocomplete from '../FlightAutocomplete/FlightAutocomplete.vue';
 
-// export default {
-//   name: 'FlightAutocomplete',
-//   components: {
-//     selectAutocomplete
-//   },
-//   data: function() {
-//     return {
-//       multiselectConfigDeparture: {
-//         name: 'departure',
-//         placeholder: 'Pick actions',
-//         idSelect: 'departure',
-//         setListLabel: props => `${props.name} (${props.iataCode})`,
-//         setInputLabel: props => `${props.option.city} (${props.option.iataCode})`
-//       },
-//       multiselectConfigArrival: {
-//         name: 'arrival',
-//         placeholder: 'Pick actions',
-//         idSelect: 'arrival',
-//         setListLabel: props => `${props.name} (${props.iataCode})`,
-//         setInputLabel: props => `${props.option.city} (${props.option.iataCode})`
-//       }
-//     };
-//   }
-// };
+export default {
+  name: 'FlightAutocomplete',
+  components: {
+    autocomplete
+  },
+  data: function() {
+    return {
+      departureConfig: {
+        placeholder: 'From',
+        id: 'departure',
+        setOptionsLabel: this.setOptionsLabel,
+        setGroupLabel: this.setGroupLabel,
+        setInputLabel: this.setInputLabel
+      },
+      arrivalConfig: {
+        placeholder: 'To',
+        id: 'arrival',
+        setOptionsLabel: this.setOptionsLabel,
+        setGroupLabel: this.setGroupLabel,
+        setInputLabel: this.setInputLabel
+      }
+    };
+  },
+  methods: {
+    setOptionsLabel(props) {
+      return `${props.name} (${props.iataCode})`;
+    },
+    setInputLabel(props) {
+      return `${props.city} (${props.iataCode})`;
+    },
+    setGroupLabel(props) {
+      return `${props.city}, ${props.shortCityName} (All Airports)`;
+    }
+  }
+};

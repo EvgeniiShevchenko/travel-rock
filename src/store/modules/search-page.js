@@ -4,7 +4,8 @@ const getDefaultState = () => {
   return {
     departureLocation: '',
     arrivalLocation: '',
-    resultAutocomplete: ['name'],
+    resultDepartureAutocomplete: [],
+    resultArrivalAutocomplete: [],
     isLoadingAutocomplete: false
   };
 };
@@ -15,14 +16,17 @@ export default {
   state: getDefaultState(),
 
   getters: {
-    departureName(state) {
+    getDepartureValue(state) {
       return state.departureLocation;
     },
-    arrivalName(state) {
+    getArrivalValue(state) {
       return state.arrivalLocation;
     },
-    getResultAutocomplete(state) {
-      return state.resultAutocomplete;
+    getResultDepartureAutocomplete(state) {
+      return state.resultDepartureAutocomplete;
+    },
+    getResultArrivalAutocomplete(state) {
+      return state.resultArrivalAutocomplete;
     },
     getStatusAutocomplete(state) {
       return state.isLoadingAutocomplete;
@@ -36,68 +40,70 @@ export default {
     setArrival(state, payload) {
       state.arrivalLocation = payload;
     },
-    setDataAutocomplete(state, payload) {
-      const dataAutocomplete = [...payload, ...state.resultAutocomplete];
-
-      state.resultAutocomplete = dataAutocomplete;
+    setResultDepartureAutocomplete(state, payload) {
+      state.resultDepartureAutocomplete = payload;
+    },
+    setResultArrivalAutocomplete(state, payload) {
+      state.resultArrivalAutocomplete = payload;
     },
     setStatusAutocomplete(state, payload) {
       state.isLoadingAutocomplete = payload;
     },
-    setAutocompleteResult(state) {
-      state.resultAutocomplete = [];
+    resetResultDepartureAutocomplete(state) {
+      state.resultDepartureAutocomplete = [];
+    },
+    resetResultArrivalAutocomplete(state) {
+      state.resultArrivalAutocomplete = [];
     }
   },
 
   actions: {
-    async handlerRoute({ commit }, name) {
-      const filterValue = name.value.toUpperCase().trim();
+    async handlerRoute({ commit }, { id, value }) {
+      const filterValue = value.toUpperCase().trim();
 
-      switch (name.name) {
+      switch (id) {
         case 'departure':
-          commit('setDeparture', name.value);
+          commit('setDeparture', value);
           break;
         case 'arrival':
-          commit('setArrival', name.value);
+          commit('setArrival', value);
           break;
         default:
           return;
-      }
-      console.log('next');
-
-      if (filterValue.length < 3) {
-        return;
       }
 
       commit('setStatusAutocomplete', true);
 
       const { data } = await api.getAirports();
-      console.log(data);
-      // return data;
 
-      const filterAirports = data.filter((item, index) => {
-        const filterTarget = item.data[index].city.toUpperCase().trim();
-        // const filterTarget = item.city.toUpperCase().trim();
+      let filterAirports = data.filter(item => {
+        const filterTarget = item.city.toUpperCase().trim();
         return filterTarget.includes(filterValue);
       });
 
-      // const filterAirports = data.filter(item => {
-      //   const filterTarget = item.data.city.toUpperCase().trim();
-      //   // const filterTarget = item.city.toUpperCase().trim();
-      //   return filterTarget.includes(filterValue);
-      // });
-      commit('setDataAutocomplete', filterAirports);
+      if (filterValue.length === 0) {
+        filterAirports = [];
+      }
+
+      if (id === 'departure') {
+        commit('setResultDepartureAutocomplete', filterAirports);
+      } else {
+        commit('setResultArrivalAutocomplete', filterAirports);
+      }
 
       commit('setStatusAutocomplete', false);
     },
-    updateDeparturePlace({ commit }, value) {
+    updateDepartureValue({ commit }, value) {
       commit('setDeparture', value);
     },
-    updateArrivalPlace({ commit }, value) {
+    updateArrivalValue({ commit }, value) {
       commit('setArrival', value);
     },
-    resetAutocompleteResult({ commit }) {
-      commit('setAutocompleteResult');
+    resetDepartureAutocompleteResult({ commit }) {
+      commit('resetResultDepartureAutocomplete');
+    },
+    resetArrivalAutocompleteResult({ commit }) {
+      commit('resetResultArrivalAutocomplete');
     }
   }
 };
