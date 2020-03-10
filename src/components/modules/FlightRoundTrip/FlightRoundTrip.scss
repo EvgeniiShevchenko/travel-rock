@@ -1,16 +1,38 @@
 .autocomplete {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    flex-wrap: wrap;
+
+    width: 100%;
+
+    .autocomplete-departure {
+        width: 100%;
+    }
+
+    .autocomplete-arrival {
+        margin-top: 2px;
+
+        width: 100%;
+    }
 }
 
-.autocomplete-departure {
-    width: calc(50%);
-    position: relative;
+@include tablet {
+    .autocomplete .autocomplete-departure {
+        width: calc(50% - 1px);
+    }
+
+    .autocomplete .autocomplete-arrival {
+        margin-top: 0;
+        margin-left: 2px;
+
+        width: calc(50% - 1px);
+    }
 }
 
-.autocomplete-arrival {
-    margin-left: 2px;
-    width: calc(50% - 2px);
-    position: relative;
+@include desktop {
+    .autocomplete {
+        flex-wrap: nowrap;
+        width: 50%;
+    }
 }

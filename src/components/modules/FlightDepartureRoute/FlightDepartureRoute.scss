@@ -1,0 +1,173 @@
+.autocomplete-wrapper {
+    height: 48px;
+    font-size: $small;
+
+    .input-wrapper {
+        position: relative;
+
+        height: 100%;
+
+        .autocomplete {
+            padding-left: 12px;
+
+            height: 100%;
+            width: 100%;
+
+            border: none;
+            outline: none;
+
+            &:focus {
+                outline: 2px solid#6db3f1;
+                outline-offset: -2px;
+            }
+
+            .is-reverse-active {
+                padding-right: 30px;
+            }
+        }
+
+        .is-departure-radius {
+            border-radius: 4px 4px 0 0;
+        }
+
+        .reverse-route {
+            position: absolute;
+
+            right: 0;
+            top: 18px;
+            margin-right: 10px;
+
+            width: 16px;
+            height: 15px;
+
+            .reverse-route-button {
+                display: block;
+
+                padding: 0;
+
+                width: 100%;
+                height: 100%;
+
+                border: none;
+                background: url("../../../assets/images/reverse-route.svg") no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+    }
+
+    .autocomplete-list {
+        position: absolute;
+
+        left: 0;
+        margin-top: 2px;
+        padding: 0;
+
+        width: 100%;
+        max-height: 300px;
+
+        background: #ffffff;
+        border-radius: 4px;
+        overflow-y: auto;
+        z-index: 1;
+
+        .autocomplete-item {
+            position: relative;
+
+            padding: 12px 15px;
+            padding-left: 55px;
+            cursor: pointer;
+
+            &::before {
+                position: absolute;
+                content: "";
+
+                left: 40px;
+                top: 50%;
+
+                height: 12px;
+                width: 12px;
+
+                background: url("../../../assets/images/airplane.svg") no-repeat;
+                background-size: 100% 100%;
+                transform: translateY(-50%);
+            }
+
+            &:hover {
+                background: #e9f3fd;
+            }
+
+            .title {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .is-single-option {
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .is-single-option::before {
+            position: absolute;
+            content: "";
+
+            left: 20px;
+            top: 50%;
+
+            height: 15px;
+            width: 11px;
+
+            background: url("../../../assets/images/airplane.svg") no-repeat;
+            background-size: 100% 100%;
+            transform: translateY(-50%);
+        }
+
+        .is-single-option:hover {
+            background: #e9f3fd;
+            cursor: pointer;
+        }
+
+        .is-group-mark {
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .is-group-mark::before {
+            content: "";
+            position: absolute;
+
+            height: 15px;
+            width: 11px;
+
+            left: 20px;
+            top: 50%;
+
+            background: url("../../../assets/images/position-marker.svg") no-repeat;
+            background-size: 100% 100%;
+            transform: translateY(-50%);
+        }
+
+        .is-group-mark:hover {
+            background: none;
+            cursor: default;
+        }
+    }
+}
+
+@include tablet {
+    .autocomplete-wrapper .input-wrapper .is-departure-radius {
+        border-radius: 4px 0 0 0;
+    }
+}
+
+@include desktop {
+    .autocomplete-wrapper .autocomplete-list {
+        width: 410px;
+        left: auto;
+    }
+
+    .autocomplete-wrapper .input-wrapper .is-departure-radius {
+        border-radius: 4px 0 0 4px;
+    }
+}
