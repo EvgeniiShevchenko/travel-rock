@@ -1,13 +1,13 @@
 <template>
 <div class="counter-wrap">
   <span>{{ outputText }}</span>
-  <div class="buttonsCount">
+  <div class="buttons-count">
       <button @click="decrement"
               class="minus circle"
               :disabled="count == minCount">
       </button>
     <span class="counter">{{ count }}</span>
-    <button @click="increments"
+    <button @click="increment"
             class=" plus circle"
             :disabled="count == maxCount">
     </button>

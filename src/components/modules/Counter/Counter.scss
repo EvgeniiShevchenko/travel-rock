@@ -3,7 +3,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  color: #363637;
+  color: $color-dark-gray;
 }
 
 .circle {
@@ -14,10 +14,10 @@
   justify-content: center;
   border-radius: 50%;
   border: 1px solid;
-  color: #7b7b7d;
+  color: $color-enabled-counter-btn;
 }
 
-.buttonsCount {
+.buttons-count {
   display: flex;
   width: 100%;
   align-items: center;
@@ -27,7 +27,6 @@
 .minus {
 
   &:before {
-    position: absolute;
     display: block;
     content: '';
     width: 11px;
@@ -52,6 +51,6 @@
 }
 
 .circle:disabled {
-  color: #e0e1e7;
+  color: $color-disabled-counter-btn;
 }
 

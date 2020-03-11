@@ -9,7 +9,6 @@
       </div>
     </div>
   </header>
-
 </template>
 
 <script src='./TheHeader.js'></script>

@@ -11,19 +11,21 @@ export default {
       default: '',
     },
     minCount: {
-      default: '0'
+      type: Number,
+      default: 0
     },
     maxCount: {
-      default: '9'
+      type: Number,
+      default: 9
     }
   },
   methods: {
     decrement() {
-      this.$emit('enumerator', this.count);
+      this.$emit('changeValue', this.count);
       this.count--;
     },
-    increments() {
-      this.$emit('enumerator', this.count);
+    increment() {
+      this.$emit('changeValue', this.count);
       this.count++;
     },
   }
