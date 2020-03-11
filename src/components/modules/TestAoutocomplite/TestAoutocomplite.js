@@ -1,19 +1,26 @@
 import { mapActions, mapGetters } from 'vuex';
-import autocomplete from '../Autocomplete/Autocomplete.vue';
 
 export default {
-  name: 'FlightArrivalRoute',
-  components: {
-    autocomplete
-  },
+  name: 'FlightDepartureRoute',
+  components: {},
   data: function() {
     return {
-      arrivalConfig: {
-        placeholder: 'To',
-        id: 'arrival',
-        styleClassName: 'is-arrival-radius'
+      departureConfig: {
+        placeholder: 'From',
+        id: 'departure',
+        styleClassName: 'is-reverse-active is-departure-radius'
       }
     };
+  },
+  props: {
+    config: {
+      type: Object,
+      require: true
+    },
+    inputValue: {
+      type: String,
+      required: true
+    }
   },
   computed: {
     ...mapGetters({
@@ -44,33 +51,33 @@ export default {
       this.handlerArrivalRoute(departure);
     },
     activeInput(value) {
-      if (this.departure.length !== 0) {
-        this.resetDepartureAutocomplete();
+      if (this.arrival.length !== 0) {
+        this.resetArrivalAutocomplete();
       }
 
       if (value.length !== 0) {
-        this.handlerArrivalRoute(value);
+        this.handlerDepartureRoute(value);
       }
     },
     selectItem(idPlace) {
       let findAirport = [];
 
-      findAirport = this.foundArrivalAirports.filter(item => {
+      findAirport = this.foundDepartureAirports.filter(item => {
         if (idPlace[1] === 'city') {
           return item.shortCityName === idPlace[0];
         }
         return item.iataCode === idPlace[0];
       })[0];
 
-      this.updateArrivalValue(this.setInputLabel(findAirport));
+      this.updateDepartureValue(this.setInputLabel(findAirport));
     },
     documentClick() {
       this.resetDepartureAutocomplete();
       this.resetArrivalAutocomplete();
     },
-    handlerArrivalRouteTrip(value) {
-      this.handlerArrivalRoute(value);
-    },
+    // handlerDepartRouteTrip(value) {
+    //   this.handlerDepartureRoute(value);
+    // },
     setOptionsLabel(props) {
       return `${props.name} (${props.iataCode})`;
     },

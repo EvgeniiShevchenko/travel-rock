@@ -1,51 +1,29 @@
 import { mapActions, mapGetters } from 'vuex';
-import autocompleteInput from '../AutocompleteInput/AutocompleteInput.vue';
+import testAoutocomplite from '../TestAoutocomplite/TestAoutocomplite.vue';
 
 export default {
   name: 'FlightDepartureRoute',
-  props: {
-    autocompleteConfig: {
-      type: Object,
-      required: true
-    }
-  },
   components: {
-    autocompleteInput
+    testAoutocomplite
+  },
+  data: function() {
+    return {
+      departureConfig: {
+        placeholder: 'From',
+        id: 'departure',
+        styleClassName: 'is-reverse-active is-departure-radius'
+      }
+    };
   },
   computed: {
     ...mapGetters({
       departure: 'searchPage/getDepartureValue',
       arrival: 'searchPage/getArrivalValue',
-      foundDepartureAirports: 'searchPage/getResultDepartureAutocomplete',
-      foundArrivalAirports: 'searchPage/getResultArrivalAutocomplete',
-      isAutocompleteLoading: 'searchPage/getStatusAutocomplete'
+      foundDepartureAirports: 'searchPage/getResultDepartureAutocomplete'
     })
   },
   methods: {
-    sayHay() {
-      console.log('kmsdmds');
-    },
-    defineClassForItem(item) {
-      let styleClass = '';
-
-      styleClass = item.type === 'airport' ? 'autocomplete-item' : 'autocomplete-item is-group-mark';
-
-      if (item.groupLabel.length === 0) {
-        styleClass = styleClass + ' ' + 'is-single-option';
-      }
-
-      return styleClass;
-    },
-    reverseRoute() {
-      const departure = this.departure;
-      const arrival = this.arrival;
-
-      this.handlerDepartureRoute(arrival);
-      this.handlerArrivalRoute(departure);
-    },
-    activeInput(e) {
-      const value = e.target.value;
-
+    activeInput(value) {
       if (this.arrival.length !== 0) {
         this.resetArrivalAutocomplete();
       }
@@ -54,23 +32,20 @@ export default {
         this.handlerDepartureRoute(value);
       }
     },
+    handlerDepartRouteTrip(value) {
+      this.handlerDepartureRoute(value);
+    },
     selectItem(idPlace) {
       let findAirport = [];
 
       findAirport = this.foundDepartureAirports.filter(item => {
-        return item.iataCode === idPlace;
+        if (idPlace[1] === 'city') {
+          return item.shortCityName === idPlace[0];
+        }
+        return item.iataCode === idPlace[0];
       })[0];
 
-      this.updateDepartureValue(this.autocompleteConfig.setInputLabel(findAirport));
-    },
-    documentClick() {
-      this.resetDepartureAutocomplete();
-      this.resetArrivalAutocomplete();
-    },
-    handlerDepartRouteTrip(e) {
-      const value = e.target.value;
-
-      this.handlerDepartureRoute(value);
+      this.updateDepartureValue(this.setInputLabel(findAirport));
     },
     ...mapActions({
       handlerDepartureRoute: 'searchPage/handlerDepartureRoute',
@@ -80,11 +55,5 @@ export default {
       resetDepartureAutocomplete: 'searchPage/resetDepartureAutocompleteResult',
       resetArrivalAutocomplete: 'searchPage/resetArrivalAutocompleteResult'
     })
-  },
-  mounted: function() {
-    document.addEventListener('click', this.documentClick);
-  },
-  destroyed() {
-    document.removeEventListener('click', this.documentClick);
   }
 };

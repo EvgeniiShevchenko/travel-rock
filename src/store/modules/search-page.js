@@ -89,7 +89,6 @@ export default {
       commit('setStatusAutocomplete', true);
 
       const { data } = await api.getAirports();
-
       let filterAirports = data.filter(item => {
         const filterSearchValue = item.city.toUpperCase().trim();
 

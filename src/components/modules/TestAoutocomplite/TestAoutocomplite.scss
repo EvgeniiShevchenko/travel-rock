@@ -1,26 +1,35 @@
-.autocomplete-wrapper {
-    height: 48px;
-    font-size: $small;
-
     .input-wrapper {
         position: relative;
 
         height: 100%;
 
-        // .autocomplete {
-        //     padding-left: 12px;
+        .is-departure-radius {
+            border-radius: 4px 4px 0 0;
+        }
 
-        //     height: 100%;
-        //     width: 100%;
+        .reverse-route {
+            position: absolute;
 
-        //     border: none;
-        //     outline: none;
+            right: 0;
+            top: 18px;
+            margin-right: 10px;
 
-        //     &:focus {
-        //         outline: 2px solid#6db3f1;
-        //         outline-offset: -2px;
-        //     }
-        // }
+            width: 16px;
+            height: 15px;
+
+            .reverse-route-button {
+                display: block;
+
+                padding: 0;
+
+                width: 100%;
+                height: 100%;
+
+                border: none;
+                background: url("../../../assets/images/reverse-route.svg") no-repeat;
+                background-size: 100% 100%;
+            }
+        }
     }
 
     .autocomplete-list {
@@ -116,21 +125,20 @@
             transform: translateY(-50%);
         }
     }
-}
 
-@include tablet {
-    .autocomplete-wrapper .input-wrapper .is-arrival-radius {
-        border-radius: 0 4px 0 0;
-    }
-}
-
-@include desktop {
-    .autocomplete-wrapper .autocomplete-list {
-        width: 410px;
-        left: auto;
+    @include tablet {
+        .input-wrapper .is-departure-radius {
+            border-radius: 4px 0 0 0;
+        }
     }
 
-    .autocomplete-wrapper .input-wrapper .is-arrival-radius {
-        border-radius: 0 0 0 0;
+    @include desktop {
+        .input-wrapper .is-departure-radius {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .autocomplete-list {
+            width: 410px;
+            left: auto;
+        }
     }
-}

@@ -1,17 +1,16 @@
 <template>
-  <!-- <div class="autocomplete-wrapper"> -->
-  <testAoutocomplite
-    class="autocomplete-wrapper"
-    :inputValue="departure"
-    :config="departureConfig"
-    @inputActions="handlerDepartRouteTrip"
-  />
-  <!-- <div class="input-wrapper">
-      <autocomplete
-        :inputValue="departure"
-        :config="departureConfig"
-        @inputFocus="activeInput"
-        @inputDeparture="handlerDepartRouteTrip"
+  <div>
+    <div class="input-wrapper">
+      <input
+        :id="config.id"
+        :class="`autocomplete ${config.styleClassName}`"
+        :value="inputValue"
+        type="text"
+        :placeholder="config.placeholder"
+        required
+        autocomplete="off"
+        @input="$emit('inputActions', $event.target.value)"
+        @click.stop="$emit('inputFocus', $event.target.value)"
       />
       <div class="reverse-route">
         <button class="reverse-route-button" type="button" @click="reverseRoute" />
@@ -28,11 +27,11 @@
           @click="selectItem(item.type === 'airport' ? [item.iataCode, item.type] : [item.shortCityName, item.type])"
         >{{ item.type === 'airport' ? setOptionsLabel(item) : setGroupLabel(item) }}</p>
       </li>
-  </ul>-->
-  <!-- </div> -->
+    </ul>
+  </div>
 </template>
 
-<script src="./FlightDepartureRoute.js"></script>
+<script src="./TestAoutocomplite.js"></script>
 
-<style lang="scss" src="./FlightDepartureRoute.scss" scoped></style>
+<style lang="scss" src="./TestAoutocomplite.scss" scoped></style>
 

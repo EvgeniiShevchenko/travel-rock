@@ -1,7 +1,7 @@
 <template>
   <div class="autocomplete">
-    <flightDepartureRoute class="autocomplete-departure" :autocompleteConfig="departureConfig" />
-    <flightArrivalRoute class="autocomplete-arrival" :autocompleteConfig="arrivalConfig" />
+    <flightDepartureRoute class="autocomplete-departure" />
+    <flightArrivalRoute class="autocomplete-arrival" />
   </div>
 </template>
 
