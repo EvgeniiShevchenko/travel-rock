@@ -3,17 +3,16 @@ export default {
   props: {
     outputText: {
       type: String,
-      required: false,
-      default: ''
+      required: false
     }
   },
-  data: function () {
+  data: function() {
     return {
       isActive: false
     };
   },
   methods: {
-    dropdownToggle: function () {
+    formFieldToggle: function () {
       this.isActive = !this.isActive;
     }
   }

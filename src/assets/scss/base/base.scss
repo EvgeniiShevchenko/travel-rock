@@ -57,7 +57,7 @@ button {
     max-width: 100%;
   }
 }
-@include large-desktop {
+@include widescreen {
   .container{
     max-width: 1180px;
   }

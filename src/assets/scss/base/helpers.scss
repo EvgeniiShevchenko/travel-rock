@@ -1,0 +1,8 @@
+.is-active {
+  display: block !important;
+}
+
+.is-focused {
+  outline: 2px solid $color-outline !important;
+  outline-offset: -2px !important;
+}

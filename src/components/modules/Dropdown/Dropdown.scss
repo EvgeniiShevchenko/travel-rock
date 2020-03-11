@@ -1,4 +1,4 @@
-.wrapper-dropdown {
+.dropdown-wrapper {
   position: relative;
   display: flex;
   width: 100%;
@@ -33,10 +33,6 @@
   transform: rotate(45deg);
   transition: .2s linear;
 }
-.arrow-active {
-  top:50%;
-  transform: rotate(-135deg);
-}
 
 .dropdown-body {
   position: absolute;
@@ -49,11 +45,15 @@
   background-color: $color-white;
   transition: all 0.3s ease-out;
 }
-.active {
-  display: block;
+
+.is-active {
+  .arrow {
+    top:50%;
+    transform: rotate(-135deg);
+  }
+  .dropdown-body {
+    display: block;
+  }
 }
 
-.activeBorder {
-  outline: 2px solid $color-outline;
-}
 

@@ -45,7 +45,7 @@
             novalidate
           >
             <div class="form-controls-wrapper">
-              <div class="depart-location input-wrapper">
+              <div class="depart-location form-field-wrapper">
                 <input
                   class="departure form-input"
                   type="text"
@@ -55,14 +55,14 @@
                   <use xlink:href="../../../assets/images/icons-sprite.svg#icon-arrow-pointers" />
                 </svg>
               </div>
-              <div class="arrival-location input-wrapper">
+              <div class="arrival-location form-field-wrapper">
                 <input
                   class="arrival form-input"
                   type="text"
                   placeholder="To"
                 >
               </div>
-              <div class="booking input-wrapper">
+              <div class="booking form-field-wrapper">
                 <button
                   class="date-picker form-input"
                   type="button"
@@ -72,14 +72,10 @@
                   Return
                 </button>
               </div>
-              <div class="ticket-info input-wrapper">
-
+              <div class="field-wrapper form-field-wrapper">
                   <DropDown/>
-
-
               </div>
             </div>
-
             <button
               class="search-btn"
               type="submit"
@@ -87,15 +83,13 @@
               Search
             </button>
           </form>
-
         </div>
       </div>
     </div>
   </main>
 </template>
 
-<script src="./SearchForm.js">
-</script>
+<script src="./SearchForm.js"></script>
 
 <style lang="scss" scoped>
 @import './SearchForm.scss';
