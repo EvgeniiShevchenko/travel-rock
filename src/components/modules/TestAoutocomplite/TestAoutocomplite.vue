@@ -9,23 +9,20 @@
         :placeholder="config.placeholder"
         required
         autocomplete="off"
-        @input="$emit('inputActions', $event.target.value)"
-        @click.stop="$emit('inputFocus', $event.target.value)"
+        @input="$emit('change-input', $event.target.value)"
+        @click.stop="$emit('focus-input', $event.target.value)"
       />
       <div class="reverse-route">
-        <button class="reverse-route-button" type="button" @click="reverseRoute" />
+        <button class="reverse-route-button" type="button" @click="$emit('reverse-rout')" />
       </div>
     </div>
-    <ul v-show="foundDepartureAirports.length !== 0" class="autocomplete-list">
+    <ul v-show="findAirports.length !== 0" class="autocomplete-list">
       <li
-        v-for="(item, index) in foundDepartureAirports"
-        :key="departureConfig.id + index"
+        v-for="(item, index) in findAirports"
+        :key="config.id + index"
         :class="defineClassForItem(item)"
       >
-        <p
-          class="title"
-          @click="selectItem(item.type === 'airport' ? [item.iataCode, item.type] : [item.shortCityName, item.type])"
-        >{{ item.type === 'airport' ? setOptionsLabel(item) : setGroupLabel(item) }}</p>
+        <p class="title" @click="$emit('select-option', item)">{{ getOptionDescription(item) }}</p>
       </li>
     </ul>
   </div>

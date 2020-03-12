@@ -8,7 +8,7 @@ export default {
   },
   data: function() {
     return {
-      departureConfig: {
+      config: {
         placeholder: 'From',
         id: 'departure',
         styleClassName: 'is-reverse-active is-departure-radius'
@@ -19,11 +19,11 @@ export default {
     ...mapGetters({
       departure: 'searchPage/getDepartureValue',
       arrival: 'searchPage/getArrivalValue',
-      foundDepartureAirports: 'searchPage/getResultDepartureAutocomplete'
+      findAirports: 'searchPage/getResultDepartureAutocomplete'
     })
   },
   methods: {
-    activeInput(value) {
+    focusInput(value) {
       if (this.arrival.length !== 0) {
         this.resetArrivalAutocomplete();
       }
@@ -32,28 +32,30 @@ export default {
         this.handlerDepartureRoute(value);
       }
     },
-    handlerDepartRouteTrip(value) {
+    handlerRouteTrip(value) {
       this.handlerDepartureRoute(value);
     },
-    selectItem(idPlace) {
-      let findAirport = [];
-
-      findAirport = this.foundDepartureAirports.filter(item => {
-        if (idPlace[1] === 'city') {
-          return item.shortCityName === idPlace[0];
+    reverseRoute() {
+      this.reverseRouteTrip({ departureValue: this.departure, arrivalValue: this.arrival });
+    },
+    selectItem(selectItem) {
+      const findAirport = this.findAirports.filter(item => {
+        if (selectItem.type === 'city') {
+          return item.shortCityName === selectItem.shortCityName;
         }
-        return item.iataCode === idPlace[0];
+        return item.iataCode === selectItem.iataCode;
       })[0];
 
       this.updateDepartureValue(this.setInputLabel(findAirport));
     },
+    setInputLabel(item) {
+      return `${item.city} (${typeof item.iataCode === 'undefined' ? item.shortCityName : item.iataCode})`;
+    },
     ...mapActions({
       handlerDepartureRoute: 'searchPage/handlerDepartureRoute',
-      handlerArrivalRoute: 'searchPage/handlerArrivalRoute',
       updateDepartureValue: 'searchPage/updateDepartureValue',
-      updateArrivalValue: 'searchPage/updateArrivalValue',
-      resetDepartureAutocomplete: 'searchPage/resetDepartureAutocompleteResult',
-      resetArrivalAutocomplete: 'searchPage/resetArrivalAutocompleteResult'
+      resetArrivalAutocomplete: 'searchPage/resetArrivalAutocompleteResult',
+      reverseRouteTrip: 'searchPage/reverseRouteTrip'
     })
   }
 };

@@ -3,6 +3,25 @@
 
         height: 100%;
 
+        .autocomplete {
+            padding-left: 12px;
+
+            height: 100%;
+            width: 100%;
+
+            border: none;
+            outline: none;
+
+            &:focus {
+                outline: 2px solid#6db3f1;
+                outline-offset: -2px;
+            }
+        }
+
+        .is-reverse-active {
+            padding-right: 30px;
+        }
+
         .is-departure-radius {
             border-radius: 4px 4px 0 0;
         }

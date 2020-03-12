@@ -1,35 +1,14 @@
 <template>
-  <!-- <div class="autocomplete-wrapper"> -->
   <testAoutocomplite
     class="autocomplete-wrapper"
     :inputValue="departure"
-    :config="departureConfig"
-    @inputActions="handlerDepartRouteTrip"
+    :findAirports="findAirports"
+    :config="config"
+    @change-input="handlerRouteTrip"
+    @focus-input="focusInput"
+    @reverse-rout="reverseRoute"
+    @select-option="selectItem"
   />
-  <!-- <div class="input-wrapper">
-      <autocomplete
-        :inputValue="departure"
-        :config="departureConfig"
-        @inputFocus="activeInput"
-        @inputDeparture="handlerDepartRouteTrip"
-      />
-      <div class="reverse-route">
-        <button class="reverse-route-button" type="button" @click="reverseRoute" />
-      </div>
-    </div>
-    <ul v-show="foundDepartureAirports.length !== 0" class="autocomplete-list">
-      <li
-        v-for="(item, index) in foundDepartureAirports"
-        :key="departureConfig.id + index"
-        :class="defineClassForItem(item)"
-      >
-        <p
-          class="title"
-          @click="selectItem(item.type === 'airport' ? [item.iataCode, item.type] : [item.shortCityName, item.type])"
-        >{{ item.type === 'airport' ? setOptionsLabel(item) : setGroupLabel(item) }}</p>
-      </li>
-  </ul>-->
-  <!-- </div> -->
 </template>
 
 <script src="./FlightDepartureRoute.js"></script>

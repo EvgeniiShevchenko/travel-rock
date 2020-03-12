@@ -66,7 +66,6 @@ export default {
       commit('setStatusAutocomplete', true);
 
       const { data } = await api.getAirports();
-
       let filterAirports = data.filter(item => {
         const filterSearchValue = item.city.toUpperCase().trim();
 
@@ -114,6 +113,14 @@ export default {
     },
     resetArrivalAutocompleteResult({ commit }) {
       commit('resetResultArrivalAutocomplete');
+    },
+    resetAllAutocompleteResult({ commit }) {
+      commit('resetResultDepartureAutocomplete');
+      commit('resetResultArrivalAutocomplete');
+    },
+    reverseRouteTrip({ commit }, { departureValue, arrivalValue }) {
+      commit('setDeparture', arrivalValue);
+      commit('setArrival', departureValue);
     }
   }
 };
