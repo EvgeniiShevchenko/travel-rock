@@ -1,11 +1,11 @@
 .footer {
-    padding: 25px 25px 30px 25px;
+    padding: 25px 0 30px 0;
 
     background-color: $color-dark-blue;
 
     line-height: 19px;
     font-size: $small;
-    color: $color-light-gray;
+    color: $color-light-slate-gray;
 
     .container {
         display: flex;
@@ -35,7 +35,7 @@
         }
 
         & .copyrights {
-            padding-top: 1px;
+            padding-top: 3px;
         }
 
         & .contacts-desktop {
@@ -75,7 +75,7 @@
             background-position: 4px center;
             background-size: 8px 13px;
 
-            color: $color-light-gray;
+            color: $color-light-slate-gray;
             cursor: pointer;
         }
 
@@ -88,7 +88,7 @@
             background-position: 0 center;
             background-size: 12px 8px;
 
-            color: $color-light-gray;
+            color: $color-light-slate-gray;
             cursor: pointer;
         }
 
@@ -124,8 +124,10 @@
 
 @include desktop {
     .footer {
-        padding-top: 33px;
-        padding-bottom: 62px;
+        padding-top: 15px;
+        padding-bottom: 20px;
+
+        color: $color-cadet-blue-craiola;
     }
 
     .footer .container .about-us {
