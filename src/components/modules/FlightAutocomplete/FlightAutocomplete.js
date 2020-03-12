@@ -1,13 +1,13 @@
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
-  name: 'FlightDepartureRoute',
+  name: 'FlightAutocomplete',
   props: {
     config: {
       type: Object,
       require: true
     },
-    findAirports: {
+    foundAirports: {
       type: Array,
       required: true
     },
@@ -17,9 +17,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      foundDepartureAirports: 'searchPage/getResultDepartureAutocomplete'
-    })
+    defineStyleAutocompleteClass() {
+      return this.config.id === 'departure'
+        ? 'autocomplete is-reverse-active is-departure-radius'
+        : 'autocomplete is-arrival-radius';
+    }
   },
   methods: {
     defineClassForItem(item) {
@@ -33,7 +35,7 @@ export default {
 
       return styleClass;
     },
-    documentClick() {
+    hideAllDropdown() {
       this.resetAllAutocompleteResult();
     },
     getOptionDescription(item) {
@@ -53,9 +55,9 @@ export default {
     })
   },
   mounted: function() {
-    document.addEventListener('click', this.documentClick);
+    document.addEventListener('click', this.hideAllDropdown);
   },
   destroyed() {
-    document.removeEventListener('click', this.documentClick);
+    document.removeEventListener('click', this.hideAllDropdown);
   }
 };

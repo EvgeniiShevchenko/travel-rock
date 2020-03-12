@@ -5,15 +5,20 @@
     flex-wrap: wrap;
 
     width: 100%;
+    height: 48px;
+
+    font-size: $small;
 
     .autocomplete-departure {
         width: 100%;
+        height: 100%;
     }
 
     .autocomplete-arrival {
         margin-top: 2px;
 
         width: 100%;
+        height: 100%;
     }
 }
 

@@ -1,8 +1,8 @@
 <template>
-  <testAoutocomplite
+  <autocomplete
     class="autocomplete-wrapper"
     :inputValue="arrival"
-    :findAirports="findAirports"
+    :foundAirports="foundAirports"
     :config="config"
     @change-input="handlerRouteTrip"
     @focus-input="focusInput"
@@ -13,5 +13,4 @@
 
 <script src="./FlightArrivalRoute.js"></script>
 
-<style lang="scss" src="./FlightArrivalRoute.scss" scoped></style>
 

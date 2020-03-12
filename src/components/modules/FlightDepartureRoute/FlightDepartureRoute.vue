@@ -1,14 +1,19 @@
 <template>
-  <testAoutocomplite
+  <autocomplete
     class="autocomplete-wrapper"
     :inputValue="departure"
-    :findAirports="findAirports"
+    :foundAirports="foundAirports"
     :config="config"
     @change-input="handlerRouteTrip"
     @focus-input="focusInput"
-    @reverse-rout="reverseRoute"
     @select-option="selectItem"
-  />
+  >
+    <template v-slot:reverse>
+      <div class="reverse-route">
+        <button class="reverse-route-button" type="button" @click="reverseRoute" />
+      </div>
+    </template>
+  </autocomplete>
 </template>
 
 <script src="./FlightDepartureRoute.js"></script>

@@ -1,17 +1,19 @@
 import { mapActions, mapGetters } from 'vuex';
-import testAoutocomplite from '../TestAoutocomplite/TestAoutocomplite.vue';
+import autocomplete from '../FlightAutocomplete/FlightAutocomplete.vue';
+import setInputLabel from '@/mixins/setInputLabel.js';
+import reverseRoute from '@/mixins/reverseRouteTrip.js';
 
 export default {
   name: 'FlightDepartureRoute',
   components: {
-    testAoutocomplite
+    autocomplete
   },
+  mixins: [setInputLabel, reverseRoute],
   data: function() {
     return {
       config: {
         placeholder: 'From',
-        id: 'departure',
-        styleClassName: 'is-reverse-active is-departure-radius'
+        id: 'departure'
       }
     };
   },
@@ -19,7 +21,7 @@ export default {
     ...mapGetters({
       departure: 'searchPage/getDepartureValue',
       arrival: 'searchPage/getArrivalValue',
-      findAirports: 'searchPage/getResultDepartureAutocomplete'
+      foundAirports: 'searchPage/getResultDepartureAutocomplete'
     })
   },
   methods: {
@@ -35,21 +37,18 @@ export default {
     handlerRouteTrip(value) {
       this.handlerDepartureRoute(value);
     },
-    reverseRoute() {
-      this.reverseRouteTrip({ departureValue: this.departure, arrivalValue: this.arrival });
-    },
     selectItem(selectItem) {
-      const findAirport = this.findAirports.filter(item => {
-        if (selectItem.type === 'city') {
-          return item.shortCityName === selectItem.shortCityName;
+      if (selectItem.type === 'city') {
+        if (this.arrival === this.setInputLabel(selectItem)) {
+          return;
         }
-        return item.iataCode === selectItem.iataCode;
-      })[0];
+      } else {
+        if (this.arrival === this.setInputLabel(selectItem)) {
+          return;
+        }
+      }
 
-      this.updateDepartureValue(this.setInputLabel(findAirport));
-    },
-    setInputLabel(item) {
-      return `${item.city} (${typeof item.iataCode === 'undefined' ? item.shortCityName : item.iataCode})`;
+      this.updateDepartureValue(this.setInputLabel(selectItem));
     },
     ...mapActions({
       handlerDepartureRoute: 'searchPage/handlerDepartureRoute',
