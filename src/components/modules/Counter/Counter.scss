@@ -1,0 +1,56 @@
+.counter-wrap{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-dark-gray;
+}
+
+.circle {
+  display: flex;
+  width: 33px;
+  height: 33px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid;
+  color: $color-enabled-counter-btn;
+}
+
+.buttons-count {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.minus {
+
+  &:before {
+    display: block;
+    content: '';
+    width: 11px;
+    border-bottom: 1px solid;
+  }
+}
+
+.plus {
+
+  &:after {
+    content: '';
+    height: 11px;
+    border-left: 1px solid;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 11px;
+    border-bottom: 1px solid;
+  }
+}
+
+.circle:disabled {
+  color: $color-disabled-counter-btn;
+}
+
