@@ -1,8 +1,6 @@
 <template>
-  <div :class="{ 'is-active': isActive }">
-    <div
-            class="dropdown-wrapper"
-            :class="{ 'is-focused': isActive, 'is-active': isActive }"
+  <div :class="{ 'is-focused': isActive }">
+    <div class="dropdown-wrapper"
             @click="formFieldToggle"
     >
       <span class="dropdown-output">{{ outputText }}</span>

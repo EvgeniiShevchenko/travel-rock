@@ -195,7 +195,7 @@
   .form-field-wrapper {
     margin: 0 auto;
     margin-top: 2px;
-    width: calc(50% - 2px);
+    width: calc(50% - #{$containers_gap});
     flex: 1 0 auto;
 
     &:first-child,&:nth-child(2) {
@@ -226,7 +226,7 @@
   }
 
   .form-field-wrapper {
-    width: calc(25% - 38px);
+    width: calc(25% - #{$bigger-container-width});
     flex: 1 0 auto;
     margin:0 0 0 2px;
     &:first-child {
@@ -234,7 +234,7 @@
     }
   }
   .field-wrapper {
-    width: calc(25% - 2px);
+    width: calc(25% - #{$containers_gap});
   }
   .search-btn {
     flex: 0 1 102px;
