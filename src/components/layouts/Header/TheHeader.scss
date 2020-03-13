@@ -1,15 +1,12 @@
 .header {
-  min-width: 375px;
-  padding: 13px 0;
-  background-color: $color-header-bg;
+  padding: 13px 10px;
+  background-color: $color-white;
 
     .header-logo {
       .img-logo {
+        display: block;
         height: 28px;
         width: 137px;
       }
     }
 }
-
-
-

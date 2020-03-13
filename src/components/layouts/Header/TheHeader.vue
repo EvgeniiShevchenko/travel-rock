@@ -14,8 +14,6 @@
 
 <script src='./TheHeader.js'></script>
 
-<style lang="scss">
-  @import "../../../assets/scss/base/variables.scss";
-  @import "../../../assets/scss/base/mixins.scss";
-  @import './TheHeader.scss';
+<style lang="scss" scoped>
+@import "./TheHeader.scss";
 </style>
