@@ -3,7 +3,8 @@
     <div class="container">
       <div class="search-form-wrapper">
         <div class="service-tabs-wrapper">
-          <searchBar @select-flights="shownFlights" @select-hotels="shownHotels" />
+          <!-- <searchBar @select-flights="shownFlights" @select-hotels="shownHotels" /> -->
+          <searchBar />
           <!-- <button
             class="tab-item current"
             type="button"
@@ -23,7 +24,7 @@
             <span class="tab-text">Hotels</span>
           </button>-->
         </div>
-        <div class="form-wrapper">
+        <div v-show="activeTab === 'flights'" class="form-wrapper">
           <div class="trip-options">
             <button class="options-item current" type="button">
               <span class="options-text">Round Trip</span>
@@ -63,6 +64,7 @@
             <button class="search-btn" type="submit">Search</button>
           </form>
         </div>
+        <div v-show="activeTab === 'hotels'" class="form-wrapper" />
       </div>
     </div>
   </main>

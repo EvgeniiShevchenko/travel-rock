@@ -1,7 +1,6 @@
 <template>
-  <button class="navigation-button">
+  <button class="navigation-button" @click="$emit('select-tab', $event.target.id)">
     <slot />
-    <!-- <img class="tab-icon" src alt />text -->
   </button>
 </template>
 
@@ -13,10 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .navigation-button {
-  max-width: 168px;
   width: 100%;
   height: 100%;
-  background-color: rgba(43, 70, 129, 0.9);
-  border-radius: 4px 4px 0 0;
 }
 </style>

@@ -1,16 +1,29 @@
 const getDefaultState = () => {
   return {
-  }
+    nameSearchTab: 'flights'
+  };
 };
 
 export default {
-namespaced: true,
+  namespaced: true,
 
-state: getDefaultState(),
+  state: getDefaultState(),
 
-getters: {},
+  getters: {
+    getSearchTabName(state) {
+      return state.nameSearchTab;
+    }
+  },
 
-mutations: {},
+  mutations: {
+    setNameSearchTab(state, payload) {
+      state.nameSearchTab = payload;
+    }
+  },
 
-actions: {}
+  actions: {
+    changeSearchTab({ commit }, tabName) {
+      commit('setNameSearchTab', tabName);
+    }
+  }
 };

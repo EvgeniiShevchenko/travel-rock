@@ -13,17 +13,17 @@
   margin: 40px 0;
 }
 
-.service-tabs-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  border-radius: 4px 4px 0 0;
+// .service-tabs-wrapper {
+//   display: flex;
+//   justify-content: center;
+//   align-items: stretch;
+//   border-radius: 4px 4px 0 0;
 
-  overflow: hidden;
-}
+//   overflow: hidden;
+// }
 
 .tab-item {
-  display:flex;
+  display: flex;
   justify-content: center;
   width: 50%;
   padding: 11px 0;
@@ -40,6 +40,7 @@
     height: 15px;
     margin-right: 8px;
   }
+
   .tab-text {
     font-size: $medium;
     font-weight: 500;
@@ -83,8 +84,13 @@
 .form-wrapper {
   padding: 22px 20px 36px;
   border-radius: 0 0 4px 4px;
- 
+
   background-color: $color-signal-blue;
+
+
+
+  // add style
+  border-top: 1px solid rgba(43, 70, 129, 0.9);
 }
 
 .form-controls-wrapper {
@@ -101,7 +107,7 @@
   font-size: $small;
   line-height: 19px;
 
-  
+
   &:first-child {
     margin-top: 0;
   }
@@ -127,7 +133,7 @@
     top: 0;
     right: 12px;
     bottom: 0;
-    
+
     width: 16px;
     height: 15px;
     margin: auto 0;
@@ -142,13 +148,14 @@
 .date-picker {
   text-align: left;
 
-  color:$color-light-gray;
-  & > .marked {
+  color: $color-light-gray;
+
+  &>.marked {
     color: $color-dark-gray;
   }
- 
+
 }
- 
+
 .ticket-info {
   position: relative;
 
@@ -185,17 +192,18 @@
   .search-form-wrapper {
     margin-top: 78px;
   }
-  .service-tabs-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    border-radius: 0;
-  }
+
+  // .service-tabs-wrapper {
+  //   display: flex;
+  //   justify-content: flex-start;
+  //   border-radius: 0;
+  // }
 
   .tab-item {
     width: 238px;
     min-width: 168px;
   }
-  
+
   .form-wrapper {
     border-radius: 0;
   }
@@ -211,9 +219,11 @@
     width: calc(50% - 2px);
     flex: 1 0 auto;
 
-    &:first-child,&:nth-child(2) {
+    &:first-child,
+    &:nth-child(2) {
       margin-top: 0;
     }
+
     &:nth-child(even) {
       margin-left: 2px;
     }
@@ -221,7 +231,7 @@
 }
 
 @include desktop {
-  
+
   .search-form-wrapper {
     margin-top: 128px;
   }
@@ -239,14 +249,17 @@
   .input-wrapper {
     width: calc(25% - 38px);
     flex: 1 0 auto;
-    margin:0 0 0 2px;
+    margin: 0 0 0 2px;
+
     &:first-child {
       margin-left: 0;
     }
   }
+
   .ticket-info {
     width: calc(25% - 2px);
   }
+
   .search-btn {
     flex: 0 1 102px;
     margin-top: 0;
@@ -261,17 +274,20 @@
     align-items: flex-start;
     margin-top: 180px;
   }
+
   .form-wrapper {
     width: 100%;
     border-radius: 0 4px 4px 4px;
   }
-  .service-tabs-wrapper {
-    border-radius: 4px 4px 0 0;
-  }
- 
+
+  // .service-tabs-wrapper {
+  //   border-radius: 4px 4px 0 0;
+  // }
+
   .form-controls-wrapper {
     border-radius: 4px;
   }
+
   .search-btn {
     flex: 0 1 120px;
   }
