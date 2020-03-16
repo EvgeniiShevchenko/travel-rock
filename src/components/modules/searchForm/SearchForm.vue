@@ -3,26 +3,7 @@
     <div class="container">
       <div class="search-form-wrapper">
         <div class="service-tabs-wrapper">
-          <!-- <searchBar @select-flights="shownFlights" @select-hotels="shownHotels" /> -->
           <searchBar />
-          <!-- <button
-            class="tab-item current"
-            type="button"
-          >
-            <svg class="tab-icon">
-              <use xlink:href="../../../assets/images/icons-sprite.svg#icon-plane" />
-            </svg>
-            <span class="tab-text">Flights</span>
-          </button>
-          <button
-            class="tab-item"
-            type="button"
-          >
-            <svg class="tab-icon">
-              <use xlink:href="../../../assets/images/icons-sprite.svg#icon-hotel" />
-            </svg>
-            <span class="tab-text">Hotels</span>
-          </button>-->
         </div>
         <div v-show="activeTab === 'flights'" class="form-wrapper">
           <div class="trip-options">

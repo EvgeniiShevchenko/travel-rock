@@ -1,18 +1,9 @@
 <template>
-  <button class="navigation-button" @click="$emit('select-tab', $event.target.id)">
+  <button class="navigation-tab" @click="$emit('select-tab', $event.target.id)">
     <slot />
   </button>
 </template>
 
-<script>
-export default {
-  name: "SearchTab"
-};
-</script>
+<script src="./Search-Tab.js"></script>
 
-<style lang="scss" scoped>
-.navigation-button {
-  width: 100%;
-  height: 100%;
-}
-</style>
+<style lang="scss" src="./Search-Tab.scss" scoped></style>
