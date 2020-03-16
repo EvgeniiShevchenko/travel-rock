@@ -3,7 +3,7 @@
     <div class="input-wrapper">
       <input
         :id="config.id"
-        :class="defineStyleAutocompleteClass"
+        :class="'autocomplete' + defineStyleAutocompleteClass"
         :value="inputValue"
         type="text"
         :placeholder="config.placeholder"
@@ -18,7 +18,7 @@
       <li
         v-for="(item, index) in foundAirports"
         :key="config.id + index"
-        :class="defineClassForItem(item)"
+        :class="'autocomplete-item' + defineClassForItem(item)"
         @click="$emit('select-option', item)"
       >
         <p class="title">{{ getOptionDescription(item) }}</p>

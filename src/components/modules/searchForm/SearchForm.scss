@@ -89,7 +89,6 @@
 }
 
 .form-controls-wrapper {
-  // overflow: hidden;
   border-radius: 4px;
 
   color: $color-dark-gray;
@@ -213,15 +212,6 @@
     margin-top: 2px;
     width: calc(50% - 2px);
     flex: 1 0 auto;
-
-    // &:first-child,
-    // &:nth-child(2) {
-    //   margin-top: 2;
-    // }
-
-    // &:nth-child(even) {
-    //   margin-left: 2px;
-    // }
 
     &:nth-child(3) {
       margin-left: 2px;

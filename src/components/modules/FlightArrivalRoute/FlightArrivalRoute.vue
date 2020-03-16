@@ -6,7 +6,6 @@
     :config="config"
     @change-input="handlerRouteTrip"
     @focus-input="focusInput"
-    @reverse-rout="reverseRoute"
     @select-option="selectItem"
   />
 </template>

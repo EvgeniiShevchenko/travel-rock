@@ -18,16 +18,12 @@ export default {
   },
   computed: {
     defineStyleAutocompleteClass() {
-      return this.config.id === 'departure'
-        ? 'autocomplete is-reverse-active is-departure-radius'
-        : 'autocomplete is-arrival-radius';
+      return this.config.id === 'departure' ? ' is-departure-radius is-reverse-active' : ' is-arrival-radius';
     }
   },
   methods: {
     defineClassForItem(item) {
-      let styleClass = '';
-
-      styleClass = item.type === 'airport' ? 'autocomplete-item' : 'autocomplete-item is-group-mark';
+      let styleClass = item.type !== 'airport' ? ' is-group-mark' : '';
 
       if (item.groupLabel.length === 0) {
         styleClass = `${styleClass} is-single-option`;
@@ -39,10 +35,7 @@ export default {
       this.resetAllAutocompleteResult();
     },
     getOptionDescription(item) {
-      if (item.type === 'airport') {
-        return this.setOptionsLabel(item);
-      }
-      return this.setGroupLabel(item);
+      return item.type === 'airport' ? this.setOptionsLabel(item) : this.setGroupLabel(item);
     },
     setOptionsLabel(item) {
       return `${item.name} (${item.iataCode})`;

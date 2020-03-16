@@ -6,7 +6,12 @@ const getDefaultState = () => {
     arrivalLocation: '',
     resultDepartureAutocomplete: [],
     resultArrivalAutocomplete: [],
-    isLoadingAutocomplete: false
+    isLoadingAutocomplete: false,
+    errorAutocomplete: {
+      name: '',
+      message: '',
+      status: false
+    }
   };
 };
 
@@ -30,6 +35,9 @@ export default {
     },
     getStatusAutocomplete(state) {
       return state.isLoadingAutocomplete;
+    },
+    getErrorsAutocomplete(state) {
+      return state.errorAutocomplete;
     }
   },
 
@@ -54,6 +62,9 @@ export default {
     },
     resetResultArrivalAutocomplete(state) {
       state.resultArrivalAutocomplete = [];
+    },
+    setAutocompleteError(state, payload) {
+      state.errorAutocomplete = { ...state.errorAutocomplete, ...payload };
     }
   },
 
@@ -121,6 +132,9 @@ export default {
     reverseRouteTrip({ commit }, { departureValue, arrivalValue }) {
       commit('setDeparture', arrivalValue);
       commit('setArrival', departureValue);
+    },
+    handlerAutocompleteError({ commit }, errorInfo) {
+      commit('setAutocompleteError', errorInfo);
     }
   }
 };

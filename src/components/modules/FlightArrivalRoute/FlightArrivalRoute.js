@@ -26,13 +26,9 @@ export default {
   },
   methods: {
     focusInput(value) {
-      if (this.departure.length !== 0) {
-        this.resetDepartureAutocomplete();
-      }
+      if (this.departure.length) this.resetDepartureAutocomplete();
 
-      if (value.length !== 0) {
-        this.handlerArrivalRoute(value);
-      }
+      if (value.length) this.handlerArrivalRoute(value);
     },
     handlerRouteTrip(value) {
       this.handlerArrivalRoute(value);

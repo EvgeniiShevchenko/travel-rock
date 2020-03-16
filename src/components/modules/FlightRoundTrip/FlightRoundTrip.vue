@@ -2,6 +2,7 @@
   <div class="autocomplete">
     <flightDepartureRoute class="autocomplete-departure" />
     <flightArrivalRoute class="autocomplete-arrival" />
+    <p class="error-message">dadfsdfsdf</p>
   </div>
 </template>
 
