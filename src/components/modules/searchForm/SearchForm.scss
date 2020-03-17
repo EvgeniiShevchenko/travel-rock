@@ -88,13 +88,12 @@
 }
 
 .form-controls-wrapper {
-  overflow: hidden;
   border-radius: 4px;
 
-  color: $color-dark-gray;
+  color: $color-primary;
 }
 
-.input-wrapper {
+.form-field-wrapper {
   height: 48px;
   border: none;
   margin-top: 2px;
@@ -114,7 +113,7 @@
   padding: 12px 15px;
   border: none;
 
-  color: $color-dark-gray;
+  color: $color-primary;
 
   background: $color-white;
 }
@@ -143,26 +142,14 @@
   text-align: left;
 
   color:$color-light-gray;
+
   & > .marked {
-    color: $color-dark-gray;
+    color: $color-primary;
   }
- 
 }
  
-.ticket-info {
+.dropdown-field-wrapper {
   position: relative;
-
-  .drop-down-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .chevron-icon {
-    width: 12px;
-    height: 12px;
-    margin: auto 0;
-  }
 }
 
 .search-btn {
@@ -205,10 +192,10 @@
     flex-wrap: wrap;
   }
 
-  .input-wrapper {
+  .form-field-wrapper {
     margin: 0 auto;
     margin-top: 2px;
-    width: calc(50% - 2px);
+    width: calc(50% - #{$form-field-gap});
     flex: 1 0 auto;
 
     &:first-child,&:nth-child(2) {
@@ -236,16 +223,16 @@
     border-radius: 0;
   }
 
-  .input-wrapper {
-    width: calc(25% - 38px);
+  .form-field-wrapper {
+    width: calc(25% - #{$dropdown-width-difference});
     flex: 1 0 auto;
     margin:0 0 0 2px;
     &:first-child {
       margin-left: 0;
     }
   }
-  .ticket-info {
-    width: calc(25% - 2px);
+  .field-wrapper {
+    width: calc(25% - #{$form-field-gap});
   }
   .search-btn {
     flex: 0 1 102px;
@@ -254,7 +241,7 @@
   }
 }
 
-@include large-desktop {
+@include widescreen {
   .search-form-wrapper {
     display: flex;
     flex-direction: column;

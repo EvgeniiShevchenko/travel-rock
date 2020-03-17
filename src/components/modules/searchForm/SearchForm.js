@@ -1,3 +1,7 @@
+import DropDown from "../Dropdown/Dropdown.vue";
 export default {
-  name: 'searchForm'
+  name: 'searchForm',
+  components:{
+    DropDown
+  },
 };
