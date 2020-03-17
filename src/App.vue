@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <TheHeader />
+    <router-view />
     <search-form />
     <TheFooter />
   </div>
