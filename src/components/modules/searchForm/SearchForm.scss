@@ -90,7 +90,7 @@
 .form-controls-wrapper {
   border-radius: 4px;
 
-  color: $color-dark-gray;
+  color: $color-primary;
 }
 
 .form-field-wrapper {
@@ -113,7 +113,7 @@
   padding: 12px 15px;
   border: none;
 
-  color: $color-dark-gray;
+  color: $color-primary;
 
   background: $color-white;
 }
@@ -142,10 +142,10 @@
   text-align: left;
 
   color:$color-light-gray;
+
   & > .marked {
-    color: $color-dark-gray;
+    color: $color-primary;
   }
- 
 }
  
 .field-wrapper {

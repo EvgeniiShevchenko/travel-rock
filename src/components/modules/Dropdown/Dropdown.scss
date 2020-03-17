@@ -8,9 +8,11 @@
   background-color: $color-white;
   cursor: pointer;
   align-items: center;
+
   @include touch {
     border-radius: 0 0 4px 0;
   }
+
   @include desktop {
     border-radius: 0 4px 4px 0;
   }
@@ -51,6 +53,7 @@
     top:50%;
     transform: rotate(-135deg);
   }
+
   .dropdown-body {
     display: block;
   }
