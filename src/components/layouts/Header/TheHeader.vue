@@ -5,7 +5,7 @@
         <router-link
                 to="/"
         >
-          <img class="img-logo" src="../../../assets/images/logo-header.png"/>
+          <img class="img-logo" alt="Logo AltexTravel" src="../../../assets/images/logo-header.png"/>
         </router-link>
       </div>
     </div>
