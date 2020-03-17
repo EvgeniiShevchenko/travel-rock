@@ -24,18 +24,23 @@ export default {
     getDepartureValue(state) {
       return state.departureLocation;
     },
+
     getArrivalValue(state) {
       return state.arrivalLocation;
     },
+
     getResultDepartureAutocomplete(state) {
       return state.resultDepartureAutocomplete;
     },
+
     getResultArrivalAutocomplete(state) {
       return state.resultArrivalAutocomplete;
     },
+
     getStatusAutocomplete(state) {
       return state.isLoadingAutocomplete;
     },
+
     getErrorsAutocomplete(state) {
       return state.errorAutocomplete;
     }
@@ -45,24 +50,35 @@ export default {
     setDeparture(state, payload) {
       state.departureLocation = payload;
     },
+
     setArrival(state, payload) {
       state.arrivalLocation = payload;
     },
+
     setResultDepartureAutocomplete(state, payload) {
       state.resultDepartureAutocomplete = payload;
     },
+
     setResultArrivalAutocomplete(state, payload) {
       state.resultArrivalAutocomplete = payload;
     },
+
     setStatusAutocomplete(state, payload) {
       state.isLoadingAutocomplete = payload;
     },
+
     resetResultDepartureAutocomplete(state) {
       state.resultDepartureAutocomplete = [];
     },
+
     resetResultArrivalAutocomplete(state) {
       state.resultArrivalAutocomplete = [];
     },
+
+    resetAutocompleteError(state) {
+      state.errorAutocomplete = { ...state.errorAutocomplete, ...getDefaultState().errorAutocomplete };
+    },
+
     setAutocompleteError(state, payload) {
       state.errorAutocomplete = { ...state.errorAutocomplete, ...payload };
     }
@@ -91,6 +107,7 @@ export default {
 
       commit('setStatusAutocomplete', false);
     },
+
     async handlerArrivalRoute({ commit }, value) {
       const inputValue = value.toUpperCase().trim();
 
@@ -113,28 +130,40 @@ export default {
 
       commit('setStatusAutocomplete', false);
     },
+
     updateDepartureValue({ commit }, value) {
       commit('setDeparture', value);
     },
+
     updateArrivalValue({ commit }, value) {
       commit('setArrival', value);
     },
+
     resetDepartureAutocompleteResult({ commit }) {
       commit('resetResultDepartureAutocomplete');
     },
+
     resetArrivalAutocompleteResult({ commit }) {
       commit('resetResultArrivalAutocomplete');
     },
+
     resetAllAutocompleteResult({ commit }) {
       commit('resetResultDepartureAutocomplete');
       commit('resetResultArrivalAutocomplete');
+      // commit('resetAutocompleteError');
     },
+
     reverseRouteTrip({ commit }, { departureValue, arrivalValue }) {
       commit('setDeparture', arrivalValue);
       commit('setArrival', departureValue);
     },
+
     handlerAutocompleteError({ commit }, errorInfo) {
       commit('setAutocompleteError', errorInfo);
+    },
+
+    resetAutocompleteError({ commit }) {
+      commit('resetAutocompleteError');
     }
   }
 };

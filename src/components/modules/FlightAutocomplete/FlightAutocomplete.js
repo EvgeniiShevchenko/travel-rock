@@ -44,7 +44,8 @@ export default {
       return `${item.city}, ${item.shortCityName} (All Airports)`;
     },
     ...mapActions({
-      resetAllAutocompleteResult: 'searchPage/resetAllAutocompleteResult'
+      resetAllAutocompleteResult: 'searchPage/resetAllAutocompleteResult',
+      resetError: 'searchPage/resetAutocompleteError'
     })
   },
   mounted: function() {

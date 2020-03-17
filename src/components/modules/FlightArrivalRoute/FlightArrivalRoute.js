@@ -26,6 +26,8 @@ export default {
   },
   methods: {
     focusInput(value) {
+      this.resetError();
+
       if (this.departure.length) this.resetDepartureAutocomplete();
 
       if (value.length) this.handlerArrivalRoute(value);
@@ -34,22 +36,24 @@ export default {
       this.handlerArrivalRoute(value);
     },
     selectItem(selectItem) {
-      if (selectItem.type === 'city') {
-        if (this.departure === this.setInputLabel(selectItem)) {
-          return;
-        }
-      } else {
-        if (this.departure === this.setInputLabel(selectItem)) {
-          return;
-        }
+      if (this.departure === this.setInputLabel(selectItem)) {
+        this.handlerError({
+          name: 'same-things',
+          status: true,
+          message: 'Departure and arrival airports must be different'
+        });
+
+        return;
       }
 
       this.updateArrivalValue(this.setInputLabel(selectItem));
     },
     ...mapActions({
+      resetDepartureAutocomplete: 'searchPage/resetDepartureAutocompleteResult',
       handlerArrivalRoute: 'searchPage/handlerArrivalRoute',
       updateArrivalValue: 'searchPage/updateArrivalValue',
-      resetDepartureAutocomplete: 'searchPage/resetDepartureAutocompleteResult'
+      handlerError: 'searchPage/handlerAutocompleteError',
+      resetError: 'searchPage/resetAutocompleteError'
     })
   }
 };

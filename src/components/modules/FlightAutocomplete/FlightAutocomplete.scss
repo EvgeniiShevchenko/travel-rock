@@ -124,6 +124,10 @@
         .input-wrapper .is-arrival-radius {
             border-radius: 0 4px 0 0;
         }
+
+        .autocomplete-list {
+            position: relative;
+        }
     }
 
     @include desktop {
