@@ -10,7 +10,8 @@ const getDefaultState = () => {
     errorAutocomplete: {
       name: '',
       message: '',
-      status: false
+      status: false,
+      location: []
     }
   };
 };
@@ -150,7 +151,6 @@ export default {
     resetAllAutocompleteResult({ commit }) {
       commit('resetResultDepartureAutocomplete');
       commit('resetResultArrivalAutocomplete');
-      // commit('resetAutocompleteError');
     },
 
     reverseRouteTrip({ commit }, { departureValue, arrivalValue }) {

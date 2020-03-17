@@ -1,5 +1,6 @@
 import { mapActions, mapGetters } from 'vuex';
 import autocomplete from '../FlightAutocomplete/FlightAutocomplete.vue';
+import validOnlyLatin from '@/mixins/validOnlyLatin.js';
 import setInputLabel from '@/mixins/setInputLabel.js';
 import reverseRoute from '@/mixins/reverseRouteTrip.js';
 
@@ -21,7 +22,8 @@ export default {
     ...mapGetters({
       arrival: 'searchPage/getArrivalValue',
       departure: 'searchPage/getDepartureValue',
-      foundAirports: 'searchPage/getResultArrivalAutocomplete'
+      foundAirports: 'searchPage/getResultArrivalAutocomplete',
+      errorsAutocomplete: 'searchPage/getErrorsAutocomplete'
     })
   },
   methods: {
@@ -32,15 +34,29 @@ export default {
 
       if (value.length) this.handlerArrivalRoute(value);
     },
+
     handlerRouteTrip(value) {
+      if (!validOnlyLatin(value) && value) {
+        this.handlerError({
+          name: 'only-latin',
+          status: true,
+          message: 'Please enter only latin letters',
+          location: [...this.errorsAutocomplete.location, 'arrival']
+        });
+      } else {
+        this.resetError();
+      }
+
       this.handlerArrivalRoute(value);
     },
+
     selectItem(selectItem) {
       if (this.departure === this.setInputLabel(selectItem)) {
         this.handlerError({
           name: 'same-things',
           status: true,
-          message: 'Departure and arrival airports must be different'
+          message: 'Departure and arrival airports must be different',
+          location: [...this.errorsAutocomplete.location, 'global']
         });
 
         return;

@@ -31,18 +31,23 @@ export default {
 
       return styleClass;
     },
+
     hideAllDropdown() {
       this.resetAllAutocompleteResult();
     },
+
     getOptionDescription(item) {
       return item.type === 'airport' ? this.setOptionsLabel(item) : this.setGroupLabel(item);
     },
+
     setOptionsLabel(item) {
       return `${item.name} (${item.iataCode})`;
     },
+
     setGroupLabel(item) {
       return `${item.city}, ${item.shortCityName} (All Airports)`;
     },
+
     ...mapActions({
       resetAllAutocompleteResult: 'searchPage/resetAllAutocompleteResult',
       resetError: 'searchPage/resetAutocompleteError'

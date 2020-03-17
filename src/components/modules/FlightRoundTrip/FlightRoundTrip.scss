@@ -34,6 +34,22 @@
     .has-error-select {
         border: 2px solid red;
     }
+
+    .has-error-departure {
+        border: 2px solid red;
+
+        /deep/.autocomplete {
+            outline: none;
+        }
+    }
+
+    .has-error-arrival {
+        border: 2px solid red;
+
+        /deep/.autocomplete {
+            outline: none;
+        }
+    }
 }
 
 @include tablet {
