@@ -72,7 +72,7 @@
                   Return
                 </button>
               </div>
-              <div class="field-wrapper form-field-wrapper">
+              <div class="dropdown-field-wrapper form-field-wrapper">
                   <DropDown/>
               </div>
             </div>

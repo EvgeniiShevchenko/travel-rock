@@ -148,20 +148,8 @@
   }
 }
  
-.field-wrapper {
+.dropdown-field-wrapper {
   position: relative;
-
-  .drop-down-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .chevron-icon {
-    width: 12px;
-    height: 12px;
-    margin: auto 0;
-  }
 }
 
 .search-btn {
