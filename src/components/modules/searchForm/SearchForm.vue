@@ -23,7 +23,7 @@
           </button>
         </div>
         <div class="form-wrapper">
-          <div class="trip-options">
+          <!-- <div class="trip-options">
             <button
               class="options-item current"
               type="button"
@@ -36,65 +36,84 @@
             >
               <span class="options-text">One Way</span>
             </button>
-          </div>
-          <Tabs> 
-            <TabItem />
-          </Tabs>
-          <form
-            action="#"
-            method="post"
-            name="search-form"
-            class="search-form"
-            novalidate
-          >
-            <div class="form-controls-wrapper">
-              <div class="depart-location input-wrapper">
-                <input
-                  class="departure form-input"
-                  type="text"
-                  placeholder="From"
-                >
-                <svg class="conbined-icon">
-                  <use xlink:href="../../../assets/images/icons-sprite.svg#icon-arrow-pointers" />
-                </svg>
-              </div>
-              <div class="arrival-location input-wrapper">
-                <input
-                  class="arrival form-input"
-                  type="text"
-                  placeholder="To"
-                >
-              </div>
-              <div class="booking input-wrapper">
-                <button
-                  class="date-picker form-input"
-                  type="button"
-                >
-                  Depart
-                  <span class="marked">—</span>
-                  Return
-                </button>
-              </div>
-              <div class="ticket-info input-wrapper">
-                <button
-                  class="drop-down-list form-input"
-                  type="button"
-                >
-                  1 Passenger, Economy
-                  <svg class="chevron-icon">
-                    <use xlink:href="../../../assets/images/icons-sprite.svg#icon-dropdown" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+          </div> -->
+          <TabsContainer>
+            <TabItem :selected="true">
+              <button
+                slot="navBtn"
+                class="options-item current"
+                type="button"
+              >
+                <span class="options-text ">Round Trip</span>
+              </button>
 
-            <button
-              class="search-btn"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
+              <form
+                action="#"
+                method="post"
+                name="search-form"
+                class="search-form"
+                novalidate
+              >
+                <div class="form-controls-wrapper">
+                  <div class="depart-location input-wrapper">
+                    <input
+                      class="departure form-input"
+                      type="text"
+                      placeholder="From"
+                    >
+                    <svg class="conbined-icon">
+                      <use xlink:href="../../../assets/images/icons-sprite.svg#icon-arrow-pointers" />
+                    </svg>
+                  </div>
+                  <div class="arrival-location input-wrapper">
+                    <input
+                      class="arrival form-input"
+                      type="text"
+                      placeholder="To"
+                    >
+                  </div>
+                  <div class="booking input-wrapper">
+                    <button
+                      class="date-picker form-input"
+                      type="button"
+                    >
+                      Depart
+                      <span class="marked">—</span>
+                      Return
+                    </button>
+                  </div>
+                  <div class="ticket-info input-wrapper">
+                    <button
+                      class="drop-down-list form-input"
+                      type="button"
+                    >
+                      1 Passenger, Economy
+                      <svg class="chevron-icon">
+                        <use xlink:href="../../../assets/images/icons-sprite.svg#icon-dropdown" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  class="search-btn"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
+            </TabItem>
+
+            <TabItem> 
+              <button
+                slot="navBtn"
+                class="options-item"
+                type="button"
+              >
+                <span class="options-text">One Way</span>
+              </button>
+            </TabItem>
+          </TabsContainer>
         </div>
       </div>
     </div>
