@@ -6,12 +6,11 @@ export default {
     };
   },
   mounted() {
-    this.navItemsArr = this.$children; // указываем сколько нав-айтемов будет в списке
+    this.navItemsArr = this.$children;
   },
   methods: {
     selectMenuItem(navItem) {
       this.navItemsArr.forEach(item => {
-        // Проверяем переданый елемент. Если он совпадает с элементом которым мы пробегаемся в форыче то тогда присваиваем isActive TRUE
         item.isActive = item == navItem;
       });
     }

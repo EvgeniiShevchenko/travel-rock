@@ -20,7 +20,6 @@ export default {
   },
   computed: {
     title() {
-      
       return this.$slots.navBtn[0].elm.outerHTML;
     }
   }
