@@ -2,10 +2,11 @@
   <header class="header">
     <div class="container">
       <div class="header-logo">
-        <img
-          class="img-logo"
-          src="../../../assets/images/logo.png"
+        <router-link
+                to="/"
         >
+          <img class="img-logo" alt="Logo AltexTravel" src="../../../assets/images/logo-header.png"/>
+        </router-link>
       </div>
     </div>
   </header>

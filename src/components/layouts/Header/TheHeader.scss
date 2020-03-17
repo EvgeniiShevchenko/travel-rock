@@ -2,14 +2,11 @@
   padding: 13px 10px;
   background-color: $color-white;
 
-  @include touch {
-    padding-top: 42px;
-  }
-
-  .header-logo {
-    .img-logo {
-      height: 28px;
-      width: 137px;
+    .header-logo {
+      .img-logo {
+        display: block;
+        height: 28px;
+        width: 137px;
+      }
     }
-  }
 }
