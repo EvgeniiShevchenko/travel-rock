@@ -2,7 +2,9 @@
   <main class="main-content">
     <div class="container">
       <div class="search-form-wrapper">
-        <NavigationBar />
+        <div class="service-tabs-wrapper">
+          <NavigationBar />
+        </div>
         <div v-show="getNavigationTabName === 'flights'" class="form-wrapper">
           <div class="trip-options">
             <button class="options-item current" type="button">

@@ -5,7 +5,7 @@
       :class="'flights-tab' + defineStyleForFlightsTab"
       @select-tab="selectTab"
     >
-      <img src="@/assets/images/airplane.svg" alt="Flight tab icon" /> Flights
+      <img src="@/assets/images/flight.svg" alt="Flight tab icon" /> Flights
     </NavigationTab>
     <NavigationTab
       id="hotels"
