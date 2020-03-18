@@ -13,15 +13,6 @@
   margin: 40px 0;
 }
 
-// .service-tabs-wrapper {
-//   display: flex;
-//   justify-content: center;
-//   align-items: stretch;
-//   border-radius: 4px 4px 0 0;
-
-//   overflow: hidden;
-// }
-
 .tab-item {
   display: flex;
   justify-content: center;
@@ -86,21 +77,15 @@
   border-radius: 0 0 4px 4px;
 
   background-color: $color-signal-blue;
-
-
-
-  // add style
-  border-top: 1px solid rgba(43, 70, 129, 0.9);
 }
 
 .form-controls-wrapper {
-  overflow: hidden;
   border-radius: 4px;
 
-  color: $color-dark-gray;
+  color: $color-primary;
 }
 
-.input-wrapper {
+.form-field-wrapper {
   height: 48px;
   border: none;
   margin-top: 2px;
@@ -120,7 +105,7 @@
   padding: 12px 15px;
   border: none;
 
-  color: $color-dark-gray;
+  color: $color-primary;
 
   background: $color-white;
 }
@@ -151,25 +136,12 @@
   color: $color-light-gray;
 
   &>.marked {
-    color: $color-dark-gray;
+    color: $color-primary;
   }
-
 }
 
-.ticket-info {
+.dropdown-field-wrapper {
   position: relative;
-
-  .drop-down-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .chevron-icon {
-    width: 12px;
-    height: 12px;
-    margin: auto 0;
-  }
 }
 
 .search-btn {
@@ -193,12 +165,6 @@
     margin-top: 78px;
   }
 
-  // .service-tabs-wrapper {
-  //   display: flex;
-  //   justify-content: flex-start;
-  //   border-radius: 0;
-  // }
-
   .tab-item {
     width: 238px;
     min-width: 168px;
@@ -213,10 +179,10 @@
     flex-wrap: wrap;
   }
 
-  .input-wrapper {
+  .form-field-wrapper {
     margin: 0 auto;
     margin-top: 2px;
-    width: calc(50% - 2px);
+    width: calc(50% - #{$form-field-gap});
     flex: 1 0 auto;
 
     &:first-child,
@@ -246,8 +212,8 @@
     border-radius: 0;
   }
 
-  .input-wrapper {
-    width: calc(25% - 38px);
+  .form-field-wrapper {
+    width: calc(25% - #{$dropdown-width-difference});
     flex: 1 0 auto;
     margin: 0 0 0 2px;
 
@@ -256,8 +222,8 @@
     }
   }
 
-  .ticket-info {
-    width: calc(25% - 2px);
+  .field-wrapper {
+    width: calc(25% - #{$form-field-gap});
   }
 
   .search-btn {
@@ -267,7 +233,7 @@
   }
 }
 
-@include large-desktop {
+@include widescreen {
   .search-form-wrapper {
     display: flex;
     flex-direction: column;
@@ -279,10 +245,6 @@
     width: 100%;
     border-radius: 0 4px 4px 4px;
   }
-
-  // .service-tabs-wrapper {
-  //   border-radius: 4px 4px 0 0;
-  // }
 
   .form-controls-wrapper {
     border-radius: 4px;

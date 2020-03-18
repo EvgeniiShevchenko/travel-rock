@@ -1,12 +1,14 @@
-import searchBar from '../Search-Bar/Search-Bar.vue';
+import NavigationBar from '../NavigationBar/NavigationBar.vue';
+import DropDown from '../Dropdown/Dropdown.vue';
 import { mapGetters } from 'vuex';
 
 export default {
   name: 'searchForm',
   components: {
-    searchBar
+    NavigationBar,
+    DropDown
   },
   computed: {
-    ...mapGetters({ activeTab: 'searchPage/getSearchTabName' })
+    ...mapGetters({ getNavigationTabName: 'searchPage/getNavigationTabName' })
   }
 };

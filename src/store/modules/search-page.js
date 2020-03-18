@@ -1,6 +1,6 @@
 const getDefaultState = () => {
   return {
-    nameSearchTab: 'flights'
+    nameNavigationTab: 'flights'
   };
 };
 
@@ -10,20 +10,20 @@ export default {
   state: getDefaultState(),
 
   getters: {
-    getSearchTabName(state) {
-      return state.nameSearchTab;
+    getNavigationTabName(state) {
+      return state.nameNavigationTab;
     }
   },
 
   mutations: {
-    setNameSearchTab(state, payload) {
-      state.nameSearchTab = payload;
+    setNameNavigationTab(state, payload) {
+      state.nameNavigationTab = payload;
     }
   },
 
   actions: {
-    changeSearchTab({ commit }, tabName) {
-      commit('setNameSearchTab', tabName);
+    switchNavigationTab({ commit }, tabName) {
+      commit('setNameNavigationTab', tabName);
     }
   }
 };
