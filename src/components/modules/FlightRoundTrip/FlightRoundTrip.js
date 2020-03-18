@@ -15,22 +15,14 @@ export default {
     ...mapGetters({ errorsAutocomplete: 'searchPage/getErrorsAutocomplete' })
   },
   methods: {
-    defineStyleForError(errorId, originStyle, error) {
-      let errorStyle = '';
-
-      if (error.status === true) {
-        errorStyle = error.name === 'same-things' ? ' has-error-select' : '';
-
-        if (error.location.length !== 0) {
-          for (let locationError of error.location) {
-            if (locationError !== 'global') {
-              errorStyle = locationError === errorId ? ` ${originStyle}` : '';
-            }
-          }
-        }
+    defineStyleForError(errorId, originStyle) {
+      if (this.errorsAutocomplete.location.length !== 0) {
+        return this.errorsAutocomplete.name === 'same-things'
+          ? ' has-error-select'
+          : this.errorsAutocomplete.location[0] === errorId
+          ? ` ${originStyle}`
+          : '';
       }
-
-      return errorStyle;
     }
   }
 };
