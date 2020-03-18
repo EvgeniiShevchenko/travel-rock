@@ -28,20 +28,15 @@
           <form action="#" method="post" name="search-form" class="search-form" novalidate>
             <div class="form-controls-wrapper">
               <FlightRoundTrip />
-              <div class="booking input-wrapper">
+              <div class="booking form-field-wrapper">
                 <button class="date-picker form-input" type="button">
                   Depart
                   <span class="marked">—</span>
                   Return
                 </button>
               </div>
-              <div class="ticket-info input-wrapper">
-                <button class="drop-down-list form-input" type="button">
-                  1 Passenger, Economy
-                  <svg class="chevron-icon">
-                    <use xlink:href="../../../assets/images/icons-sprite.svg#icon-dropdown" />
-                  </svg>
-                </button>
+              <div class="dropdown-field-wrapper form-field-wrapper">
+                <DropDown />
               </div>
             </div>
             <button class="search-btn" type="submit">Search</button>
