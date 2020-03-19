@@ -1,0 +1,27 @@
+.multiselect__option--selected.multiselect__option--highlight,
+.multiselect__option--selected {
+  background: rgba(109,179,241,0.4);
+}
+
+.multiselect__select:before {
+  display: none;
+}
+
+.select-arrow{
+  position: absolute;
+  right: 12px;
+  width: 9px;
+  height: 9px;
+  top:35%;
+  border-right: 1px solid $color-primary;
+  border-bottom: 1px solid $color-primary;
+  transform: rotate(45deg);
+  transition: .2s linear;
+}
+
+.is-focused {
+  .select-arrow {
+    top:50%;
+    transform: rotate(-135deg);
+  }
+}
