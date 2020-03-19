@@ -7,15 +7,12 @@ export default {
     NavigationTab
   },
   computed: {
-    defineStyleForFlightsTab() {
-      return this.getNavigationTabName === 'flights' ? ' active' : '';
-    },
-    defineStyleForHotelsTab() {
-      return this.getNavigationTabName === 'hotels' ? ' active' : '';
-    },
     ...mapGetters({ getNavigationTabName: 'searchPage/getNavigationTabName' })
   },
   methods: {
+    defineStyleForTab(tabId) {
+      return this.getNavigationTabName === `${tabId}` ? ' active' : '';
+    },
     selectTab(tabName) {
       this.switchNavigationTab(tabName);
     },

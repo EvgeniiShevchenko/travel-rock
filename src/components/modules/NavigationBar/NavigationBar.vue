@@ -2,14 +2,14 @@
   <div class="search-bar-wrapper">
     <NavigationTab
       id="flights"
-      :class="'flights-tab' + defineStyleForFlightsTab"
+      :class="'flights-tab' + defineStyleForTab('flights')"
       @select-tab="selectTab"
     >
       <img src="@/assets/images/flight.svg" alt="Flight tab icon" /> Flights
     </NavigationTab>
     <NavigationTab
       id="hotels"
-      :class="'flights-tab' + defineStyleForHotelsTab"
+      :class="'flights-tab' + defineStyleForTab('hotels')"
       @select-tab="selectTab"
     >
       <img src="@/assets/images/hotels.svg" alt="Hotel tab icon" /> Hotels
