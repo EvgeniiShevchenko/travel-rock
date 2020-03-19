@@ -44,7 +44,7 @@ export default {
       range: null,
       start: '',
       end: '',
-      dragValue:null,
+      pulledOutValue:null,
       themeStyles: {
         container: 'content-wrapper vc-bg-white',
         header: 'calendar-header',
@@ -102,12 +102,12 @@ export default {
     },
     getDateRange(event) {
       if(event !== null) {
-        this.dragValue = event;
-        this.start =  this.dragValue.start
+        this.pulledOutValue = event;
+        this.start =  this.pulledOutValue.start
         this.end = ""
       }else {
         this.startDateBuffer = false;
-        this.end =  this.dragValue.end
+        this.end =  this.pulledOutValue.end
         this.isOpend = false;
       }
     },
