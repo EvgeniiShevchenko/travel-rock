@@ -13,6 +13,7 @@
       </span>
       <span 
         v-else
+        :class="{highlighted : (this.isOpend && !(this.end == '' && this.start !== ''))}"
         class="marked"
       >
         {{start | filterDate}}

@@ -44,6 +44,7 @@ export default {
       range: null,
       start: '',
       end: '',
+      dragValue:null,
       themeStyles: {
         container: 'content-wrapper vc-bg-white',
         header: 'calendar-header',
@@ -77,7 +78,7 @@ export default {
       }else {
         return this.endPlaceholderText
       }
-    }
+    },
   },
 
   filters: {
@@ -103,8 +104,9 @@ export default {
       if(event !== null) {
         this.dragValue = event;
         this.start =  this.dragValue.start
-        
+        this.end = ""
       }else {
+        this.startDateBuffer = false;
         this.end =  this.dragValue.end
         this.isOpend = false;
       }
