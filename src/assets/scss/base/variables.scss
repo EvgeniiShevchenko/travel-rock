@@ -1,13 +1,20 @@
 /* colors */
 $color-white: #ffffff;
-$color-light-gray: #7A88A4;
+$color-light-slate-gray: #7A88A4;
+$color-cadet-blue-craiola: #ACB2BC;
 $color-dark-blue: #313f59;
-$color-signal-blue:rgba(43, 70, 129, 0.9);
-$color-signal-blue-translucent:rgba(43, 70, 129, 0.5);
+$color-signal-blue:rgba(43, 70, 129, .9);
+$color-signal-blue-translucent:rgba(27, 49, 97, .9);
+$color-outline: #6db3f1;
+$color-primary: #363637;
 $color-kraiola-blue:#3E73F9;
+$color-signal-blue-dark: #1B3161;
 $color-dark-gray:#363637;
 $color-light-gray:#b0b1b5;
 $color-light-blue: #6db3f1;
+$color-blue-alice: #e9f3fd;
+$color-enabled-counter-btn: #7b7b7d;
+$color-disabled-counter-btn: #e0e1e7;
 
 $color-pale-blue:#F8F8F9;
 $color-gray-neutral:#B1B1B2;
@@ -16,7 +23,7 @@ $color-highlight-blue:#C5E1F9;
 /* entry points */
 $tablet: 600px;
 $desktop: 1024px;
-$large-desktop:1200px;
+$widescreen:1200px;
 
 /*table size */
 $smallest: 10px;
@@ -24,9 +31,13 @@ $xxxSmall:11px;
 $xxSmall: 12px;
 $xSmall: 13px;
 $small: 14px;
+$xMedium:15px;
 $medium:16px;
 $large: 18px;
 $xLarge:20px;
 $xxLarge: 24px;
 $xxxLarge: 32px;
 $largest: 40px;
+
+$form-field-gap:2px;
+$dropdown-width-difference:38px;
