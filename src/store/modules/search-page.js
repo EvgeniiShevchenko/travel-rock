@@ -2,6 +2,7 @@ import api from '../../services/api';
 
 const getDefaultState = () => {
   return {
+    nameNavigationTab: 'flights',
     departureLocation: '',
     arrivalLocation: '',
     resultDepartureAutocomplete: [],
@@ -22,6 +23,10 @@ export default {
   state: getDefaultState(),
 
   getters: {
+    getNavigationTabName(state) {
+      return state.nameNavigationTab;
+    },
+
     getDepartureValue(state) {
       return state.departureLocation;
     },
@@ -48,6 +53,10 @@ export default {
   },
 
   mutations: {
+    setNameNavigationTab(state, payload) {
+      state.nameNavigationTab = payload;
+    },
+
     setDeparture(state, payload) {
       state.departureLocation = payload;
     },
@@ -86,6 +95,10 @@ export default {
   },
 
   actions: {
+    switchNavigationTab({ commit }, tabName) {
+      commit('setNameNavigationTab', tabName);
+    },
+
     async handlerDepartureRoute({ commit }, value) {
       const inputValue = value.toUpperCase().trim();
 

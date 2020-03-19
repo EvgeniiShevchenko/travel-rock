@@ -2,21 +2,10 @@
   <main class="main-content">
     <div class="container">
       <div class="search-form-wrapper">
-        <div class="service-tabs-wrapper">
-          <button class="tab-item current" type="button">
-            <svg class="tab-icon">
-              <use xlink:href="../../../assets/images/icons-sprite.svg#icon-plane" />
-            </svg>
-            <span class="tab-text">Flights</span>
-          </button>
-          <button class="tab-item" type="button">
-            <svg class="tab-icon">
-              <use xlink:href="../../../assets/images/icons-sprite.svg#icon-hotel" />
-            </svg>
-            <span class="tab-text">Hotels</span>
-          </button>
-        </div>
-        <div class="form-wrapper">
+        <!-- <div class="service-tabs-wrapper"> -->
+        <NavigationBar />
+        <!-- </div> -->
+        <div v-show="getNavigationTabName === 'flights'" class="form-wrapper">
           <div class="trip-options">
             <button class="options-item current" type="button">
               <span class="options-text">Round Trip</span>
@@ -42,6 +31,7 @@
             <button class="search-btn" type="submit">Search</button>
           </form>
         </div>
+        <div v-show="getNavigationTabName === 'hotels'" class="form-wrapper" />
       </div>
     </div>
   </main>

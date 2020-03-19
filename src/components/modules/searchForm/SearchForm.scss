@@ -13,15 +13,6 @@
   margin: 40px 0;
 }
 
-.service-tabs-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  border-radius: 4px 4px 0 0;
-
-  overflow: hidden;
-}
-
 .tab-item {
   display: flex;
   justify-content: center;
@@ -174,12 +165,6 @@
     margin-top: 78px;
   }
 
-  .service-tabs-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    border-radius: 0;
-  }
-
   .tab-item {
     width: 238px;
     min-width: 168px;
@@ -247,7 +232,6 @@
   .search-form-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     margin-top: 180px;
   }
 
@@ -256,9 +240,9 @@
     border-radius: 0 4px 4px 4px;
   }
 
-  .service-tabs-wrapper {
-    border-radius: 4px 4px 0 0;
-  }
+  // .service-tabs-wrapper {
+  //   border-radius: 4px 4px 0 0;
+  // }
 
   .form-controls-wrapper {
     border-radius: 4px;
