@@ -2,9 +2,9 @@
   <main class="main-content">
     <div class="container">
       <div class="search-form-wrapper">
-        <div class="service-tabs-wrapper">
-          <NavigationBar />
-        </div>
+        <!-- <div class="service-tabs-wrapper"> -->
+        <NavigationBar />
+        <!-- </div> -->
         <div v-show="getNavigationTabName === 'flights'" class="form-wrapper">
           <div class="trip-options">
             <button class="options-item current" type="button">
@@ -16,15 +16,7 @@
           </div>
           <form action="#" method="post" name="search-form" class="search-form" novalidate>
             <div class="form-controls-wrapper">
-              <div class="depart-location form-field-wrapper">
-                <input class="departure form-input" type="text" placeholder="From" />
-                <svg class="conbined-icon">
-                  <use xlink:href="../../../assets/images/icons-sprite.svg#icon-arrow-pointers" />
-                </svg>
-              </div>
-              <div class="arrival-location form-field-wrapper">
-                <input class="arrival form-input" type="text" placeholder="To" />
-              </div>
+              <FlightRoundTrip />
               <div class="booking form-field-wrapper">
                 <button class="date-picker form-input" type="button">
                   Depart

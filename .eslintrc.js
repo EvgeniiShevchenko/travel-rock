@@ -8,6 +8,7 @@ module.exports = {
     "extends": ["plugin:prettier/recommended", "eslint:recommended", "plugin:vue/recommended"],
     "rules": {
         "no-console": "warn",
+        "vue/attribute-hyphenation": "off",
         "prettier/prettier": [
             "warn",
             {
