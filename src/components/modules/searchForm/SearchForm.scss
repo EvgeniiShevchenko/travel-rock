@@ -32,8 +32,6 @@
     &.current {
       background-color: $color-signal-blue;
     }
-  
-    
     .tab-text {
       font-size: $medium;
       font-weight: 500;
@@ -41,51 +39,18 @@
     }
   }
 }
-
-
 .tab-icon {
   width: 14px;
   height: 15px;
   margin-right: 8px;
 }
 .form-wrapper {
-  .tabs-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /deep/.tab-nav {
-    display: flex;
-    padding: 0;
-
-    .tab-nav-item {
-      display: block;
-      border-bottom: 2px solid transparent;
-      margin-left: 16px;
-      margin-bottom: 2px;
-    
-      &:first-child {
-        margin-left: 0;
-      }
-      &.current {
-        border-bottom: 2px solid $color-kraiola-blue;
-      }
-    }
-  }
-  .options-item {
-    padding: 0;
-    height: 100%;
-  }
   .options-text {
     font-size: $xSmall;
     letter-spacing: 0.6px;
     text-transform: uppercase;
   
     color: $color-white;
-  }
-  .tab-item {
-    width: 100%;
   }
 }
 
@@ -259,7 +224,18 @@
   .form-wrapper {
     width: 100%;
     border-radius: 0 4px 4px 4px;
+
+    .options-text {
+      text-transform: capitalize;
+    }
+
+    /deep/.tab-nav-item {
+      &:hover,&.current {
+        border-bottom: 2px solid $color-light-blue;
+      }
+    }
   }
+  
   .service-tabs-wrapper {
     display: flex;
     justify-content: flex-start;

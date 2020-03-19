@@ -23,29 +23,11 @@
           </button>
         </div>
         <div class="form-wrapper">
-          <!-- <div class="trip-options">
-            <button
-              class="options-item current"
-              type="button"
-            >
-              <span class="options-text ">Round Trip</span>
-            </button>
-            <button
-              class="options-item"
-              type="button"
-            >
-              <span class="options-text">One Way</span>
-            </button>
-          </div> -->
           <TabsContainer>
             <TabItem :selected="true">
-              <button
-                slot="navBtn"
-                class="options-item current"
-                type="button"
-              >
+              <template slot="navBtn">
                 <span class="options-text ">Round Trip</span>
-              </button>
+              </template>
 
               <form
                 action="#"
@@ -73,14 +55,9 @@
                     >
                   </div>
                   <div class="booking input-wrapper">
-                    <button
-                      class="date-picker form-input"
-                      type="button"
-                    >
-                      Depart
-                      <span class="marked">—</span>
-                      Return
-                    </button>
+                    <DatePicker 
+                      datePickerMode="range"
+                    />
                   </div>
                   <div class="ticket-info input-wrapper">
                     <button
@@ -105,13 +82,10 @@
             </TabItem>
 
             <TabItem> 
-              <button
-                slot="navBtn"
-                class="options-item"
-                type="button"
-              >
+              <template slot="navBtn">
                 <span class="options-text">One Way</span>
-              </button>
+              </template>
+              
             </TabItem>
           </TabsContainer>
         </div>

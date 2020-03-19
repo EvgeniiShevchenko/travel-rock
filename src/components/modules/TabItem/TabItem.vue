@@ -1,15 +1,15 @@
 <template>
-  <div
-    v-show="isActive"
-    class="tab-item"
-  >
-    <div
-      v-show="hidenNavButton"
-      class="tab-nav"
-    >
+  <div class="tab-item-wrapper">
+    <div class="nav-btn-slot">
       <slot name="navBtn" />
     </div>
-    <slot />
+
+    <div
+      v-show="isActive"
+      class="item-content-wrapper"
+    >
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -17,5 +17,5 @@
 </script>
 
 <style lang="scss">
-@import "./TabItem"
+@import "./TabItem";
 </style>

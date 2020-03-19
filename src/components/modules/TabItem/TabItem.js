@@ -2,25 +2,21 @@ export default {
   name: 'TabItem',
   props: {
     selected: {
+      Type: Boolean,
       default: false
     }
   },
   data() {
     return {
-      nameComponent: 'TabItem',
-      isActive: false,
-      hidenNavButton: null
+      isActive: true,
     };
   },
   mounted() {
     this.isActive = this.selected;
   },
-  beforeDestroy() {
-    this.hidenNavButton = true;
-  },
   computed: {
     title() {
       return this.$slots.navBtn[0].elm.outerHTML;
-    }
+    },
   }
 };
