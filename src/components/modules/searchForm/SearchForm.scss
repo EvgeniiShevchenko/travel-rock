@@ -19,23 +19,66 @@
   align-items: stretch;
   border-radius: 4px 4px 0 0;
 
-  overflow: hidden;
-  .tab-item {
-    display:flex;
-    justify-content: center;
-    width: 50%;
-    padding: 11px 0;
-  
-    color: $color-white;
-    background: $color-signal-blue-translucent;
-  
-    &.current {
-      background-color: $color-signal-blue;
-    }
-    .tab-text {
-      font-size: $medium;
-      font-weight: 500;
-      line-height: 20px;
+}
+.tab-item {
+  display:flex;
+  justify-content: center;
+  width: 50%;
+  padding: 11px 0;
+
+  color: $color-white;
+  background: $color-signal-blue-translucent;
+
+  &.current {
+    background-color: $color-signal-blue;
+  }
+  .tab-text {
+    font-size: $medium;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 40px 0;
+  }
+}
+
+.tab-item {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  padding: 11px 0;
+
+  color: $color-white;
+  background: $color-signal-blue-translucent;
+
+  &.current {
+    background-color: $color-signal-blue;
+  }
+
+  .tab-icon {
+    width: 14px;
+    height: 15px;
+    margin-right: 8px;
+  }
+
+  .tab-text {
+    font-size: $medium;
+    font-weight: 500;
+    line-height: 20px;
+  }
+}
+
+.trip-options {
+  display: flex;
+
+  .options-item {
+    display: block;
+    max-width: 50%;
+    padding: 3px 0;
+    border-bottom: 2px solid transparent;
+    margin-left: 16px;
+    margin-bottom: 2px;
+
+    &:first-child {
+      margin-left: 0;
     }
   }
 }
@@ -62,24 +105,25 @@
 
 .form-wrapper {
   padding: 22px 20px 36px;
- 
+  border-radius: 0 0 4px 4px;
+
   background-color: $color-signal-blue;
 }
 
 .form-controls-wrapper {
   border-radius: 4px;
 
-  color: $color-dark-gray;
+  color: $color-primary;
 }
 
-.input-wrapper {
+.form-field-wrapper {
   height: 48px;
   border: none;
   margin-top: 2px;
   font-size: $small;
   line-height: 19px;
 
-  
+
   &:first-child {
     margin-top: 0;
   }
@@ -92,7 +136,7 @@
   padding: 12px 15px;
   border: none;
 
-  color: $color-dark-gray;
+  color: $color-primary;
 
   background: $color-white;
 }
@@ -105,7 +149,7 @@
     top: 0;
     right: 12px;
     bottom: 0;
-    
+
     width: 16px;
     height: 15px;
     margin: auto 0;
@@ -117,23 +161,12 @@
 }
 
 .booking {
+  position: relative;
   background: $color-white;
 }
- 
-.ticket-info {
+
+.dropdown-field-wrapper {
   position: relative;
-
-  .drop-down-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .chevron-icon {
-    width: 12px;
-    height: 12px;
-    margin: auto 0;
-  }
 }
 
 .search-btn {
@@ -155,10 +188,16 @@
 @include tablet {
   .search-form-wrapper {
     margin-top: 78px;
-    margin-bottom: 200px;
+    margin-bottom: 250px;
   }
-  .service-tabs-wrapper {
-    display: none;
+
+  .tab-item {
+    width: 238px;
+    min-width: 168px;
+  }
+
+  .form-wrapper {
+    border-radius: 0;
   }
 
   .form-controls-wrapper {
@@ -166,16 +205,13 @@
     flex-wrap: wrap;
   }
 
-  .input-wrapper {
+  .form-field-wrapper {
     margin: 0 auto;
     margin-top: 2px;
-    width: calc(50% - 2px);
+    width: calc(50% - #{$form-field-gap});
     flex: 1 0 auto;
 
-    &:first-child,&:nth-child(2) {
-      margin-top: 0;
-    }
-    &:nth-child(even) {
+    &:nth-child(3) {
       margin-left: 2px;
     }
   }
@@ -196,17 +232,20 @@
     border-radius: 0;
   }
 
-  .input-wrapper {
-    width: calc(25% - 38px);
+  .form-field-wrapper {
+    width: calc(25% - #{$dropdown-width-difference});
     flex: 1 0 auto;
-    margin:0 0 0 2px;
+    margin: 0 0 0 2px;
+
     &:first-child {
       margin-left: 0;
     }
   }
-  .ticket-info {
-    width: calc(25% - 2px);
+
+  .field-wrapper {
+    width: calc(25% - #{$form-field-gap});
   }
+
   .search-btn {
     flex: 0 1 102px;
     margin-top: 0;
@@ -214,13 +253,14 @@
   }
 }
 
-@include large-desktop {
+@include widescreen {
   .search-form-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-top: 180px;
   }
+
   .form-wrapper {
     width: 100%;
     border-radius: 0 4px 4px 4px;
@@ -248,6 +288,7 @@
   .form-controls-wrapper {
     border-radius: 4px;
   }
+
   .search-btn {
     flex: 0 1 120px;
   }
