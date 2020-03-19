@@ -9,7 +9,6 @@ Vue.use(VCalendar, {
   screens: {
     desktop: '1024px'
   },
-  datePickerTintColor: '#1ebb42'
 });
 
 Vue.config.productionTip = false;

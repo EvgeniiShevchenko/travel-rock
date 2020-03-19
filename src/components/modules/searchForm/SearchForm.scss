@@ -10,7 +10,7 @@
 
 .search-form-wrapper {
   width: 100%;
-  margin: 70px 0;
+  margin: 70px 0px 150px;
 }
 
 .service-tabs-wrapper {
@@ -137,20 +137,7 @@
 }
 
 .booking {
-  position: relative;
-}
-.date-picker {
-  position: relative;
-  text-align: left;
-
-  color:$color-light-gray;
-  & > .sepatator {
-    color: $color-dark-gray;
-    margin: 5px;
-  }
-  & > .marked {
-    color: $color-dark-gray;
-  }
+  background: $color-white;
 }
  
 .ticket-info {
@@ -187,7 +174,8 @@
 
 @include tablet {
   .search-form-wrapper {
-    margin-top: 170px;
+    margin-top: 78px;
+    margin-bottom: 200px;
   }
   .service-tabs-wrapper {
     display: none;
@@ -214,11 +202,8 @@
 }
 
 @include desktop {
-  .main-content {
-    justify-content: center;
-  }
   .search-form-wrapper {
-    margin: 0;
+    margin-top: 128px;
   }
 
   .search-form {
@@ -254,6 +239,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 180px;
   }
   .form-wrapper {
     width: 100%;
