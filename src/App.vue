@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <TheHeader/>
-    <router-view></router-view>
+    <TheHeader />
+    <router-view />
     <search-form />
-    <the-footer />
+    <TheFooter />
   </div>
 </template>
 
 <script>
 import TheHeader from "./components/layouts/Header/TheHeader.vue";
-import SearchForm from './components/modules/searchForm/SearchForm.vue';
+import SearchForm from "./components/modules/searchForm/SearchForm.vue";
 import TheFooter from "./components/layouts/Footer/TheFooter.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TheHeader,
     SearchForm,
@@ -23,6 +23,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "@/assets/scss/base/base.scss";
-  @import "/App.scss";
+@import "@/assets/scss/base/base.scss";
+@import "/App.scss";
 </style>

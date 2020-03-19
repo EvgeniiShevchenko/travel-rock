@@ -23,7 +23,7 @@
 }
 
 .tab-item {
-  display:flex;
+  display: flex;
   justify-content: center;
   width: 50%;
   padding: 11px 0;
@@ -40,6 +40,7 @@
     height: 15px;
     margin-right: 8px;
   }
+
   .tab-text {
     font-size: $medium;
     font-weight: 500;
@@ -83,7 +84,7 @@
 .form-wrapper {
   padding: 22px 20px 36px;
   border-radius: 0 0 4px 4px;
- 
+
   background-color: $color-signal-blue;
 }
 
@@ -100,7 +101,7 @@
   font-size: $small;
   line-height: 19px;
 
-  
+
   &:first-child {
     margin-top: 0;
   }
@@ -126,7 +127,7 @@
     top: 0;
     right: 12px;
     bottom: 0;
-    
+
     width: 16px;
     height: 15px;
     margin: auto 0;
@@ -141,13 +142,13 @@
 .date-picker {
   text-align: left;
 
-  color:$color-light-gray;
+  color: $color-light-gray;
 
-  & > .marked {
+  &>.marked {
     color: $color-primary;
   }
 }
- 
+
 .dropdown-field-wrapper {
   position: relative;
 }
@@ -172,6 +173,7 @@
   .search-form-wrapper {
     margin-top: 78px;
   }
+
   .service-tabs-wrapper {
     display: flex;
     justify-content: flex-start;
@@ -182,7 +184,7 @@
     width: 238px;
     min-width: 168px;
   }
-  
+
   .form-wrapper {
     border-radius: 0;
   }
@@ -198,17 +200,14 @@
     width: calc(50% - #{$form-field-gap});
     flex: 1 0 auto;
 
-    &:first-child,&:nth-child(2) {
-      margin-top: 0;
-    }
-    &:nth-child(even) {
+    &:nth-child(3) {
       margin-left: 2px;
     }
   }
 }
 
 @include desktop {
-  
+
   .search-form-wrapper {
     margin-top: 128px;
   }
@@ -226,14 +225,17 @@
   .form-field-wrapper {
     width: calc(25% - #{$dropdown-width-difference});
     flex: 1 0 auto;
-    margin:0 0 0 2px;
+    margin: 0 0 0 2px;
+
     &:first-child {
       margin-left: 0;
     }
   }
+
   .field-wrapper {
     width: calc(25% - #{$form-field-gap});
   }
+
   .search-btn {
     flex: 0 1 102px;
     margin-top: 0;
@@ -248,17 +250,20 @@
     align-items: flex-start;
     margin-top: 180px;
   }
+
   .form-wrapper {
     width: 100%;
     border-radius: 0 4px 4px 4px;
   }
+
   .service-tabs-wrapper {
     border-radius: 4px 4px 0 0;
   }
- 
+
   .form-controls-wrapper {
     border-radius: 4px;
   }
+
   .search-btn {
     flex: 0 1 120px;
   }

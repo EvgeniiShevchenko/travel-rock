@@ -1,0 +1,73 @@
+.autocomplete {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: 48px;
+
+    font-size: $small;
+
+    .autocomplete-departure {
+        width: 100%;
+        height: 100%;
+    }
+
+    .autocomplete-arrival {
+        margin-top: 2px;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .error-message {
+        position: absolute;
+
+        top: 100%;
+        padding-top: 4px;
+
+        color: red;
+        font-weight: bold;
+    }
+
+    .has-error-select {
+        border: 2px solid red;
+    }
+
+    .has-error-departure {
+        border: 2px solid red;
+
+        /deep/.autocomplete {
+            outline: none;
+        }
+    }
+
+    .has-error-arrival {
+        border: 2px solid red;
+
+        /deep/.autocomplete {
+            outline: none;
+        }
+    }
+}
+
+@include tablet {
+    .autocomplete .autocomplete-departure {
+        width: calc(50% - 1px);
+    }
+
+    .autocomplete .autocomplete-arrival {
+        margin-top: 0;
+        margin-left: 2px;
+
+        width: calc(50% - 1px);
+    }
+}
+
+@include desktop {
+    .autocomplete {
+        flex-wrap: nowrap;
+        width: 50%;
+    }
+}
