@@ -10,7 +10,34 @@
 
 .search-form-wrapper {
   width: 100%;
-  margin: 40px 0;
+  margin: 70px 0px 150px;
+}
+
+.service-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  border-radius: 4px 4px 0 0;
+
+}
+.tab-item {
+  display:flex;
+  justify-content: center;
+  width: 50%;
+  padding: 11px 0;
+
+  color: $color-white;
+  background: $color-signal-blue-translucent;
+
+  &.current {
+    background-color: $color-signal-blue;
+  }
+  .tab-text {
+    font-size: $medium;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 40px 0;
+  }
 }
 
 .tab-item {
@@ -54,19 +81,23 @@
       margin-left: 0;
     }
   }
-
-  .current {
-    border-bottom: 2px solid $color-kraiola-blue;
-  }
-
+}
+.tab-icon {
+  width: 14px;
+  height: 15px;
+  margin-right: 8px;
+}
+.form-wrapper {
   .options-text {
     font-size: $xSmall;
     letter-spacing: 0.6px;
     text-transform: uppercase;
-
+  
     color: $color-white;
   }
 }
+
+
 
 .search-form {
   margin-top: 20px;
@@ -129,7 +160,10 @@
   }
 }
 
-
+.booking {
+  position: relative;
+  background: $color-white;
+}
 .date-picker {
   text-align: left;
 
@@ -163,6 +197,7 @@
 @include tablet {
   .search-form-wrapper {
     margin-top: 78px;
+    margin-bottom: 250px;
   }
 
   .tab-item {
@@ -192,7 +227,6 @@
 }
 
 @include desktop {
-
   .search-form-wrapper {
     margin-top: 128px;
   }
@@ -232,18 +266,34 @@
   .search-form-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     margin-top: 180px;
   }
 
   .form-wrapper {
     width: 100%;
     border-radius: 0 4px 4px 4px;
+
+    .options-text {
+      text-transform: capitalize;
+    }
+
+    /deep/.tab-nav-item {
+      &:hover,&.current {
+        border-bottom: 2px solid $color-light-blue;
+      }
+    }
   }
-
-  // .service-tabs-wrapper {
-  //   border-radius: 4px 4px 0 0;
-  // }
-
+  
+  .service-tabs-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 4px 4px 0 0;
+  }
+  .tab-item {
+    width: 238px;
+    min-width: 168px;
+  }
   .form-controls-wrapper {
     border-radius: 4px;
   }
