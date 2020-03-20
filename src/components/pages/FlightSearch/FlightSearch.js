@@ -1,3 +1,7 @@
+import SearchForm from '../../modules/searchForm/SearchForm.vue';
 export default {
-  name: "FlightSearch"
-}
+  name: 'FlightSearch',
+  components: {
+    SearchForm
+  }
+};
