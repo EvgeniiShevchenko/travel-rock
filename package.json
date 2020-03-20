@@ -7,8 +7,6 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "v-calendar": "^1.0.1",
-    "vue-click-outside": "^1.0.7",
     "axios": "^0.19.2",
     "validator": "^12.2.0",
     "vue": "^2.6.11",

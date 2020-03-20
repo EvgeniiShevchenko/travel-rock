@@ -19,7 +19,11 @@
                     <div class="form-controls-wrapper">
                         <FlightRoundTrip />
                       <div class="booking form-field-wrapper">
-                        <datePicker datePickerMode="range"/>
+                       <button class="date-picker form-input" type="button">
+                          Depart
+                          <span class="marked">—</span>
+                          Return
+                        </button>
                       </div>
                       <div class="dropdown-field-wrapper form-field-wrapper">
                         <DropDown />

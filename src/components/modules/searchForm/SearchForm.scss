@@ -164,6 +164,15 @@
   position: relative;
   background: $color-white;
 }
+.date-picker {
+  text-align: left;
+
+  color: $color-light-gray;
+
+  &>.marked {
+    color: $color-primary;
+  }
+}
 
 .dropdown-field-wrapper {
   position: relative;
