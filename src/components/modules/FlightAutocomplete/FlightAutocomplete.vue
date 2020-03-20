@@ -9,6 +9,7 @@
         :placeholder="config.placeholder"
         required
         autocomplete="off"
+        maxlength="200"
         @input="$emit('change-input', $event.target.value)"
         @click.stop="$emit('focus-input', $event.target.value)"
       />
