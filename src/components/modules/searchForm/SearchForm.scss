@@ -137,10 +137,6 @@
     padding-right: 30px;
   }
 }
-
-.booking {
-  background: $color-white;
-}
  
 .ticket-info {
   position: relative;
@@ -251,7 +247,11 @@
     align-items: flex-start;
     margin-top: 180px;
   }
-
+  .trip-options {
+    .options-text {
+      text-transform: capitalize;
+    }
+  }
   .form-wrapper {
     width: 100%;
     border-radius: 0 4px 4px 4px;

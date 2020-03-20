@@ -1,6 +1,5 @@
 .date-picker-wrapper {
   position: relative;
-
   height: 100%;
 }
 
@@ -10,12 +9,12 @@
   text-align: left;
   padding: 12px 15px;
   border: none;
-  
   font-size: $small;
   letter-spacing: 0;
   line-height: 19px;
 
   color:$color-light-gray;
+  background: $color-white;
 
   & > .sepatator {
     color: $color-dark-gray;
@@ -143,6 +142,9 @@
 }
 
 @include tablet {
+  .date-picker-btn {
+    border-radius: 0 0 0 4px;
+  }
   /deep/ .vc-arrows-container {
     padding: 0 5px;
   }
