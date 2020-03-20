@@ -8,7 +8,7 @@ export default {
   name: 'searchForm',
   data() {
     return {
-   
+      tripDates:{},
     };
   },
   components: {
@@ -19,5 +19,13 @@ export default {
   },
   computed: {
     ...mapGetters({ getNavigationTabName: 'searchPage/getNavigationTabName' })
+  },
+  methods: {
+    getTripDates(data) {
+      return this.tripDates = {
+        start:data.startDate,
+        end:data.endDate
+      }
+    }
   }
 };

@@ -106,9 +106,12 @@ export default {
         this.start =  this.pulledOutValue.start
         this.end = ""
       }else {
-        this.startDateBuffer = false;
         this.end =  this.pulledOutValue.end
         this.isOpend = false;
+        this.$emit('getValues',{
+          startDate:this.pulledOutValue.start,
+          endDate: this.pulledOutValue.end,
+        })
       }
     },
   },

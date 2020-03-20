@@ -16,7 +16,7 @@
             <div class="form-controls-wrapper">
               <FlightRoundTrip />
               <div class="booking form-field-wrapper">
-                <datePicker datePickerMode="range"/>
+                <datePicker datePickerMode="range" @getValues="getTripDates" />
               </div>
               <div class="dropdown-field-wrapper form-field-wrapper">
                 <DropDown />
