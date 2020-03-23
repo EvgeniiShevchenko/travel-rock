@@ -1,7 +1,8 @@
 <template>
-  <div :class="{ 'is-focused': isActive }">
+  <div class="dropdown-root"
+       :class="{ 'is-focused': isActive }">
     <div class="dropdown-wrapper"
-            @click="formFieldToggle"
+         @click="formFieldToggle"
     >
       <span class="dropdown-output">{{ outputText }}</span>
       <span class="arrow"></span>
