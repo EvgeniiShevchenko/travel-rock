@@ -150,12 +150,16 @@
   }
 }
 @include desktop {
+  .date-picker-btn {
+    border-radius: 0;
+  }
   .calendar-wrapper {
     display: table;
   }
   .content-wrapper {
     padding: 23px 10px 27px;
   }
+  
   /deep/.vc-grid-container {
     grid-template-columns: repeat(2, minmax(256px,1fr)) !important;
     gap:10px !important;
