@@ -149,7 +149,6 @@
     padding: 0 5px;
   }
 }
-
 @include desktop {
   .calendar-wrapper {
     display: table;
@@ -166,7 +165,6 @@
     gap:0px !important;
   }
 }
-
 @include widescreen {
   /deep/.vc-grid-container {
     grid-template-columns: repeat(2, minmax(256px,1fr)) !important;

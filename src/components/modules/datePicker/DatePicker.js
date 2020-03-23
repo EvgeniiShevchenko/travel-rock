@@ -79,6 +79,12 @@ export default {
         return this.endPlaceholderText
       }
     },
+    highlightingStartDate() {
+      return (this.isOpend && !(this.end == '' && this.start !== ''))
+    },
+    highlightingEndDate() {
+      return (this.end == '' && this.start !== '');
+    }
   },
 
   filters: {
@@ -100,7 +106,7 @@ export default {
     closeDatePicker () { 
       this.isOpend = false;
     },
-    getDateRange(event) {
+    dateSelection(event) {
       if(event !== null) {
         this.pulledOutValue = event;
         this.start =  this.pulledOutValue.start
@@ -108,7 +114,7 @@ export default {
       }else {
         this.end =  this.pulledOutValue.end
         this.isOpend = false;
-        this.$emit('getValues',{
+        this.$emit('valueSelection',{
           startDate:this.pulledOutValue.start,
           endDate: this.pulledOutValue.end,
         })

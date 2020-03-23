@@ -13,7 +13,7 @@
       </span>
       <span 
         v-else
-        :class="{highlighted : (this.isOpend && !(this.end == '' && this.start !== ''))}"
+        :class="{highlighted : highlightingStartDate}"
         class="marked"
       >
         {{start | filterDate}}
@@ -22,7 +22,7 @@
       <span class="sepatator">—</span>
       <span 
         v-if=" end == '' "
-        :class="{highlighted : (this.end == '' && this.start !== '')}"
+        :class="{highlighted : highlightingEndDate}"
       > 
         {{endPlaceholderText}}
       </span>
@@ -58,7 +58,7 @@
           :update-on-input="true"
           is-inline
           nav-visibility="hidden"
-          @drag="getDateRange"
+          @drag="dateSelection"
         />
       </div>
     </transition>
