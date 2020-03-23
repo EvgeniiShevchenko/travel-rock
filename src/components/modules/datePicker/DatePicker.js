@@ -44,6 +44,7 @@ export default {
       range: null,
       start: '',
       end: '',
+      pulledOutValue:null,
       themeStyles: {
         container: 'content-wrapper vc-bg-white',
         header: 'calendar-header',
@@ -77,6 +78,12 @@ export default {
       }else {
         return this.endPlaceholderText
       }
+    },
+    highlightingStartDate() {
+      return (this.isOpend && !(this.end == '' && this.start !== ''))
+    },
+    highlightingEndDate() {
+      return (this.end == '' && this.start !== '');
     }
   },
 
@@ -99,14 +106,18 @@ export default {
     closeDatePicker () { 
       this.isOpend = false;
     },
-    getDateRange(event) {
+    dateSelection(event) {
       if(event !== null) {
-        this.dragValue = event;
-        this.start =  this.dragValue.start
-        
+        this.pulledOutValue = event;
+        this.start =  this.pulledOutValue.start
+        this.end = ""
       }else {
-        this.end =  this.dragValue.end
+        this.end =  this.pulledOutValue.end
         this.isOpend = false;
+        this.$emit('valueSelection',{
+          startDate:this.pulledOutValue.start,
+          endDate: this.pulledOutValue.end,
+        })
       }
     },
   },

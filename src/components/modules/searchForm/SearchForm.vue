@@ -19,7 +19,9 @@
                     <div class="form-controls-wrapper">
                         <FlightRoundTrip />
                       <div class="booking form-field-wrapper">
-                        <datePicker datePickerMode="range"/>
+                        <datePicker 
+                          datePickerMode="range"     @valueSelection="dateOrdering" 
+                        />
                       </div>
                       <div class="dropdown-field-wrapper form-field-wrapper">
                         <DropDown />
@@ -32,7 +34,6 @@
                   <template slot="navBtn">
                     <span class="options-text">One Way</span>
                   </template>
-                  
                 </TabItem>
               </TabsContainer>
             </div>

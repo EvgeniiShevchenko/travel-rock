@@ -1,6 +1,5 @@
 .date-picker-wrapper {
   position: relative;
-
   height: 100%;
 }
 
@@ -10,12 +9,12 @@
   text-align: left;
   padding: 12px 15px;
   border: none;
-  
   font-size: $small;
   letter-spacing: 0;
   line-height: 19px;
 
   color:$color-light-gray;
+  background: $color-white;
 
   & > .sepatator {
     color: $color-dark-gray;
@@ -40,8 +39,9 @@
   z-index: 1;
   overflow: hidden;
   position: absolute;
-  top:52px;
+  top:100%;
   left: 0;
+  margin-top: 4px;
 
   min-width: 240px;
   width: 100%;
@@ -142,11 +142,13 @@
 }
 
 @include tablet {
+  .date-picker-btn {
+    border-radius: 0 0 0 4px;
+  }
   /deep/ .vc-arrows-container {
     padding: 0 5px;
   }
 }
-
 @include desktop {
   .calendar-wrapper {
     display: table;
@@ -163,7 +165,6 @@
     gap:0px !important;
   }
 }
-
 @include widescreen {
   /deep/.vc-grid-container {
     grid-template-columns: repeat(2, minmax(256px,1fr)) !important;
