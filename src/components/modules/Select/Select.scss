@@ -1,0 +1,24 @@
+.multiselect__option--selected.multiselect__option--highlight,
+.multiselect__option--selected,
+.multiselect__option--highlight {
+  background: rgba(109,179,241,0.4);
+}
+
+.multiselect .multiselect__select:before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  position: relative;
+  margin-top: 0;
+  display: inline-block;
+  border-width: 0 1px 1px 0;
+  border-color: $color-primary;
+  border-style: solid;
+  transform: rotate(45deg);
+}
+.multiselect .multiselect__select {
+  top: 50%;
+  height: auto;
+  margin-top: -6px;
+  padding: 0;
+}
