@@ -63,19 +63,23 @@
       margin-left: 0;
     }
   }
-
-  .current {
-    border-bottom: 2px solid $color-kraiola-blue;
-  }
-
+}
+.tab-icon {
+  width: 14px;
+  height: 15px;
+  margin-right: 8px;
+}
+.form-wrapper {
   .options-text {
     font-size: $xSmall;
     letter-spacing: 0.6px;
     text-transform: uppercase;
-
+  
     color: $color-white;
   }
 }
+
+
 
 .search-form {
   margin-top: 20px;
@@ -255,8 +259,27 @@
   .form-wrapper {
     width: 100%;
     border-radius: 0 4px 4px 4px;
-  }
 
+    .options-text {
+      text-transform: capitalize;
+    }
+
+    /deep/.tab-nav-item {
+      &:hover,&.current {
+        border-bottom: 2px solid $color-light-blue;
+      }
+    }
+  }
+  
+  .service-tabs-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 4px 4px 0 0;
+  }
+  .tab-item {
+    width: 238px;
+    min-width: 168px;
+  }
   .form-controls-wrapper {
     border-radius: 4px;
   }

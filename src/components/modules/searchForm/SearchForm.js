@@ -1,4 +1,5 @@
-import datePicker from '@/components/modules/datePicker/DatePicker.vue';
+import TabsContainer from '@/components/modules/TabsContainer/TabsContainer.vue';
+import TabItem from '@/components/modules/TabItem/TabItem.vue';
 import FlightRoundTrip from '../FlightRoundTrip/FlightRoundTrip.vue';
 import NavigationBar from '../NavigationBar/NavigationBar.vue';
 import DropDown from '../Dropdown/Dropdown.vue';
@@ -13,6 +14,8 @@ export default {
   },
   components: {
     datePicker,
+    TabsContainer,
+    TabItem,
     FlightRoundTrip,
     NavigationBar,
     DropDown

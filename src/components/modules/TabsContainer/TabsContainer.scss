@@ -1,0 +1,30 @@
+.tabs-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.tab-nav {
+  display: flex;
+  padding: 0;
+  
+  .tab-nav-item {
+    display: block;
+    border-bottom: 2px solid transparent;
+    margin-left: 16px;
+    margin-bottom: 2px;
+    
+    cursor: pointer;
+
+    &:first-child {
+      margin-left: 0;
+    }
+    
+    &:hover {
+      border-bottom: 2px solid $color-kraiola-blue;
+    }
+
+    &.current {
+      border-bottom: 2px solid $color-kraiola-blue;
+    }
+  }
+}
