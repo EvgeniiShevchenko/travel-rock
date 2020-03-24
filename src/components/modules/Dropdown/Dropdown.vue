@@ -1,7 +1,9 @@
 <template>
-  <div :class="{ 'is-focused': isActive }">
+  <div class="dropdown-root" v-click-outside="closeDropdown"
+       :class="{ 'is-focused': isOpened }">
     <div class="dropdown-wrapper"
-            @click="formFieldToggle"
+         :class="{ 'is-focused': isOpened }"
+         @click="formFieldToggle"
     >
       <span class="dropdown-output">{{ outputText }}</span>
       <span class="arrow"></span>

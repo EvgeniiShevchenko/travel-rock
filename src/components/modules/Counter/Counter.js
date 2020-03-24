@@ -6,10 +6,6 @@ export default {
     }
   },
   props: {
-    outputText: {
-      type: String,
-      default: '',
-    },
     minCount: {
       type: Number,
       default: 0
@@ -21,13 +17,18 @@ export default {
   },
   methods: {
     decrement() {
-      this.$emit('changeValue', this.count);
       this.count--;
+      this.$emit('changeValue', this.count);
     },
     increment() {
-      this.$emit('changeValue', this.count);
       this.count++;
-    },
+      this.$emit('changeValue', this.count);
+    }
+  },
+  mounted() {
+    if (this.count < this.minCount) {
+      this.count = this.minCount;
+    }
   }
 }
 

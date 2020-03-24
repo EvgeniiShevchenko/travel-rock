@@ -3,6 +3,7 @@
                :options="options"
                :searchable="false"
                :show-labels="false"
+               open-direction="bottom"
                @input="changeValue"
   >
   </Multiselect>
