@@ -69,7 +69,7 @@ export default {
         this.handlerError({
           name: 'too-many',
           status: true,
-          message: 'maximum number of symbols exceeded',
+          message: 'Maximum number of symbols exceeded',
           location: [...this.errorsAutocomplete.location, 'departure']
         });
       }

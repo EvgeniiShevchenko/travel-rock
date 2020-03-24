@@ -6,15 +6,17 @@ export default {
   props: {
     options: {
       type: Array,
-      default: () => []
+      default: () => ['Economy', 'Premium Economy', 'Business', 'First']
     },
-    value: {
-      type: String
+  },
+  data() {
+    return {
+      value:this.options[0],
     }
   },
   methods: {
     changeValue() {
       this.$emit('changeValue', this.value);
     }
-  }
+  },
 }

@@ -27,7 +27,8 @@ export default {
       adults: 1,
       children: 0,
       infants: 0,
-      cabinType: 'Economy',
+      cabinTypeDefault: 'Economy',
+      cabinType:'',
       dropdownValidationMsg: '',
       maxTotalPaxCount: 9,
       tripDates:{
@@ -44,7 +45,11 @@ export default {
     },
     passengerInfoSummary() {
       let paxString = this.totalPaxCount > 1 ? ' Passengers' : ' Passenger';
-      return this.totalPaxCount + paxString + ', ' + this.cabinType;
+      if(this.cabinType == '') {
+        return this.totalPaxCount + paxString + ', ' + this.cabinTypeDefault;
+      }else {
+        return this.totalPaxCount + paxString + ', ' + this.cabinType;
+      }
     },
     minAdults() {
       return this.infants > 1 ? this.infants : 1;
@@ -61,9 +66,6 @@ export default {
     },
   },
   methods: {
-    dropDownToggle() {
-      this.dropDownOpen = !this.dropDownOpen;
-    },
     setAdultsCount(count) {
       this.adults = count;
     },
