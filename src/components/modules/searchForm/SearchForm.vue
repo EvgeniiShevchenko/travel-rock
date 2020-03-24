@@ -20,16 +20,11 @@
                   <FlightRoundTrip />
                   <div class="booking form-field-wrapper">
                     <datePicker
-                      datePickerMode="range"     @valueSelection="dateOrdering"
+                      datePickerMode="range" @valueSelection="dateOrdering"
                     />
                   </div>
                   <div class="dropdown-field-wrapper form-field-wrapper">
-                    <DropDown :isOpened="dropDownOpen" :outputText="passengerInfoSummary" @toggle="dropDownToggle">
-                      <div class="dropdown-body-header">
-                        <span>Who is travelling?</span>
-                        <button class="close-btn" @click.prevent="dropDownToggle">
-                        </button>
-                      </div>
+                    <DropDown :outputText="passengerInfoSummary">
                       <div class="dropdown-body-controls">
                         <div class="counter-wrapper">Adults
                           <div class="counter-buttons-count">
@@ -48,7 +43,7 @@
                         </div>
                         <div class="dropdown-cabin-type counter-wrapper">
                           <span class="select-label">Cabin Type</span>
-                          <Select :options="cabinTypes" v-model="cabinType" @changeValue="setCabinType"/>
+                          <Select v-model="cabinTypeDefault" @changeValue="setCabinType"/>
                         </div>
                         <span class="dropdown-validation">{{ dropdownValidationMsg }}</span>
                       </div>

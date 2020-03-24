@@ -1,12 +1,11 @@
 <template>
-  <Multiselect v-model="value"
-               :options="options"
-               :searchable="false"
-               :show-labels="false"
-               open-direction="bottom"
-               @input="changeValue"
-  >
-  </Multiselect>
+    <Multiselect 
+      v-model="value"
+      :options="options"
+      :searchable="false"
+      :show-labels="false"
+      @input="changeValue"
+    />
 </template>
 
 <script src='./Select.js'></script>
