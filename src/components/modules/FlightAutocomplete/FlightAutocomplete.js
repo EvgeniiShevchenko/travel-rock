@@ -29,6 +29,10 @@ export default {
         styleClass = `${styleClass} is-single-option`;
       }
 
+      if (this.foundAirports.length === 1) {
+        styleClass = `${styleClass} is-single-option`;
+      }
+
       return styleClass;
     },
 

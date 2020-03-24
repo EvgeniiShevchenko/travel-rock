@@ -5,38 +5,41 @@
     flex-wrap: wrap;
 
     width: 100%;
-    height: 48px;
 
     font-size: $small;
 
     .autocomplete-departure {
         width: 100%;
-        height: 100%;
+        height: 48px;
+
     }
 
     .autocomplete-arrival {
         margin-top: 2px;
 
         width: 100%;
-        height: 100%;
+        height: 48px;
+
     }
 
     .error-message {
-        position: absolute;
+        position: static;
+        margin: 0 auto;
 
         top: 100%;
         padding-top: 4px;
 
-        color: red;
+        text-align: center;
+        color: $color-red-orange-craiola;
         font-weight: bold;
     }
 
     .has-error-select {
-        border: 2px solid red;
+        border: 2px solid $color-fiery-orange;
     }
 
     .has-error-departure {
-        border: 2px solid red;
+        border: 2px solid $color-fiery-orange;
 
         /deep/.autocomplete {
             outline: none;
@@ -44,7 +47,7 @@
     }
 
     .has-error-arrival {
-        border: 2px solid red;
+        border: 2px solid $color-fiery-orange;
 
         /deep/.autocomplete {
             outline: none;
@@ -69,5 +72,11 @@
     .autocomplete {
         flex-wrap: nowrap;
         width: 50%;
+    }
+
+    .autocomplete .error-message {
+        position: absolute;
+        margin: 0;
+        text-align: left;
     }
 }
