@@ -24,7 +24,7 @@
                     />
                   </div>
                   <div class="dropdown-field-wrapper form-field-wrapper">
-                    <DropDown :isOpen="dropDownOpen" :outputText="passengerInfoSummary" @toggle="dropDownToggle">
+                    <DropDown :isOpened="dropDownOpen" :outputText="passengerInfoSummary" @toggle="dropDownToggle">
                       <div class="dropdown-body-header">
                         <span>Who is travelling?</span>
                         <button class="close-btn" @click.prevent="dropDownToggle">

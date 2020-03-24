@@ -4,18 +4,21 @@ export default {
   props: {
     outputText: {
       type: String,
-      default: '',
+      default: ''
     },
-    isOpen: false
+    isOpened: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     formFieldToggle: function () {
-      this.isOpen = !this.isOpen;
-      this.$emit('toggle', this.isOpen);
+      this.isOpened = !this.isOpened;
+      this.$emit('toggle', this.isOpened);
     },
     closeDropdown: function () {
-      this.isOpen = false;
-      this.$emit('toggle', this.isOpen);
+      this.isOpened = false;
+      this.$emit('toggle', this.isOpened);
     },
   },
   directives: {

@@ -10,6 +10,16 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'searchForm',
+  components: {
+    datePicker,
+    TabsContainer,
+    TabItem,
+    FlightRoundTrip,
+    NavigationBar,
+    DropDown,
+    Counter,
+    Select
+  },
   data() {
     return {
       cabinTypes: ['Economy', 'Premium Economy', 'Business', 'First'],
@@ -26,16 +36,7 @@ export default {
       },
     };
   },
-  components: {
-    datePicker,
-    TabsContainer,
-    TabItem,
-    FlightRoundTrip,
-    NavigationBar,
-    DropDown,
-    Counter,
-    Select
-  },
+
   computed: {
     ...mapGetters({ getNavigationTabName: 'searchPage/getNavigationTabName' }),
     totalPaxCount() {

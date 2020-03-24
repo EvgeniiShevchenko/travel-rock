@@ -19,7 +19,6 @@ export default {
     decrement() {
       this.count--;
       this.$emit('changeValue', this.count);
-
     },
     increment() {
       this.count++;
