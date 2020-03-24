@@ -1,19 +1,24 @@
+import ClickOutside from 'vue-click-outside'
 export default {
   name: 'DropDown',
   props: {
     outputText: {
       type: String,
-      required: false
-    }
-  },
-  data: function() {
-    return {
-      isActive: false
-    };
+      default: '',
+    },
+    isOpen: false
   },
   methods: {
     formFieldToggle: function () {
-      this.isActive = !this.isActive;
-    }
+      this.isOpen = !this.isOpen;
+      this.$emit('toggle', this.isOpen);
+    },
+    closeDropdown: function () {
+      this.isOpen = false;
+      this.$emit('toggle', this.isOpen);
+    },
+  },
+  directives: {
+    ClickOutside
   }
 };

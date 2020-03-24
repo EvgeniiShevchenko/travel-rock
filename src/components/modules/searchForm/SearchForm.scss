@@ -227,8 +227,15 @@
 }
 
 .dropdown-cabin-type {
-  padding: 8px 0 13px;
+  padding: 8px 0 0;
+  margin-bottom: 0;
 }
+
+.select-label {
+  min-width: 76px;
+  margin-right: 23px;
+}
+
 
 .search-btn {
   width: 100%;

@@ -26,28 +26,33 @@
                     </button>
                   </div>
                   <div class="dropdown-field-wrapper form-field-wrapper">
-                    <DropDown>
+                    <DropDown :isOpen="dropDownOpen" :outputText="passengerInfoSummary" @toggle="dropDownToggle">
                       <div class="dropdown-body-header">
                         <span>Who is travelling?</span>
-                        <button class="close-btn"
-                                :class="{ 'is-focused': isActive }"
-                                @click.prevent="formFieldToggle"
-                        >
-
+                        <button class="close-btn" @click.prevent="dropDownToggle">
                         </button>
                       </div>
                       <div class="dropdown-body-controls">
                         <div class="counter-wrapper">Adults
-                          <div class="counter-buttons-count"><Counter /></div>
+                          <div class="counter-buttons-count">
+                            <Counter :minCount="minAdults" :maxCount="maxAdults" @changeValue="setAdultsCount" />
+                          </div>
                         </div>
                         <div class="counter-wrapper">Children
-                          <div class="counter-buttons-count"><Counter /></div>
+                          <div class="counter-buttons-count">
+                            <Counter :maxCount="maxChildren" @changeValue="setChildrenCount"/>
+                          </div>
                         </div>
                         <div class="counter-wrapper">Infants
-                          <div class="counter-buttons-count"><Counter /></div>
+                          <div class="counter-buttons-count">
+                            <Counter :maxCount="maxInfants" @changeValue="setInfantsCount"/>
+                          </div>
                         </div>
-                        <div class="dropdown-cabin-type counter-wrapper">Cabin Type
+                        <div class="dropdown-cabin-type counter-wrapper">
+                          <span class="select-label">Cabin Type</span>
+                          <Select :options="cabinTypes" v-model="cabinType" @changeValue="setCabinType"/>
                         </div>
+                        <span class="dropdown-validation">{{ dropdownValidationMsg }}</span>
                       </div>
                     </DropDown>
                   </div>

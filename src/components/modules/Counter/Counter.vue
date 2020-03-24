@@ -1,6 +1,5 @@
 <template>
 <div class="counter-wrap">
-  <span>{{ outputText }}</span>
   <div class="buttons-count">
       <button type="button" @click.prevent="decrement"
               class="minus circle"
