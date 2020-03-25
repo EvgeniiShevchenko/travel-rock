@@ -10,7 +10,7 @@
   >
     <template v-slot:reverse>
       <div class="reverse-route">
-        <button class="reverse-route-button" type="button" @click="reverseRoute" />
+        <button class="reverse-route-button" type="button" @click="resetRoutFlight" />
       </div>
     </template>
   </autocomplete>

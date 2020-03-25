@@ -2,14 +2,13 @@ import { mapActions, mapGetters } from 'vuex';
 import autocomplete from '../FlightAutocomplete/FlightAutocomplete.vue';
 import validOnlyLatin from '@/mixins/validOnlyLatin.js';
 import setInputLabel from '@/mixins/setInputLabel.js';
-import reverseRoute from '@/mixins/reverseRouteTrip.js';
 
 export default {
   name: 'FlightArrivalRoute',
   components: {
     autocomplete
   },
-  mixins: [setInputLabel, reverseRoute],
+  mixins: [setInputLabel],
   data: function() {
     return {
       config: {

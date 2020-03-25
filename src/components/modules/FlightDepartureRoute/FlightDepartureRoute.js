@@ -2,14 +2,13 @@ import { mapActions, mapGetters } from 'vuex';
 import autocomplete from '../FlightAutocomplete/FlightAutocomplete.vue';
 import validOnlyLatin from '@/mixins/validOnlyLatin.js';
 import setInputLabel from '@/mixins/setInputLabel.js';
-import reverseRoute from '@/mixins/reverseRouteTrip.js';
 
 export default {
   name: 'FlightDepartureRoute',
   components: {
     autocomplete
   },
-  mixins: [setInputLabel, reverseRoute],
+  mixins: [setInputLabel],
   data: function() {
     return {
       config: {
@@ -77,6 +76,27 @@ export default {
       this.handlerDepartureRoute(value);
     },
 
+    resetRoutFlight() {
+      if (
+        this.errorsAutocomplete.name === 'same-things' ||
+        this.errorsAutocomplete.name === 'only-latin' ||
+        this.errorsAutocomplete.name === 'too-many'
+      ) {
+        if (this.errorsAutocomplete.location.includes('departure')) {
+          this.resetAutocompleteDepartureError();
+          this.updateDepartureValue('');
+        }
+        if (this.errorsAutocomplete.location.includes('arrival')) {
+          this.resetAutocompleteArrivalError();
+          this.updateArrivalValue('');
+        }
+
+        return;
+      }
+
+      this.reverseRouteTrip({ departureValue: this.departure, arrivalValue: this.arrival });
+    },
+
     selectItem(selectItem) {
       if (this.arrival === this.setInputLabel(selectItem)) {
         this.handlerError({
@@ -89,6 +109,7 @@ export default {
 
       this.updateDepartureValue(this.setInputLabel(selectItem));
     },
+
     ...mapActions({
       resetArrivalAutocomplete: 'searchPage/resetArrivalAutocompleteResult',
       handlerDepartureRoute: 'searchPage/handlerDepartureRoute',
