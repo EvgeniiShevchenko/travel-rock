@@ -1,37 +1,49 @@
 [{
-        "price": 160
+        "price": 160,
+        "duration": 44
     },
     {
-        "price": 230
+        "price": 230,
+        "duration": 49
     },
     {
-        "price": 500
+        "price": 500,
+        "duration": 80
     },
     {
-        "price": 280
+        "price": 280,
+        "duration": 66
     },
     {
-        "price": 90
+        "price": 90,
+        "duration": 50
     },
     {
-        "price": 276
+        "price": 276,
+        "duration": 59
     },
     {
-        "price": 161
+        "price": 161,
+        "duration": 120
     },
     {
-        "price": 444
+        "price": 444,
+        "duration": 70
     },
     {
-        "price": 375
+        "price": 375,
+        "duration": 89
     },
     {
-        "price": 501
+        "price": 501,
+        "duration": 123
     },
     {
-        "price": 99
+        "price": 99,
+        "duration": 99
     },
     {
-        "price": 101
+        "price": 101,
+        "duration": 73
     }
 ]

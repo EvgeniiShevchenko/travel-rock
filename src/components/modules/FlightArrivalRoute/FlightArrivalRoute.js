@@ -2,14 +2,13 @@ import { mapActions, mapGetters } from 'vuex';
 import autocomplete from '../FlightAutocomplete/FlightAutocomplete.vue';
 import validOnlyLatin from '@/mixins/validOnlyLatin.js';
 import setInputLabel from '@/mixins/setInputLabel.js';
-import reverseRoute from '@/mixins/reverseRouteTrip.js';
 
 export default {
-  name: 'FlightDepartureRoute',
+  name: 'FlightArrivalRoute',
   components: {
     autocomplete
   },
-  mixins: [setInputLabel, reverseRoute],
+  mixins: [setInputLabel],
   data: function() {
     return {
       config: {
@@ -28,23 +27,50 @@ export default {
   },
   methods: {
     focusInput(value) {
-      this.resetError();
+      if (this.departure.length) {
+        this.resetDepartureAutocomplete();
+        if (this.errorsAutocomplete.location.includes('departure')) {
+          this.resetAutocompleteDepartureError();
+          this.updateDepartureValue('');
+        }
+      }
 
-      if (this.departure.length) this.resetDepartureAutocomplete();
+      if (
+        this.errorsAutocomplete.name === 'same-things' ||
+        this.errorsAutocomplete.name === 'only-latin' ||
+        this.errorsAutocomplete.name === 'too-many'
+      ) {
+        this.resetError();
+        this.updateArrivalValue('');
+        return;
+      }
 
-      if (value.length) this.handlerArrivalRoute(value);
+      this.handlerArrivalRoute(value);
     },
 
     handlerRouteTrip(value) {
+      this.resetAutocompleteArrivalError();
+
       if (!validOnlyLatin(value) && value) {
+        if (!this.errorsAutocomplete.location.includes('arrival')) {
+          this.handlerError({
+            name: 'only-latin',
+            status: true,
+            message: 'Please enter only latin letters',
+            location: [...this.errorsAutocomplete.location, 'arrival']
+          });
+        }
+      }
+
+      if (value.length >= 200 && value) {
+        this.resetAutocompleteArrivalError();
+
         this.handlerError({
-          name: 'only-latin',
+          name: 'too-many',
           status: true,
-          message: 'Please enter only latin letters',
+          message: 'Maximum number of symbols exceeded',
           location: [...this.errorsAutocomplete.location, 'arrival']
         });
-      } else {
-        this.resetError();
       }
 
       this.handlerArrivalRoute(value);
@@ -58,8 +84,6 @@ export default {
           message: 'Departure and arrival airports must be different',
           location: [...this.errorsAutocomplete.location, 'global']
         });
-
-        return;
       }
 
       this.updateArrivalValue(this.setInputLabel(selectItem));
@@ -68,8 +92,11 @@ export default {
       resetDepartureAutocomplete: 'searchPage/resetDepartureAutocompleteResult',
       handlerArrivalRoute: 'searchPage/handlerArrivalRoute',
       updateArrivalValue: 'searchPage/updateArrivalValue',
+      updateDepartureValue: 'searchPage/updateDepartureValue',
       handlerError: 'searchPage/handlerAutocompleteError',
-      resetError: 'searchPage/resetAutocompleteError'
+      resetError: 'searchPage/resetAutocompleteError',
+      resetAutocompleteArrivalError: 'searchPage/resetAutocompleteArrivalError',
+      resetAutocompleteDepartureError: 'searchPage/resetAutocompleteDepartureError'
     })
   }
 };

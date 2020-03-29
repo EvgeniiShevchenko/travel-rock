@@ -10,7 +10,16 @@
 
 .search-form-wrapper {
   width: 100%;
-  margin: 40px 0;
+  margin: 70px 0px 150px;
+}
+
+.service-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  border-radius: 4px 4px 0 0;
+
+  overflow: hidden;
 }
 
 .tab-item {
@@ -54,19 +63,23 @@
       margin-left: 0;
     }
   }
-
-  .current {
-    border-bottom: 2px solid $color-kraiola-blue;
-  }
-
+}
+.tab-icon {
+  width: 14px;
+  height: 15px;
+  margin-right: 8px;
+}
+.form-wrapper {
   .options-text {
     font-size: $xSmall;
     letter-spacing: 0.6px;
     text-transform: uppercase;
-
+  
     color: $color-white;
   }
 }
+
+
 
 .search-form {
   margin-top: 20px;
@@ -128,21 +141,51 @@
     padding-right: 30px;
   }
 }
+ 
+.ticket-info {
+  position: relative;
 
+  .date-picker {
+    text-align: left;
 
-.date-picker {
-  text-align: left;
+    color: $color-light-gray;
 
-  color: $color-light-gray;
-
-  &>.marked {
-    color: $color-primary;
+    &>.marked {
+      color: $color-primary;
+    }
   }
 }
 
 .dropdown-field-wrapper {
   position: relative;
 }
+
+.dropdown-body-controls {
+  padding: 20px;
+}
+
+.counter-wrapper {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.counter-buttons-count {
+  min-width: 102px;
+}
+
+.dropdown-cabin-type {
+  padding: 8px 0 0;
+  margin-bottom: 0;
+}+
+
+.select-label {
+  min-width: 76px;
+  margin-right: 23px;
+}
+
 
 .search-btn {
   width: 100%;
@@ -163,6 +206,7 @@
 @include tablet {
   .search-form-wrapper {
     margin-top: 78px;
+    margin-bottom: 250px;
   }
 
   .tab-item {
@@ -192,7 +236,6 @@
 }
 
 @include desktop {
-
   .search-form-wrapper {
     margin-top: 128px;
   }
@@ -232,18 +275,38 @@
   .search-form-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     margin-top: 180px;
   }
-
+  .trip-options {
+    .options-text {
+      text-transform: capitalize;
+    }
+  }
   .form-wrapper {
     width: 100%;
     border-radius: 0 4px 4px 4px;
+
+    .options-text {
+      text-transform: capitalize;
+    }
+
+    /deep/.tab-nav-item {
+      &:hover,&.current {
+        border-bottom: 2px solid $color-light-blue;
+      }
+    }
   }
-
-  // .service-tabs-wrapper {
-  //   border-radius: 4px 4px 0 0;
-  // }
-
+  
+  .service-tabs-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 4px 4px 0 0;
+  }
+  .tab-item {
+    width: 238px;
+    min-width: 168px;
+  }
   .form-controls-wrapper {
     border-radius: 4px;
   }

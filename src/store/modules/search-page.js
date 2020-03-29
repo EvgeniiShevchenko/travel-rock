@@ -1,4 +1,5 @@
 import api from '../../services/api';
+import findAirports from '../../mixins/findAirports';
 
 const getDefaultState = () => {
   return {
@@ -109,6 +110,26 @@ export default {
 
     setFilterFlightDuration(state, payload) {
       state.flightFilterParams = { ...state.flightFilterParams, duration: payload };
+    },
+
+    resetAutocompleteArrivalError(state) {
+      const resetError = state.errorAutocomplete.location.filter(item => item !== 'arrival');
+
+      if (resetError.length !== 0) {
+        state.errorAutocomplete = { ...state.errorAutocomplete, location: resetError };
+      } else {
+        state.errorAutocomplete = { ...state.errorAutocomplete, ...getDefaultState().errorAutocomplete };
+      }
+    },
+
+    resetAutocompleteDepartureError(state) {
+      const resetError = state.errorAutocomplete.location.filter(item => item !== 'departure');
+
+      if (resetError.length !== 0) {
+        state.errorAutocomplete = { ...state.errorAutocomplete, location: resetError };
+      } else {
+        state.errorAutocomplete = { ...state.errorAutocomplete, ...getDefaultState().errorAutocomplete };
+      }
     }
   },
 
@@ -118,47 +139,35 @@ export default {
     },
 
     async handlerDepartureRoute({ commit }, value) {
-      const inputValue = value.toUpperCase().trim();
-
       commit('setDeparture', value);
+
+      if (value.length < 3) {
+        commit('resetResultDepartureAutocomplete');
+        return;
+      }
 
       commit('setStatusAutocomplete', true);
 
       const { data } = await api.getAirports();
-      let filterAirports = data.filter(item => {
-        const filterSearchValue = item.city.toUpperCase().trim();
 
-        return filterSearchValue.includes(inputValue);
-      });
-
-      if (inputValue.length === 0) {
-        filterAirports = [];
-      }
-
-      commit('setResultDepartureAutocomplete', filterAirports);
+      commit('setResultDepartureAutocomplete', findAirports(value, data));
 
       commit('setStatusAutocomplete', false);
     },
 
     async handlerArrivalRoute({ commit }, value) {
-      const inputValue = value.toUpperCase().trim();
-
       commit('setArrival', value);
+
+      if (value.length < 3) {
+        commit('resetResultArrivalAutocomplete');
+        return;
+      }
 
       commit('setStatusAutocomplete', true);
 
       const { data } = await api.getAirports();
-      let filterAirports = data.filter(item => {
-        const filterSearchValue = item.city.toUpperCase().trim();
 
-        return filterSearchValue.includes(inputValue);
-      });
-
-      if (inputValue.length === 0) {
-        filterAirports = [];
-      }
-
-      commit('setResultArrivalAutocomplete', filterAirports);
+      commit('setResultArrivalAutocomplete', findAirports(value, data));
 
       commit('setStatusAutocomplete', false);
     },
@@ -185,6 +194,7 @@ export default {
     },
 
     reverseRouteTrip({ commit }, { departureValue, arrivalValue }) {
+      commit('resetAutocompleteError');
       commit('setDeparture', arrivalValue);
       commit('setArrival', departureValue);
     },
@@ -197,9 +207,16 @@ export default {
       commit('resetAutocompleteError');
     },
     
-
     setFilterFlightDuration({ commit }, value) {
       commit('setFilterFlightDuration', value);
+    },
+
+    resetAutocompleteArrivalError({ commit }) {
+      commit('resetAutocompleteArrivalError');
+    },
+
+    resetAutocompleteDepartureError({ commit }) {
+      commit('resetAutocompleteDepartureError');
     }
   }
 };

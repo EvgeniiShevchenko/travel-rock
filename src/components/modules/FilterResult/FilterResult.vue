@@ -1,67 +1,19 @@
 <template>
-  <div>
-    <p>{{ getFoundFlights | maximus }}</p>
-    <DragSlider :config="priceSliderConfig" @range-change="changePrice" />
+  <div class="filter">
+    <div class="navigation">
+      <button class="filter-reset-mobile" type="button" @click="resetAll">Clear All</button>
+      <p class="filter-title">Filter your results</p>
+      <div class="close-wrapper">
+        <button class="close-filter" type="button" @click="$emit('close-filter')" />
+      </div>
+      <button class="filter-reset-tablet" type="button" @click="resetAll">Clear All</button>
+    </div>
+    <div class="general">
+      <FilterDuration />
+    </div>
   </div>
 </template>
 
-<script>
-import { mapGetters, mapActions } from "vuex";
-import DragSlider from "../../base/BaseDragSlider/BaseDragSlider.vue";
+<script src="./FilterResult.js"></script>
 
-export default {
-  name: "FilterResult",
-  components: {
-    DragSlider
-  },
-  data: function() {
-    return {
-      priceSliderConfig: {
-        max: 300
-      }
-    };
-  },
-  computed: {
-    ...mapGetters({
-      getFoundFlights: "resultPage/getFoundFlights"
-    })
-  },
-  mounted: function() {
-    console.log(this.getFoundFlights);
-    // console.log(this.maximus());
-  },
-  filters: {
-    maximus: function(e) {
-      console.log(e);
-      // const test = [{num: 20},{num: 3},{num: 10}];
-      // const minValue = test.
-      // console.log(
-      //   Math.max.apply(
-      //     Math,
-      //     this.getFoundFlights.map(item => {
-      //       return item.price;
-      //     })
-      //   )
-      // );
-      const maxValue = Math.max.apply(
-        Math,
-        e.map(item => {
-          return item.price;
-        })
-      );
-
-      this.priceSliderConfig.max = maxValue;
-
-      return maxValue;
-    }
-  },
-  methods: {
-    changePrice(e) {
-      // const value = e.target.value;
-      console.log(e);
-    }
-  }
-};
-</script>
-
-<style lang="scss" scoped></style>
+<style lang="scss" src="./FilterResult.scss" scoped></style>

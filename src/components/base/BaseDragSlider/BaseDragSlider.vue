@@ -1,47 +1,34 @@
 <template>
   <div>
-    <h1>{{ value }}</h1>
+    <div class="general">
+      <p class="title">{{ config.title }}</p>
+      <button
+        v-show="handlerChange"
+        class="reset"
+        type="button"
+        @click="$emit('reset-filter')"
+      >reset</button>
+    </div>
+    <slot class="detail" name="detail" />
     <vue-slider
-      v-model="value"
+      :value="sliderValue"
+      class="slider"
       eventType="auto"
-      :min="config.min"
-      :max="config.max"
-      @change="$emit('range-change', $event)"
-    />
+      :min="getMinValue(sliderData)"
+      :max="defaultValue[1]"
+      :contained="true"
+      :dotSize="config.dotSize"
+      tooltip="none"
+      @change="handlerSliderChange"
+      @drag-end="handlerSliderEnd"
+    >
+      <template v-slot:dot>
+        <slot name="dot" />
+      </template>
+    </vue-slider>
   </div>
 </template>
 
-<script>
-import VueSlider from "vue-slider-component";
-import "vue-slider-component/theme/antd.css";
+<script src="./BaseDragSlider.js"></script>
 
-export default {
-  name: "BaseDragSlider",
-  components: {
-    VueSlider
-  },
-  props: {
-    config: {
-      type: Object,
-      default: function() {
-        return {
-          min: 0,
-          max: 100
-        };
-      }
-    }
-  },
-  data: function() {
-    return {
-      value: 0
-    };
-  },
-  methods: {
-    clearErrorMsg() {
-      console.log("hello");
-    }
-  }
-};
-</script>
-
-<style lang="scss" scoped></style>
+<style lang="scss" src="./BaseDragSlider.scss" scoped></style>

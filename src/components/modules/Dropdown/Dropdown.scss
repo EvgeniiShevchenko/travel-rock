@@ -1,18 +1,22 @@
+.dropdown-root {
+  height: 100%;
+}
+
 .dropdown-wrapper {
   position: relative;
   display: flex;
   width: 100%;
+  height: 100%;
   padding: 14px 30px 14px 12px;
   margin: 0 auto;
   border-radius: 0 0 4px 4px;
   background-color: $color-white;
   cursor: pointer;
   align-items: center;
-
-  @include touch {
+  
+  @include tablet-only {
     border-radius: 0 0 4px 0;
   }
-
   @include desktop {
     border-radius: 0 4px 4px 0;
   }
@@ -41,22 +45,43 @@
   display: none;
   width: 100%;
   top: 100%;
-  padding: 11px 16px;
   margin-top: 2px;
   border-radius: 4px 4px 4px 4px;
   background-color: $color-white;
   transition: all 0.3s ease-out;
-}
 
-.is-focused {
-  .arrow {
-    top:50%;
-    transform: rotate(-135deg);
-  }
-
-  .dropdown-body {
-    display: block;
+  @include desktop {
+    min-width: 296px;
   }
 }
+.dropdown-body-header {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #F8F8F9;
+  padding: 11px 16px;
 
 
+  .close-btn {
+    transform: rotate(45deg);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: $color-primary;
+
+    &:after {
+      content: '';
+      height: 14px;
+      border-left: 2px solid;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      width: 14px;
+      border-bottom: 2px solid;
+    }
+  }
+}
