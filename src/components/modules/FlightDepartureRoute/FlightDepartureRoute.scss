@@ -22,4 +22,34 @@
             background-size: 100% 100%;
         }
     }
+
+    .error-message {
+        padding-top: 4px;
+
+        color: $color-red-orange-craiola;
+        font-weight: bold;
+    }
+
+    .is-long-message {
+        text-align: center;
+    }
+
+}
+
+.has-error-departure {
+    /deep/.autocomplete {
+        outline: 2px solid $color-fiery-orange !important;
+        outline-offset: -2px;
+    }
+}
+
+@include desktop {
+    .autocomplete-wrapper .error-message {
+        position: absolute;
+    }
+
+    .autocomplete-wrapper .is-long-message {
+        background: #334f87c4;
+        text-align: center;
+    }
 }

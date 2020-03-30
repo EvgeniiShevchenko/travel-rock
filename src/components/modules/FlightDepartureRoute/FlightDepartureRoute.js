@@ -18,6 +18,11 @@ export default {
     };
   },
   computed: {
+    hasError() {
+      if (this.errorsAutocomplete.location.includes('departure')) return true;
+
+      return false;
+    },
     ...mapGetters({
       departure: 'searchPage/getDepartureValue',
       arrival: 'searchPage/getArrivalValue',

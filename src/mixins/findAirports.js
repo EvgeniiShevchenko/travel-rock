@@ -21,5 +21,13 @@ export default (targetValue, data) => {
     });
   }
 
+  if (filterAirports.length === 0) {
+    filterAirports = data.filter(item => {
+      const filterSearchValue = item.name.toUpperCase().trim();
+
+      return filterSearchValue.includes(inputValue);
+    });
+  }
+
   return filterAirports;
 };

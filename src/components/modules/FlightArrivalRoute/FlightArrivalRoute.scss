@@ -1,0 +1,28 @@
+.error-message {
+    padding-top: 4px;
+
+    color: $color-red-orange-craiola;
+    font-weight: bold;
+}
+
+.is-long-message {
+    text-align: center;
+}
+
+.has-error-arrival {
+    /deep/.autocomplete {
+        outline: 2px solid $color-fiery-orange !important;
+        outline-offset: -2px;
+    }
+}
+
+@include desktop {
+    .error-message {
+        position: absolute;
+    }
+
+    .is-long-message {
+        background: #334f87c4;
+        text-align: center;
+    }
+}
