@@ -7,50 +7,49 @@
           <TabsContainer>
             <TabItem :selected="true">
               <template slot="navBtn">
-                <span class="options-text ">Round Trip</span>
+                <span class="options-text">Round Trip</span>
               </template>
-              <form
-                action="#"
-                method="post"
-                name="search-form"
-                class="search-form"
-                novalidate
-              >
+              <form action="#" method="post" name="search-form" class="search-form" novalidate>
                 <div class="form-controls-wrapper">
                   <FlightRoundTrip />
                   <div class="booking form-field-wrapper">
-                    <datePicker
-                      datePickerMode="range" @valueSelection="dateOrdering"
-                    />
+                    <datePicker datePickerMode="range" @valueSelection="dateOrdering" />
                   </div>
                   <div class="dropdown-field-wrapper form-field-wrapper">
                     <DropDown :outputText="passengerInfoSummary">
                       <div class="dropdown-body-controls">
-                        <div class="counter-wrapper">Adults
+                        <div class="counter-wrapper">
+                          Adults
                           <div class="counter-buttons-count">
-                            <Counter :minCount="minAdults" :maxCount="maxAdults" @changeValue="setAdultsCount" />
+                            <Counter
+                              :minCount="minAdults"
+                              :maxCount="maxAdults"
+                              @changeValue="setAdultsCount"
+                            />
                           </div>
                         </div>
-                        <div class="counter-wrapper">Children
+                        <div class="counter-wrapper">
+                          Children
                           <div class="counter-buttons-count">
-                            <Counter :maxCount="maxChildren" @changeValue="setChildrenCount"/>
+                            <Counter :maxCount="maxChildren" @changeValue="setChildrenCount" />
                           </div>
                         </div>
-                        <div class="counter-wrapper">Infants
+                        <div class="counter-wrapper">
+                          Infants
                           <div class="counter-buttons-count">
-                            <Counter :maxCount="maxInfants" @changeValue="setInfantsCount"/>
+                            <Counter :maxCount="maxInfants" @changeValue="setInfantsCount" />
                           </div>
                         </div>
                         <div class="dropdown-cabin-type counter-wrapper">
                           <span class="select-label">Cabin Type</span>
-                          <Select v-model="cabinTypeDefault" @changeValue="setCabinType"/>
+                          <Select v-model="cabinTypeDefault" @changeValue="setCabinType" />
                         </div>
                         <span class="dropdown-validation">{{ dropdownValidationMsg }}</span>
                       </div>
                     </DropDown>
                   </div>
                 </div>
-                <button class="search-btn" type="submit">Search</button>
+                <button class="search-btn" type="button" @click="searchRequest">Search</button>
               </form>
             </TabItem>
             <TabItem>

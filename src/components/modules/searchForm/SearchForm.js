@@ -28,13 +28,13 @@ export default {
       children: 0,
       infants: 0,
       cabinTypeDefault: 'Economy',
-      cabinType:'',
+      cabinType: '',
       dropdownValidationMsg: '',
       maxTotalPaxCount: 9,
-      tripDates:{
-        start:null,
-        end:null,
-      },
+      tripDates: {
+        start: null,
+        end: null
+      }
     };
   },
 
@@ -45,9 +45,9 @@ export default {
     },
     passengerInfoSummary() {
       let paxString = this.totalPaxCount > 1 ? ' Passengers' : ' Passenger';
-      if(this.cabinType == '') {
+      if (this.cabinType == '') {
         return this.totalPaxCount + paxString + ', ' + this.cabinTypeDefault;
-      }else {
+      } else {
         return this.totalPaxCount + paxString + ', ' + this.cabinType;
       }
     },
@@ -63,9 +63,13 @@ export default {
     maxInfants() {
       let max = this.maxTotalPaxCount - this.adults - this.children;
       return this.adults < max ? this.adults : max;
-    },
+    }
   },
   methods: {
+    searchRequest() {
+      console.log('hello');
+    },
+
     setAdultsCount(count) {
       this.adults = count;
     },
@@ -79,10 +83,10 @@ export default {
       this.cabinType = type;
     },
     dateOrdering(data) {
-      return this.tripDates = {
-        start:data.startDate,
-        end:data.endDate
-      };
-    },
+      return (this.tripDates = {
+        start: data.startDate,
+        end: data.endDate
+      });
+    }
   }
-}
+};
