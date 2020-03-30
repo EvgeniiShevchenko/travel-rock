@@ -44,6 +44,7 @@ export default {
       range: null,
       start: '',
       end: '',
+      isStartPiked:false,
       pulledOutValue:null,
       themeStyles: {
         container: 'content-wrapper vc-bg-white',
@@ -80,10 +81,10 @@ export default {
       }
     },
     highlightingStartDate() {
-      return (this.isOpend && !(this.end == '' && this.start !== ''))
+      return (this.isOpend && (this.start != '') && !this.isStartPiked)
     },
     highlightingEndDate() {
-      return (this.end == '' && this.start !== '');
+      return this.isStartPiked
     }
   },
 
@@ -105,15 +106,17 @@ export default {
   methods: {
     closeDatePicker () { 
       this.isOpend = false;
+      this.isStartPiked = false;
     },
     dateSelection(event) {
       if(event !== null) {
         this.pulledOutValue = event;
         this.start =  this.pulledOutValue.start
-        this.end = ""
+        this.isStartPiked = true;
       }else {
         this.end =  this.pulledOutValue.end
         this.isOpend = false;
+        this.isStartPiked = false;
         this.$emit('valueSelection',{
           startDate:this.pulledOutValue.start,
           endDate: this.pulledOutValue.end,
