@@ -9,6 +9,7 @@ import FlightRoundTrip from '@/components/modules/FlightRoundTrip/FlightRoundTri
 import NavigationBar from '@/components/modules/NavigationBar/NavigationBar.vue';
 import DropDown from '@/components/modules/Dropdown/Dropdown.vue';
 // mixins
+import parseIataCodeFromString from '@/mixins/parseIataCodeFromString.js';
 import checkRoundTripFromTo from '@/mixins/checkRoundTripFromTo.js';
 import checkIsFieldsEmpty from '@/mixins/checkIsFieldsEmpty.js';
 import isEmpty from '@/mixins/isEmpty.js';
@@ -25,7 +26,7 @@ export default {
     Counter,
     Select
   },
-  mixins: [isEmpty, checkRoundTripFromTo, checkIsFieldsEmpty],
+  mixins: [isEmpty, checkRoundTripFromTo, checkIsFieldsEmpty, parseIataCodeFromString],
   data() {
     return {
       cabinTypes: ['Economy', 'Premium Economy', 'Business', 'First'],
@@ -79,8 +80,8 @@ export default {
   methods: {
     searchRequest() {
       const formData = {
-        arrival: this.getArrivalValue,
-        departure: this.getDepartureValue,
+        arrival: this.parseIataCodeFromString(this.getArrivalValue),
+        departure: this.parseIataCodeFromString(this.getDepartureValue),
         departDate: this.tripDates.start,
         arrivalDate: this.tripDates.end,
         passengerInfo: {
@@ -95,9 +96,16 @@ export default {
 
       if (this.checkIsFieldsEmpty(formData)) return;
 
-      this.$router.push({ path: 'result', query: { ...formData } });
-
-      // che
+      this.$router.push({
+        path: 'result',
+        query: {
+          arrival: formData.arrival,
+          departure: formData.departure,
+          departDate: formData.departDate,
+          arrivalDate: formData.arrivalDate,
+          ...formData.passengerInfo
+        }
+      });
     },
 
     setAdultsCount(count) {

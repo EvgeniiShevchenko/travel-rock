@@ -8,8 +8,6 @@ export default {
           message: 'Please enter your destination',
           location: [...this.errorsAutocomplete.location, 'departure']
         });
-
-        console.log('departure empty');
       }
 
       if (this.isEmpty(this.getArrivalValue)) {
@@ -19,8 +17,6 @@ export default {
           message: 'Please enter your destination',
           location: [...this.errorsAutocomplete.location, 'arrival']
         });
-
-        console.log('arrival empty');
       }
     }
   }
