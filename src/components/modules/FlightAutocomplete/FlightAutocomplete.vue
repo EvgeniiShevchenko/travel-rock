@@ -15,6 +15,7 @@
       />
       <slot name="reverse" />
     </div>
+    <slot name="error" />
     <ul v-show="foundAirports.length !== 0" class="autocomplete-list">
       <li
         v-for="(item, index) in foundAirports"

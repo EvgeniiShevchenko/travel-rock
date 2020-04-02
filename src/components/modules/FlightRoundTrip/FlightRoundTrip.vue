@@ -1,12 +1,12 @@
 <template>
   <div class="autocomplete">
     <flightDepartureRoute
-      :class="'autocomplete-departure' +` ${handlerError.status ? defineStyleForError('departure', 'has-error-departure') : ''}`"
+      :class="'autocomplete-departure' + ` ${handlerError ? 'has-error-select' : ''}`"
     />
     <flightArrivalRoute
-      :class="'autocomplete-arrival' +` ${handlerError.status ? defineStyleForError('arrival', 'has-error-arrival') : ''}`"
+      :class="'autocomplete-arrival' + ` ${handlerError ? 'has-error-select' : ''}`"
     />
-    <p v-show="errorsAutocomplete.status" class="error-message">{{ errorsAutocomplete.message }}</p>
+    <p v-show="handlerError" class="error-message">{{ errorsAutocomplete.message }}</p>
   </div>
 </template>
 

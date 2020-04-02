@@ -22,13 +22,14 @@
       <span class="sepatator">—</span>
       <span 
         v-if=" end == '' "
-        :class="{highlighted : highlightingEndDate}"
+        :class="{highlighted : this.start != ''}"
       > 
         {{endPlaceholderText}}
       </span>
       <span 
         v-else
         class="marked"
+        :class="{highlighted : highlightingEndDate}"
       >
         {{end | filterDate}}
       </span>

@@ -2,17 +2,25 @@
   "name": "vue-init",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
+  },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
   },
   "dependencies": {
-    "v-calendar": "^1.0.1",
-    "vue-click-outside": "^1.0.7",
     "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "v-calendar": "^1.0.1",
     "validator": "^12.2.0",
     "vue": "^2.6.11",
     "vue-range-slider": "^0.6.0",
+    "vue-click-outside": "^1.0.7",
     "vue-multiselect": "^2.1.6",
     "vue-router": "^3.1.6",
     "vue-slider-component": "^3.1.1",

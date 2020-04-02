@@ -10,26 +10,10 @@ export default {
   },
   computed: {
     handlerError() {
-      return this.errorsAutocomplete;
+      if (this.errorsAutocomplete.location.includes('global')) return true;
+
+      return false;
     },
     ...mapGetters({ errorsAutocomplete: 'searchPage/getErrorsAutocomplete' })
-  },
-  methods: {
-    defineStyleForError(errorId, originStyle) {
-      let errorStyle = '';
-
-      if (this.errorsAutocomplete.status === true) {
-        errorStyle = this.errorsAutocomplete.name === 'same-things' ? ' has-error-select' : '';
-
-        if (this.errorsAutocomplete.location.length !== 0) {
-          for (let locationError of this.errorsAutocomplete.location) {
-            if (locationError !== 'global' && locationError === errorId) {
-              errorStyle = ` ${originStyle}`;
-            }
-          }
-        }
-      }
-      return errorStyle;
-    }
   }
 };

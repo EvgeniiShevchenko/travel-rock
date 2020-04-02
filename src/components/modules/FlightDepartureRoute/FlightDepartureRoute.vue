@@ -1,6 +1,6 @@
 <template>
   <autocomplete
-    class="autocomplete-wrapper"
+    :class="`autocomplete-wrapper ${hasError ? 'has-error-departure' : ''}`"
     :inputValue="departure"
     :foundAirports="foundAirports"
     :config="config"
@@ -12,6 +12,12 @@
       <div class="reverse-route">
         <button class="reverse-route-button" type="button" @click="resetRoutFlight" />
       </div>
+    </template>
+    <template slot="error">
+      <p
+        v-show="hasError"
+        :class="`error-message ${this.errorsAutocomplete.name === 'too-many' ? 'is-long-message' : ''}`"
+      >{{ errorsAutocomplete.message }}</p>
     </template>
   </autocomplete>
 </template>
