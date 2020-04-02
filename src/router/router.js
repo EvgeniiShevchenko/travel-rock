@@ -10,10 +10,12 @@ export const router = new VueRouter({
   routes: [
     {
       path: '/',
+      name: 'search',
       component: FlightSearch
     },
     {
       path: '/result',
+      name: 'result',
       component: SearchResult
     }
   ]
