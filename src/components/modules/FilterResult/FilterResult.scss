@@ -1,0 +1,121 @@
+.filter {
+    padding: 10px;
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+
+        .filter-reset-mobile {
+            flex-grow: 1;
+
+            padding: 0;
+
+            width: 100%;
+
+            text-align: left;
+            font-size: $xxxSmall;
+            color: $color-outline;
+        }
+
+        .filter-reset-tablet {
+            display: none;
+        }
+
+        .filter-title {
+            flex-grow: 2;
+            justify-content: left;
+
+            width: 100%;
+            font-weight: bold;
+        }
+
+
+        .close-wrapper {
+            flex-grow: 1;
+            width: 100%;
+            text-align: right;
+
+            .close-filter {
+                position: relative;
+                height: 11px;
+                width: 11px;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+
+                    left: 0;
+
+                    width: 100%;
+
+                    border-top: 1px solid $color-gray-neutral;
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    position: absolute;
+                    content: "";
+
+                    left: 0;
+
+                    width: 100%;
+
+                    border-top: 1px solid $color-gray-neutral;
+                    transform: rotate(135deg);
+                }
+            }
+
+        }
+    }
+
+    .general {
+        padding: 20px 0 0;
+        background: $color-white;
+    }
+
+}
+
+@include tablet {
+    .filter {
+        padding: 0;
+    }
+
+    .filter .general {
+        padding: 16px 20px 0;
+        margin-top: 15px;
+
+        border-radius: 4px;
+    }
+
+    .filter .navigation {
+        margin-top: 15px;
+        text-align: left;
+    }
+
+    .filter .navigation .filter-reset-mobile {
+        display: none;
+    }
+
+    .filter .navigation .close-wrapper {
+        display: none;
+    }
+
+    .filter .navigation .filter-title {
+        flex-shrink: 1;
+    }
+
+    .filter .navigation .filter-reset-tablet {
+        display: block;
+        flex-grow: 1;
+        flex-shrink: 2;
+
+        padding: 0;
+
+        width: 100%;
+
+        text-align: right;
+        font-size: $xxxSmall;
+        color: $color-outline;
+    }
+}

@@ -1,9 +1,9 @@
 <template>
- <div></div>
+  <SearchForm />
 </template>
 
 <script src='./FlightSearch.js'></script>
 
 <style lang="scss">
-  @import './FlightSearch.scss';
+@import "./FlightSearch.scss";
 </style>

@@ -14,6 +14,16 @@ const getDefaultState = () => {
       message: '',
       status: false,
       location: []
+    },
+    flightFilterParams: {
+      price: 0,
+      duration: 0,
+      stops: ['Nonstop', '1 stop', '2+ stops'],
+      airlines: [],
+      airports: {
+        departure: [],
+        arrival: []
+      }
     }
   };
 };
@@ -50,6 +60,10 @@ export default {
 
     getErrorsAutocomplete(state) {
       return state.errorAutocomplete;
+    },
+
+    getFlightFilterDuration(state) {
+      return state.flightFilterParams.duration;
     }
   },
 
@@ -92,6 +106,10 @@ export default {
 
     setAutocompleteError(state, payload) {
       state.errorAutocomplete = { ...state.errorAutocomplete, ...payload };
+    },
+
+    setFilterFlightDuration(state, payload) {
+      state.flightFilterParams = { ...state.flightFilterParams, duration: payload };
     },
 
     resetAutocompleteArrivalError(state) {
@@ -187,6 +205,10 @@ export default {
 
     resetAutocompleteError({ commit }) {
       commit('resetAutocompleteError');
+    },
+    
+    setFilterFlightDuration({ commit }, value) {
+      commit('setFilterFlightDuration', value);
     },
 
     resetAutocompleteArrivalError({ commit }) {

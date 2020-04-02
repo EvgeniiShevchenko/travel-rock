@@ -1,0 +1,13 @@
+.default-value {
+    color: $color-pale-light-blue;
+}
+
+.slider-dot {
+    height: 18px;
+    width: 18px;
+
+    border: 2px solid $color-white;
+    border-radius: 50%;
+    box-shadow: 0 0 2px 0px $color-black;
+    background: $color-outline;
+}

@@ -1,0 +1,119 @@
+.content-header {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px;
+
+    width: 100%;
+    height: fit-content;
+
+    background: $color-very-pale-blue;
+
+    .mount-flights {
+        display: none;
+    }
+
+    .filter-flight {
+        width: calc(50% - 2px);
+
+        .show-filter {
+            position: relative;
+
+            margin-top: 5px;
+            padding: 5px;
+
+            width: 100%;
+
+            text-align: left;
+            font-size: 11px;
+            color: $color-cornflower;
+            background: $color-very-blue-alice;
+
+            &::after {
+                position: absolute;
+                content: "";
+
+                top: 0;
+                right: 5px;
+                bottom: 0;
+                margin: auto 0;
+
+                height: 3px;
+                width: 3px;
+
+                border-bottom: 1px solid $color-cornflower;
+                border-right: 1px solid $color-cornflower;
+                transform: rotateZ(45deg);
+            }
+        }
+    }
+
+    .sort-flight {
+        width: calc(50% - 2px);
+
+        .sort-show {
+            position: relative;
+            display: block;
+
+            margin-top: 5px;
+            padding: 5px;
+            padding-right: 15px;
+
+            width: 100%;
+
+            text-align: left;
+            font-size: $xxxSmall;
+            color: $color-cornflower;
+            background: $color-very-blue-alice;
+
+            &::after {
+                position: absolute;
+                content: "";
+
+                top: 0;
+                right: 5px;
+                bottom: 0;
+                margin: auto 0;
+
+                height: 3px;
+                width: 3px;
+
+                border-bottom: 1px solid $color-cornflower;
+                border-right: 1px solid $color-cornflower;
+                transform: rotateZ(45deg);
+            }
+        }
+    }
+}
+
+@include tablet {
+    .content-header {
+        display: flex;
+        align-items: center;
+
+        padding: 10px 0;
+    }
+
+    .content-header .mount-flights {
+        display: block;
+    }
+
+    .content-header .filter-flight {
+        display: none;
+    }
+
+    .content-header .sort-flight {
+        display: flex;
+        align-items: center;
+
+        width: fit-content;
+    }
+
+    .content-header .sort-flight .sort-title {
+        white-space: nowrap;
+    }
+
+    .content-header .sort-flight .sort-show {
+        margin: 0 0 0 3px;
+    }
+}

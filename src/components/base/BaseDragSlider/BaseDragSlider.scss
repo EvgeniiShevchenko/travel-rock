@@ -1,0 +1,25 @@
+.general {
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+        font-weight: 900;
+    }
+
+    .reset {
+        color: $color-light-blue;
+        font-size: $xxxSmall;
+        border: none;
+        padding: 0;
+    }
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.slider {
+    margin-top: 5px;
+}
